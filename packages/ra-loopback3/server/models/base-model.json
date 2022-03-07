@@ -1,0 +1,23 @@
+{
+  "name": "BaseModel",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "Operation": true,
+    "Ext": true,
+    "DisableAllRemoteMethods": {
+      "active": false,
+      "common": true
+    }
+  },
+  "properties": {
+  },
+  "validations": [],
+  "relations": {
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,79 @@
+{
+  "name": "LogMatStatisticByLifeSpan",
+  "base": "BaseLog",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "strict": true,
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "string",
+      "required": true
+    },
+    "dom": {
+      "type": "date",
+      "required": true
+    },
+    "egeTime": {
+      "type": "number",
+      "required": true
+    },
+    "usedTime": {
+      "type": "number",
+      "required": true
+    },
+    "useStartDate": {
+      "type": "date"
+    },
+    "quantityUsed": {
+      "type": "number"
+    },
+    "unitQuantityUsed": {
+      "type": "string",
+      "required": true
+    },
+    "totalRealTimeUsed": {
+      "type": "number"
+    },
+    "remainTime": {
+      "type": "number",
+      "required": true
+    },
+    "conclusion": {
+      "type": "string",
+      "required": true
+    },
+    "byMonth": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "logDate": {
+      "type": "date",
+      "required": true
+    },
+    "statisticWhere": {
+      "type": "string",
+      "require": true,
+      "enum": [
+        "MaterialStock",
+        "MaterialUse",
+        "MaterialExport"
+      ]
+    }
+  },
+  "validations": [],
+  "relations": {
+    "stock": {
+      "type": "belongsTo",
+      "model": "MaterialStock"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

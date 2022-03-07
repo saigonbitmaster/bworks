@@ -1,0 +1,67 @@
+{
+  "name": "MaterialExport",
+  "base": "BaseModel",
+  "idInjection": true,
+  "forceId": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "strict": true,
+  "indexes": {
+    "fullText": {
+      "keys": {
+        "name": "text"
+      },
+      "options": {
+        "weights": {
+          "name": 10,
+          "creatorId": 9
+        }
+      }
+    }
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "required": true,
+      "enum": [
+        "Pipe",
+        "FlowLogger",
+        "QualityLogger",
+        "Meter",
+        "Filter",
+        "PressureReducing",
+        "Pump",
+        "Tank",
+        "Valve",
+        "Other"
+      ]
+    },
+    "exportValue": {
+      "type": "number"
+    },
+    "currentValue": {
+      "type": "number"
+    },
+    "exportDate": {
+      "type": "date",
+      "default": "$now"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "detailType": {
+      "type": "belongsTo",
+      "model": "MaterialDetailType"
+    },
+    "stock": {
+      "type": "belongsTo",
+      "model": "MaterialStock"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

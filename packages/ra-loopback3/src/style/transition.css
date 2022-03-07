@@ -1,0 +1,39 @@
+.switch-wrapper {
+  position: relative;
+}
+
+.switch-wrapper > div {
+  position: absolute;
+}
+
+.fade-appear {
+  opacity: 0.01;
+}
+.fade-appear-active {
+  opacity: 1;
+  transition: all 500ms ease-in;
+}
+.fade-appear-done {
+  opacity: 1;
+}
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit-active {
+  opacity: 0.01;
+  transition: all 250ms ease-out;
+}
+.fade-exit-done {
+  opacity: 0;
+}
+
+/* editor */
+.ql-toolbar.ql-snow {
+  border-left: 0px;
+  border-right: 0px;
+  border-top: 0px;
+  border-bottom: 1px solid #ccc;
+}
+.ql-container.ql-snow {
+  border: 0px;
+}

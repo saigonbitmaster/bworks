@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<!-- if change to page-break-after print will much slower -->
+<html>
+
+<head>
+  <style>
+    @page {
+      size: A5 landscape
+    }
+
+    @media screen,
+    print {
+
+      .pageBreak {
+        page-break-before: always;
+      }
+
+      .pageBreak:last-child {
+        page-break-before: avoid;
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 5px;
+        vertical-align: top;
+        height: 8px;
+        line-height: auto;
+      }
+
+      .table * {
+
+        border: none;
+      }
+
+      .table {
+        text-align: left;
+        width: 100%;
+        border: none;
+      }
+
+      .center {
+        text-align: center;
+      }
+
+      .left {
+        text-align: left;
+      }
+
+      .right {
+        text-align: right;
+      }
+
+      .x2 {
+        font-size: 9pt;
+      }
+
+      .x3 {
+        font-size: 10pt;
+      }
+
+      .x4 {
+        font-size: 12pt;
+      }
+
+      .b {
+        font-weight: bold;
+      }
+
+      .floatRight {
+        float: right;
+        margin-right: 10px;
+      }
+
+      .floatLeft {
+        float: left;
+        margin-left: 10px;
+      }
+
+      .floatRightNoMargin {
+        float: right;
+
+      }
+
+      .floatLeftNoMargin {
+        float: left;
+
+      }
+
+      .block {
+        display: block;
+      }
+      .italic {
+        font-style: italic;
+      }
+      .content {
+
+        background-image: url('https://Bworks.s3.ap-southeast-1.amazonaws.com/ttnsbacninhbg.png');
+
+        background-repeat: no-repeat;
+        background-size: 100% 100vh;
+        background-color: rgba(255, 255, 255, 0.8);
+        background-blend-mode: lighten;
+
+        max-width: 100%;
+        text-align: center;
+        margin: 0px;
+        padding: 25px;
+      }
+
+      .upper {
+        text-transform: uppercase;
+        white-space: pre-line;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <div class="content">
+      <div class="center b upper x4">TRUNG TÂM NƯỚC SẠCH VÀ VỆ SINH MÔI TRƯỜNG NÔNG THÔN BẮC NINH</div>
+      <table class="table">
+
+        <tr>
+          <td colspan="2">
+
+            <div class="center x2"> Số 12 Nguyễn Đăng Đạo, Thành phố Bắc Ninh, Tỉnh Bắc Ninh </div>
+            <div class="center x2"> Mã số thuế: 2300359001-001 </div>
+
+            <div class="center x2"> Tài khoản: 123 Ngân hàng nông nghiệp và PTNT tỉnh Bắc Ninh </div>
+
+          </td>
+          <td>
+            <div class="right x2"> Mã KH: <span class="b"> HMKT417 </span>
+              <div class="right x2">
+                Số: <span class="b"> 000001 </span>
+        </tr>
+
+      </table>
+
+
+
+
+
+      <br />
+      <div class="center b x4">PHIẾU THU TIỀN NƯỚC</div>
+      <div class="center x2">Tháng 07/2021 Từ 26/06/2021 đến 28/07/2021</div>
+      <br />
+
+      <div class="left x2"> Tên KH: <span class="b"> Nguyễn Thế Lương</div>
+      <div class="left x2"> Địa chỉ KH: Khu Phố Kim Thiều, Phường Hương Mạc, Thị Xã Từ Sơn, Tỉnh Bắc Ninh </div>
+
+
+      <div class="x3 block">
+        <span class="floatLeftNoMargin x2"> Mã số thuế KH:  </span>
+        <span class="floatRightNoMargin x2"> Số ĐT CSKH: 02223511196 </span>
+
+      </div>
+      <table style="width:100%" class="x2 center">
+        <tr>
+          <th>Chỉ số đầu</th>
+          <th>Chỉ số cuối </th>
+          <th>Tiêu thụ (m3)</th>
+
+          <th>Đơn giá (Vnd/m3)</th>
+          <th>Thành tiền</th>
+        </tr>
+        <tr>
+          <td>215</td>
+          <td>228</td>
+          <td>13</td>
+          <td>7.619</td>
+          <td>99.047</td>
+
+        </tr>
+
+        <tr>
+          <td colspan="4" class="right">CỘNG TIỀN HÀNG</td>
+          <td> 99.047</td>
+        </tr>
+        <tr>
+          <td colspan="4" class="right">Tiền thuế VAT 5%</td>
+          <td> 4.952</td>
+        </tr>
+        <tr>
+          <td colspan="4" class="right">Phí PVMT 0%</td>
+          <td>0</td>
+        </tr>
+        <tr>
+          <td colspan="4" class="right">Phí thu hộ</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td colspan="4" class="right">Tổng cộng tiền thanh toán</td>
+          <td>103.999</td>
+        </tr>
+        <tr>
+          <td colspan="5" class="left"> <b>Số tiền viết bằng chữ: Một trăm linh ba nghìn chín trăm chín mươi chín đồng</b></td>
+        </tr>
+      </table>
+      <div class="x3 block">
+        <span class="floatLeft"> Nhân viên thu tiền </span>
+        <span class="floatRight italic"> Ngày ký: 25/08/2021 </span>
+        <br /> <span class="floatRight"> <b> Người ký: Nguyễn Đông Tháp</b> </span>
+      </div>
+      <br />
+      <br />
+    </div>
+    <div class="pageBreak"> </div>
+  </div>
+</body>
+
+</html>

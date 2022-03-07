@@ -1,0 +1,91 @@
+{
+  "name": "WaterSource",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "forceId": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "typeOfSource": {
+      "type": "string",
+      "enum": [
+        "1",
+        "2"
+      ]
+    },
+    "sourceStatus": {
+      "type": "string",
+      "enum": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    "volumeCapacity": {
+      "type": "number"
+    },
+    "dailyCapacity": {
+      "type": "number"
+    },
+    "monthlyCapacity": {
+      "type": "number"
+    },
+    "yearCapacity": {
+      "type": "number"
+    },
+    "dimensions": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "setupDate": {
+      "type": "date",
+      "required": true
+    },
+    "lastMaintainedDate": {
+      "type": "date"
+    },
+    "isBackupSource": {
+      "type": "boolean",
+      "required": false
+    },
+    "position": {
+      "type": "geopoint",
+      "index": true
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "waterSourceGroup": {
+      "type": "belongsTo",
+      "model": "WaterSourceGroup"
+    },
+    "factory": {
+      "type": "hasMany",
+      "model": "Factory"
+    },
+    "sensor": {
+      "type": "hasMany",
+      "model": "Sensor"
+    },
+    "meter": {
+      "type": "hasMany",
+      "model": "Meter"
+    },
+    "pump": {
+      "type": "hasMany",
+      "model": "Pump"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

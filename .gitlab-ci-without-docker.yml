@@ -1,0 +1,134 @@
+cache:
+  paths:
+    - node_modules/
+  key: '${CI_PROJECT_NAME}-${CI_COMMIT_REF_NAME}'
+
+stages:
+  - build
+  - backup
+  - deploy
+
+## start master area
+# build master
+build_master:
+  stage: build
+  script:
+    - pwd
+    - export NODE_DEFAULT_LANGUAGE=vi
+    - export NODE_ACTIVE_LANGUAGES=vi,en
+    - yarn --force
+    - yarn build-ctm
+    - yarn build-nms
+    - yarn build-org
+    - yarn build-src
+    - yarn build-login
+  artifacts:
+    paths:
+      - ./packages/water-api/client/nms
+      - ./packages/water-api/client/ctm
+      - ./packages/water-api/client/org
+      - ./packages/water-api/client/src
+      - ./packages/water-api/client/cmn
+    expire_in: 1 week
+  only: ['master']
+
+# deploy master to local30 // 192.168.1.30
+deploy_master_to_30:
+  stage: deploy
+  script:
+    - mkdir -p ~/deploy
+    - ssh -T hcm30 << EOF
+    - mkdir -p ~/deploy
+    - mkdir -p ~/auto-deploy/${CI_PROJECT_NAME}
+    - EOF
+    - >
+      tar --exclude='packages/*-web' --exclude='packages/*-client' --exclude='.git*' --exclude='node_modules'
+      -zcvf ~/deploy/${CI_PROJECT_NAME}-${CI_COMMIT_SHA:0:8}.tar *
+    - scp ~/deploy/${CI_PROJECT_NAME}-${CI_COMMIT_SHA:0:8}.tar hcm30:~/deploy/
+    - ssh -T hcm30 << EOF
+    - rm ~/auto-deploy/${CI_PROJECT_NAME}/packages/*
+    - rm ~/auto-deploy/${CI_PROJECT_NAME}/libs/*
+    - tar -xvf ~/deploy/${CI_PROJECT_NAME}-${CI_COMMIT_SHA:0:8}.tar -C ~/auto-deploy/${CI_PROJECT_NAME}
+    - cd ~/auto-deploy/${CI_PROJECT_NAME}
+    - yarn cache clean
+    - yarn --force --production
+    - cd packages/water-api
+    - pm2 stop service.staging.config.js
+    - pm2 start service.staging.config.js --interpreter=$(which node)
+    - pm2 save
+    - EOF
+  when: manual
+  environment:
+    name: staging
+  only:
+    - master
+  # when: manual
+## End master area
+
+## start baninh area
+build_bacninh:
+  stage: build
+  script:
+    - pwd
+    - export NODE_DEFAULT_LANGUAGE=vi
+    - yarn --force
+    - yarn build-ctm # build ctm only
+  artifacts:
+    paths:
+      - ./packages/water-api/client/ctm # archive ctm build only
+    expire_in: 1 week
+  only: ['bacninh']
+
+# backup:
+#   stage: backup
+#   script:
+#     - ssh -T gitlab-runner@bacninh.Bworks.online << EOF
+#     - mongodump --gzip --archive=$(date +"%Y-%m-%d").gz
+#     - >
+#       if [ -e "/data/mongo/backup"]; then
+#         mv $(date +"%Y-%m-%d").gz /data/mongo/backup
+#       else
+#         mkdir --parents ~/backup
+#         mv $(date +"%Y-%m-%d").gz ~/backup
+#       fi
+#     - EOF
+#   when: manual
+#   environment:
+#     name: production
+#   only:
+#     - master
+
+deploy_bacninh_production:
+  stage: deploy
+  script:
+    - mkdir -p ~/deploy
+    - ssh -T gitlab-runner@bacninh.Bworks.online << EOF
+    - mkdir -p ~/deploy
+    - mkdir -p ~/auto-deploy/${CI_PROJECT_NAME}
+    - EOF
+    - >
+      tar --exclude='packages/*-web' --exclude='packages/*-client' --exclude='.git*' --exclude='node_modules'
+      --exclude='packages/water-api/client/nms'
+      --exclude='packages/water-api/client/org'
+      --exclude='packages/water-api/client/src'
+      -zcvf ~/deploy/${CI_PROJECT_NAME}-${CI_COMMIT_SHA:0:8}.tar *
+    - scp ~/deploy/${CI_PROJECT_NAME}-${CI_COMMIT_SHA:0:8}.tar gitlab-runner@bacninh.Bworks.online:~/deploy/
+    - ssh -T gitlab-runner@bacninh.Bworks.online << EOF
+    - rm --recursive --force ~/auto-deploy/${CI_PROJECT_NAME}/packages/*
+    - rm --recursive --force  ~/auto-deploy/${CI_PROJECT_NAME}/libs/*
+    - tar -xvf ~/deploy/${CI_PROJECT_NAME}-${CI_COMMIT_SHA:0:8}.tar -C ~/auto-deploy/${CI_PROJECT_NAME}
+    - cd ~/auto-deploy/${CI_PROJECT_NAME}
+    - yarn cache clean
+    - yarn --force --production
+    - cp ~/bacninh.js ./packages/water-api/server/product-db/bacninh.js
+    - cd packages/water-api
+    - pm2 stop service.bacninh.config.js
+    - pm2 start service.bacninh.config.js --interpreter=$(which node)
+    - pm2 save
+    - EOF
+  when: manual
+  environment:
+    name: production
+  only:
+    - bacninh
+## end bacninh area

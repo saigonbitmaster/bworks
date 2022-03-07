@@ -1,0 +1,15 @@
+export default [
+  'appusers',
+  'interfacestandards',
+  'waterparameters',
+  'waterstandards',
+  'measuremethods',
+  'dataloggers',
+  'meters',
+  'sensors',
+  'sensorprobes',
+  'watersources',
+  'pumps',
+  'watersourcegroups',
+  'srcconfigs',
+];

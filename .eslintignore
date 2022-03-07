@@ -1,0 +1,8 @@
+node_modules
+lib
+/libs/loopback-component-explorer
+/libs/loopback-storage-aws
+/libs/loopback-connector-mongodb
+/libs/loopback-datasource-juggler
+packages/water-api/client
+/docker-config

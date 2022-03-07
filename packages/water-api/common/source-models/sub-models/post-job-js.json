@@ -1,0 +1,54 @@
+{
+  "name": "JsPostJob",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "forceId": false,
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "expectedDate": {
+      "type": "date"
+    },
+    "bidder": {
+      "type": "string"
+    },
+    "employer": {
+      "type": "string"
+    },
+    "bidValue": {
+      "type": "number"
+    },
+    "selected": {
+      "type": "boolean"
+    },
+    "stillValidated": {
+      "type": "boolean"
+    },
+    "bidderWallet": {
+      "type": "string"
+    },
+    "createdDate": {
+      "type": "date"
+    },
+    "estimatedCost": {
+      "type": "number"
+    },
+    "requiredAda": {
+      "type": "number"
+    },
+    "skills": {
+      "type": "any"
+    },
+    "subitems": {
+      "type": "any"
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,83 @@
+{
+  "name": "LogStatisticDmaMonth",
+  "base": "BaseLog",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "strict": true,
+  "properties": {
+    "id": {
+      "type": "string",
+      "id": true,
+      "generated": false,
+      "required": true
+    },
+    "minFlowRate": {
+      "type": "number"
+    },
+    "avgFlowRate": {
+      "type": "number"
+    },
+    "maxFlowRate": {
+      "type": "number"
+    },
+    "minPressure": {
+      "type": "number"
+    },
+    "avgPressure": {
+      "type": "number"
+    },
+    "maxPressure": {
+      "type": "number"
+    },
+    "maxFlow": {
+      "type": "number"
+    },
+    "minFlow": {
+      "type": "number"
+    },
+    "preFlow": {
+      "type": "number"
+    },
+    "minBattery": {
+      "type": "number"
+    },
+    "minLogTime": {
+      "type": "date",
+      "index": true
+    },
+    "maxLogTime": {
+      "type": "date",
+      "index": true
+    },
+    "logTime": {
+      "type": "date",
+      "index": true,
+      "required": true
+    },
+    "warning": {
+      "type": "object"
+    },
+    "step": {
+      "type": "string",
+      "index": true,
+      "default": "init"
+    },
+    "keys": {
+      "type": ["string"]
+    },
+    "consumption": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "dma": {
+      "type": "belongsTo",
+      "model": "Dma"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

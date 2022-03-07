@@ -1,0 +1,25 @@
+{
+  "name": "LogJob",
+  "base": "BaseLog",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "key": {
+      "type": "string",
+      "required": true
+    },
+    "on": {
+      "type": "string",
+      "required": true
+    },
+    "result": {
+      "type": "object"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

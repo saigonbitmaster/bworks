@@ -1,0 +1,106 @@
+{
+  "name": "Sensor",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "forceId": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "typeOfSensor": {
+      "type": "string",
+      "required": true
+    },
+    "manufacturedDate": {
+      "type": "date"
+    },
+    "setupDate": {
+      "type": "date",
+      "required": true
+    },
+    "operatingTemperature": {
+      "type": "number"
+    },
+    "operatingPressure": {
+      "type": "number"
+    },
+    "environmentalRating": {
+      "type": "string",
+      "required": true,
+      "default": "IP68",
+      "enum": [
+        "IP65",
+        "IP66",
+        "IP67",
+        "IP68",
+        "IP69"
+      ]
+    },
+    "hasBuiltinDataLogger": {
+      "type": "boolean",
+      "default": true
+    },
+    "powerSource": {
+      "type": "array"
+    },
+    "batteryLife": {
+      "type": "number"
+    },
+    "lastChargeBattery": {
+      "type": "date"
+    },
+    "certifications": {
+      "type": "string"
+    },
+    "materialStatus": {
+      "type": "string",
+      "enum": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ]
+    },
+    "position": {
+      "type": "geopoint",
+      "index": true
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "dataLogger": {
+      "type": "belongsTo",
+      "model": "DataLogger",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    },
+    "waterSource": {
+      "type": "belongsTo",
+      "model": "WaterSource",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    },
+    "sensorProbes": {
+      "type": "embedsMany",
+      "model": "sensorProbe",
+      "property": "sensorProbeList",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,50 @@
+{
+  "name": "Pipe",
+  "base": "BaseModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "forceId": false,
+  "strict": true,
+  "indexes": {
+    "fullText": {
+      "keys": {
+        "name": "text"
+      },
+      "options": {
+        "weights": {
+          "name": 10
+        }
+      }
+    }
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "fromPosition": {
+      "type": "geopoint",
+      "required": true,
+      "index": true
+    },
+    "toPosition": {
+      "type": "geopoint",
+      "required": true,
+      "index": true
+    },
+    "polyline": {
+      "type": [
+        "object"
+      ]
+    },
+    "length": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {
+  },
+  "acls": [],
+  "methods": {}
+}

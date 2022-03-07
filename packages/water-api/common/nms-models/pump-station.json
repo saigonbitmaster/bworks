@@ -1,0 +1,39 @@
+{
+  "name": "PumpStation",
+  "base": "BaseModel",
+  "idInjection": true,
+  "forceId": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "strict": true,
+  "indexes": {
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "designCapacity": {
+      "type": "number"
+    },
+    "designElectricRate": {
+      "type": "number"
+    },
+    "position": {
+      "type": "geopoint"
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "factory": {
+      "type": "belongsTo",
+      "model": "Factory"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

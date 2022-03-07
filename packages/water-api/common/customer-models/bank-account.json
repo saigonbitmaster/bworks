@@ -1,0 +1,23 @@
+{
+  "name": "BankAccount",
+  "base": "Model",
+  "idInjection": true,
+  "properties": {
+    "accountName": {
+      "type": "string"
+    },
+    "bankName": {
+      "type": "string"
+    },
+    "bankBranch": {
+      "type": "string"
+    },
+    "accountNo": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

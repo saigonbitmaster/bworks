@@ -1,0 +1,60 @@
+{
+  "name": "CtmCompany",
+  "base": "BaseModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "address": {
+      "type": "string",
+      "required": true
+    },
+    "taxNo": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "fax": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "website": {
+      "type": "string"
+    },
+    "contactPerson": {
+      "type": "string"
+    },
+    "accountName": {
+      "type": "string"
+    },
+    "accountNo": {
+      "type": "string"
+    },
+    "bankName": {
+      "type": "string"
+    },
+    "invoiceSignPerson": {
+      "type": "string"
+    },
+    "invoiceNoticeNo": {
+      "type": "number"
+    },
+    "active": {
+      "type": "boolean",
+      "default": false
+    }
+   
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

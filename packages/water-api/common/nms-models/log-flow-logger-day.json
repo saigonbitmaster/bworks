@@ -1,0 +1,83 @@
+{
+  "name": "LogFlowLoggerDay",
+  "base": "BaseLog",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "strict": true,
+  "forceId": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "id": true,
+      "generated": false,
+      "required": true
+    },
+    "key": {
+      "type": "string",
+      "index": true
+    },
+    "minFlowRate": {
+      "type": "number"
+    },
+    "avgFlowRate": {
+      "type": "number"
+    },
+    "maxFlowRate": {
+      "type": "number"
+    },
+    "minPressure": {
+      "type": "number"
+    },
+    "avgPressure": {
+      "type": "number"
+    },
+    "maxPressure": {
+      "type": "number"
+    },
+    "maxFlow": {
+      "type": "number"
+    },
+    "minBattery": {
+      "type": "number"
+    },
+    "consumption": {
+      "type": "number"
+    },
+    "logTime": {
+      "type": "date",
+      "index": true
+    },
+    "minLogTime": {
+      "type": "date"
+    },
+    "maxLogTime": {
+      "type": "date"
+    },
+    "step": {
+      "type": "string",
+      "index": true,
+      "default": "init"
+    },
+    "rawData": {
+      "type": "object"
+    },
+    "preFlow": {
+      "type": "number"
+    },
+    "preLogTime": {
+      "type": "date"
+    },
+    "createdDate": {
+      "type": "date"
+    },
+    "updatedDate": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

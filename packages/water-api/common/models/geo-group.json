@@ -1,0 +1,29 @@
+{
+  "name": "GeoGroup",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "geoWards": {
+      "type": "hasMany",
+      "model": "GeoWard",
+      "foreignKey": "geoGroupId"
+    },
+    "geoQuarters": {
+      "type": "hasMany",
+      "model": "GeoQuarter",
+      "foreignKey": "geoGroupId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

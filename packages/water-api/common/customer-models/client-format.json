@@ -1,0 +1,30 @@
+{
+  "name": "ClientFormat",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "forceId": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "objectid",
+      "id": true,
+      "generated": true
+    },
+    "name": {
+      "type": "string"
+    },
+    "realName": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,71 @@
+{
+  "name": "ClientUser",
+  "base": "User",
+  "idInjection": true,
+  "forceId": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "saltWorkFactor": 11,
+  "hidden": [
+    "password",
+    "verificationToken" 
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "default": "",
+      "index": true
+    },
+    "username": {
+      "type": "string",
+      "required": true,
+      "default": "",
+      "index": true
+    },
+    "password": {
+      "type": "string",
+      "required": true,
+      "default": "",
+      "index": true
+    },
+    "email": {
+      "type": "string",
+      "required": false,
+      "default": "",
+      "index": true
+    },
+    "dmaId": {
+      "type": "string",
+      "required": false,
+      "default": ""
+    }
+  },
+  "validations": [],
+  "relations": {
+    "client": {
+      "type": "belongsTo",
+      "model": "Client"
+    }
+  },
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY",
+      "property": "*"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "master",
+      "permission": "ALLOW",
+      "property": "*"
+    }
+  ],
+  "methods": {
+    "prototype.setPasswordToNewAccount": {
+      "accessScopes": ["setPasswordToNewAccount"]
+    }
+  }
+}

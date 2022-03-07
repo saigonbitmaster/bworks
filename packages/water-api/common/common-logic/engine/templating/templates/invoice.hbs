@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    html {
+      box-sizing: border-box;
+      color: rgb(0, 32, 96);
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    *, *::before, *::after {
+      box-sizing: inherit
+    }
+    p {
+      margin-top: 0.40em;
+      margin-bottom: 0.5em;
+    }
+    div {
+      margin-top: 0.5em;
+    }
+
+    #company-kept-invoice {
+      margin-right: 12px;
+    }
+    .invoice-name {
+      font-size: x-large;
+      font-weight: bolder;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    #invoices-container {
+      display: flex;
+      justify-content: center
+    }
+    .invoice-header-container {
+      display: flex;
+    }
+    .invoice-header {
+      flex-grow: 1;
+      text-align: center;
+    }
+    .company-name {
+      font-weight: bold;
+      word-wrap: break-word;
+    }
+    .invoice-id {
+      color: red;
+      font-size: larger;
+    }
+    .invoice-body {
+      display: flex;
+      flex-direction: column;
+    }
+    .invoice-title {
+      text-align: center;
+    }
+    .invoice-date-container {
+      display: flex;
+      justify-content: space-evenly;
+    }
+    #customer-id-on-company-invoice {
+      padding-top: 80px;
+    }
+
+    #customer-kept-invoice {
+      border: 2px solid rgb(0, 32, 96);
+      padding: 0.75em;
+    }
+    .positional-wrapper {
+      position: relative;
+      margin-top: 0;
+    }
+    #watermark {
+      position: absolute;
+      top: 60px;
+      font-size: x-large;
+      font-weight: bold;
+      color: rgb(146, 205, 220);
+      text-align: center;
+      z-index: 1;
+    }
+    table.customer-finance-table {
+      border: 1px solid rgb(0, 0, 0);
+      border-collapse: collapse;
+      width: 100%;
+      z-index: 2;
+    }
+    table.customer-finance-table th, table.customer-finance-table td {
+      border-width: 1px;
+      border-style: solid;
+      border-color: rgb(0, 0, 0);
+      padding: 5px;
+    }
+    .finance-data-cell {
+      height: 104px;
+      text-align: right;
+      vertical-align: top;
+      padding-right: 13px;
+    }
+    #invoice-publish-cell {
+      vertical-align: top;
+    }
+  </style>
+</head>
+<body>
+  <div id="invoices-container">
+    <div id="company-kept-invoice">
+      <div class="invoice-header-container">
+        <div class="invoice-header">
+          <p class="company-name">TRUNG TÂM NƯỚC SẠCH VÀ VSMTNT TỈNH BẮC NINH</p>
+          <p>Mã số thuế: <b>{{company.taxNo}}</b></p>
+        </div>
+        <div class="invoice-serial">
+          <p>Mẫu số: {{invoiceSerial}}</p>
+          <p>Ký hiệu: {{invoiceSerialSymbol}}</p>
+          <p>Số: <span class="invoice-id">{{invoiceId}}</span></p>
+        </div>
+      </div>
+      <div class="invoice-body">
+        <div class="invoice-title">
+          <p class="invoice-name">HOÁ ĐƠN TIỀN NƯỚC</p>
+          <p style="margin-top: 0">Liên 1: Lưu</p>
+          <div class="invoice-date-container">
+            <div class="from-date">
+              Từ ngày {{fromDate}}
+            </div>
+            <div class="to-date">
+              Đến ngày {{toDate}}
+            </div>
+          </div>
+        </div>
+        <div id="basic-information-on-company-invoice">
+          <p>ĐC: {{company.address}}</p>
+          <p>Tên KH: {{client.name}}</p>
+          <p>Địa chỉ KH: {{client.formattedAddress}}</p>
+        </div>
+        <div id="finance-data-1-on-company-invoice">
+          <p>Mã số thuế KH: {{client.taxNo}}</p>
+          <p>KLTT: {{totalWaterUsed}}</p>
+          <p>Cộng tiền hàng: {{waterFee}}</p>
+          <p>Thuế GTGT: {{taxFee}} ({{taxPercent}}&percnt;)</p>
+          <p>Phí BVMT ĐVNT: {{sewageFee}}</p>
+        </div>
+        <div id="finance-data-2-on-company-invoice">
+          <p>Tổng tiền thanh toán: {{totalFee}}</p>
+          <p>Viết bằng chữ: <em>{{feeToText}}</em></p>
+          <p>Ngày: {{termDate}}</p>
+        </div>
+        <div id="customer-id-on-company-invoice">
+          {{client.code}}
+        </div>
+      </div>
+    </div>
+    <div id="customer-kept-invoice">
+      <div class="invoice-header-container">
+        <div class="invoice-header">
+          <p class="company-name">
+            TRUNG TÂM NƯỚC SẠCH VÀ
+            VSMTNT TỈNH BẮC NINH
+          </p>
+          <p>Mã số thuế: <b>{{company.taxNo}}</b></p>
+        </div>
+        <div class="invoice-serial">
+          <p>Mẫu số: {{invoiceSerial}}</p>
+          <p>Ký hiệu: {{invoiceSerialSymbol}}</p>
+          <p>Số: <span class="invoice-id">{{invoiceId}}</span></p>
+        <p id="customer-id-on-customer-invoice">
+          {{client.code}}
+        </p>
+        </div>
+      </div>
+      <div class="invoice-body">
+        <div class="invoice-title">
+          <p class="invoice-name">HOÁ ĐƠN TIỀN NƯỚC</p>
+          <p style="margin-top: 0;">Liên 2: Giao cho người mua</p>
+          <div class="invoice-date-container">
+            <div id="period">
+              Kỳ: {{term}}
+            </div>
+            <div class="from-date">
+              Từ ngày {{fromDate}}
+            </div>
+            <div class="to-date">
+              Đến ngày {{toDate}}
+            </div>
+          </div>
+        </div>
+        <div id="basic-information-on-customer-invoice">
+          <p>ĐC: {{company.address}}</p>
+          <p>Tên KH: {{client.name}}</p>
+          <p>Địa chỉ KH: {{client.formattedAddress}}</p>
+          <p style="display: inline-block; min-width: 50%; margin-top: 0">Mã số thuế KH: {{client.taxNo}}</p>
+          <p style="display: inline-block; margin-top: 0">Số ĐT sửa chữa: {{company.phone}}</p>
+          </div>
+        </div>
+        <div class="positional-wrapper">
+          <span id="watermark">TRUNG TÂM NƯỚC SẠCH VÀ VSMT TỈNH BẮC NINH</span>
+          <table class="customer-finance-table">
+            <thead>
+              <tr>
+                <th>C.S cũ</th>
+                <th>C.S mới</th>
+                <th>KLTT</th>
+                <th>Hệ số</th>
+                <th>Đơn giá</th>
+                <th>Thành tiền</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="finance-data-cell">{{oldMeterNumber}}</td>
+                <td class="finance-data-cell">{{newMeterNumber}}</td>
+                <td class="finance-data-cell">{{totalWaterUsed}}</td>
+                {{#if details.[0]}}
+                  <td class="finance-data-cell">{{details.[0].factor}}</td>
+                  <td class="finance-data-cell">{{details.[0].price}}</td>
+                  <td class="finance-data-cell">{{details.[0].toFee}}</td>
+                {{else}}
+                  <td class="finance-data-cell"></td>
+                  <td class="finance-data-cell"></td>
+                  <td class="finance-data-cell"></td>
+                {{/if}}
+
+              </tr>
+              <tr>
+                <td colspan="2" rowspan="2" id="invoice-publish-cell">
+                    <span>
+                      Ngày: {{termDate}}
+                    <span>
+                    <p style="text-align: center">
+                      Bên bán
+                    </p>
+                  </div>
+                </td>
+                <td colspan="3">
+                  <span>Cộng tiền hàng:</span>
+                  <p>Thuế GTGT: {{taxPercent}}&percnt;</p>
+                  <p>Phí BVMT ĐVNT: </p>
+                </td>
+                <td>
+                  <span>{{waterFee}}</span>
+                  <p>{{taxFee}}</p>
+                  <p>{{sewageFee}}</p>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="3">Tổng tiền thanh toán:</td>
+                <td>{{totalFee}}</td>
+              </tr>
+              <tr>
+                <td colspan="6">Viết bằng chữ: <em>{{feeToText}}</em></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

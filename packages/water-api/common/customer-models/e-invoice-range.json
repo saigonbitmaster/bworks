@@ -1,0 +1,86 @@
+{
+  "name": "EInvoiceRange",
+  "base": "BaseModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "webServiceHost": {
+      "type": "string"
+    },
+    "host": {
+      "type": "string"
+    },
+    "publishServiceHost": {
+      "type": "string"
+    },
+    "portalServiceHost": {
+      "type": "string"
+    },
+    "businessServiceHost": {
+      "type": "string"
+    },
+    "supplierTaxCode": {
+      "type": "string",
+      "required": false
+    },
+    "templateCode": {
+      "type": "string",
+      "required": true
+    },
+    "serial": {
+      "type": "string",
+      "required": true
+    },
+    "provider": {
+      "type": "string",
+      "required": true
+    },
+    "numOfpublishInv": {
+      "type": "number",
+      "default": 0
+    },
+    "totalInv": {
+      "type": "number",
+      "required": true,
+      "default": 0
+    },
+    "isActive": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "priority": {
+      "type": "number",
+      "default": 5
+    }
+  },
+  "mixins": {
+    "DisableAllRemoteMethods": {
+      "active": false,
+      "whiteList": [
+        "find",
+        "findById",
+        "create",
+        "replaceById"
+      ]
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "property": "find",
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

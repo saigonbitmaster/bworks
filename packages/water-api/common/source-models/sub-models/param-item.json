@@ -1,0 +1,23 @@
+{
+  "name": "ParamItem",
+  "base": "Model",
+  "idInjection": true,
+  "properties": {
+    "value": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+  "waterParameter": {
+      "type": "belongsTo",
+      "model": "WaterParameter",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

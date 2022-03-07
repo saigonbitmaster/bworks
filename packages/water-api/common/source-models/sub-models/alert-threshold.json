@@ -1,0 +1,68 @@
+{
+  "name": "AlertThreshold",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "forceId": false,
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "alertType": {
+      "type": "string",
+      "required": true,
+      "default": "3",
+      "enum": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    "alertParam": {
+      "type": "string",
+      "required": true,
+      "default": "1",
+      "enum": [
+        "1",
+        "2",
+        "3"
+      ]
+    },
+    "alertHigh": {
+      "type": "number"
+    },
+    "alertCriticalHigh": {
+      "type": "number"
+    },
+    "alertLow": {
+      "type": "number"
+    },
+    "alertCriticalLow": {
+      "type": "number"
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "waterParameter": {
+      "type": "belongsTo",
+      "model": "WaterParameter",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    },
+    "waterSource": {
+      "type": "belongsTo",
+      "model": "WaterSource",
+      "options": {
+        "validate": true,
+        "forceId": false
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Báo cáo</title>
+    <style>
+      .page {
+        position: relative;
+        overflow: hidden;
+        padding: 0.18in;
+        page-break-after: always;
+      }
+      body {
+        font: normal 14px Arial, sans-serif;
+      }
+      table {
+        border-collapse: collapse;
+        width: 80%;
+        margin: auto;
+      }
+      table, th, td {
+        border: 1px solid black;
+      }
+      td {
+        padding-left: 0.5em;
+      }
+      #title, #date {
+        text-align: center
+      }
+      span.station {
+        font-weight: bold
+      }
+      .sum {
+        background-color: yellow
+      }
+      .sum td {
+        background-color: inherit
+      }
+    </style>
+  </head>
+    <body>
+      <div class="page">
+        <h1>Trung tâm nước sạch và Vệ sinh Môi trường Nông thôn Bắc Ninh</h1>
+        <h2 id="title">BẢNG TỔNG HỢP KẾT QUẢ THỰC HIỆN CỦA CÁC TRẠM CẤP NƯỚC</h4>
+        <h4 id="date">Tháng {{date.month}}/{{date.year}}</h4>
+        <table>
+          <thead>
+          <tr>
+            <th>STT</th>
+            <th>Trạm</th>
+            <th>Mã xã</th>
+            <th>Tên xã</th>
+            <th colspan="3">Tiêu thụ</th>
+            <th colspan="3">Số đầu nối thực tế</th>
+            <th colspan="3">Tổng số đầu nối có hoá đơn</th>
+          </tr>
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>Kỳ đầu</th>
+            <th>Kỳ sau</th>
+            <th>%</th>
+            <th>Kỳ đầu</th>
+            <th>Kỳ sau</th>
+            <th>%</th>
+            <th>Kỳ đầu</th>
+            <th>Kỳ sau</th>
+            <th>%</th>
+          </tr>
+          <tr>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+            <th>6</th>
+            <th>7 = 6 / 5 * 100</th>
+            <th>8</th>
+            <th>9</th>
+            <th>10 = 9 / 8 * 100</th>
+            <th>11</th>
+            <th>12</th>
+            <th>13 = 12 / 11 * 100</th>
+          </thead>
+          <tbody>
+            {{#each waterStationData}}
+              <tr>
+                {{#each this}}
+                  <td>{{getWaterStationStyled this}}</td>
+                {{/each}}
+              </tr>
+            {{/each}}
+            <tr class="sum">
+              <td colspan="4" style="text-align: center; font-weight: bold;">TỔNG CỘNG</td>
+              {{#each totalSum}}
+                <td>{{this}}</td>
+              {{/each}}
+            </tr>
+          </tbody>
+        </table>
+      </div>
+     
+    </body>
+</html>
+

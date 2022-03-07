@@ -1,0 +1,80 @@
+{
+  "name": "JobSystem",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "key": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "required": true,
+      "enum": [
+        "CUSTOM",
+        "SCHEDULE",
+        "RUN_NOW"
+      ]
+    },
+    "functionPath": {
+      "type": "string"
+    },
+    "payload": {
+      "type": "object"
+    },
+    "repeat": {
+      "type": "object"
+    },
+    "options": {
+      "type": "object"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "NOTIFY",
+        "EMAIL",
+        "DEFAULT"
+      ],
+      "default": "DEFAULT"
+    },
+    "bootOrder": {
+      "type": "number",
+      "index": true
+    },
+    "project": {
+      "type": "string",
+      "enum": [
+        "CTM",
+        "NMS",
+        "SCR",
+        "SYS"
+      ],
+      "default": "SYS"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "RUNNING",
+        "STOP",
+        "WAITING",
+        "DONE"
+      ],
+      "default": "WAITING"
+    },
+    "createdDate": {
+      "type": "date",
+      "defaultFn": "now"
+    },
+    "lastTimeUpdatedDate": {
+      "type": "date",
+      "index": -1,
+      "defaultFn": "now"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

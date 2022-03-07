@@ -1,0 +1,10 @@
+{
+  "loopback-component-explorer": {
+    "mountPath": "/explorer",
+    "generateOperationScopedModels": true,
+    "auth": {
+      "in": "query",
+      "name": "access_token"
+    }
+  }
+}

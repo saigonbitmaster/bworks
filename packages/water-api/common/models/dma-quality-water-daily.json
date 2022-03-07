@@ -1,0 +1,33 @@
+{
+  "name": "DmaQualityWaterDaily",
+  "base": "BaseLog",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "forceId": false,
+  "properties": {
+    "min": {
+      "type": "object"
+    },
+    "max": {
+      "type": "object"
+    },
+    "avg": {
+      "type": "object"
+    },
+    "logTime": {
+      "type": "date",
+      "index": true
+    },
+    "rawData": {
+      "type": [
+        "object"
+      ]
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

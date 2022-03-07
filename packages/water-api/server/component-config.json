@@ -1,0 +1,17 @@
+{
+  "loopback-component-explorer": {
+    "mountPath": "/explorer",
+    "generateOperationScopedModels": true,
+    "auth": {
+      "in": "query",
+      "name": "access_token"
+    }
+  },
+  "ra-loopback3/server/ContentRange": {
+    "pattern": [
+      "*.find",
+      "*.mapList"
+    ],
+    "header": "content-range"
+  }
+}

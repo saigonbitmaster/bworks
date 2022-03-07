@@ -1,0 +1,102 @@
+{
+  "name": "SrcConfig",
+  "base": "BaseModel",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "id": true,
+      "generated": false,
+      "required": true,
+      "index": true,
+      "enum": [
+        {
+          "id": "MapDefaultZoom",
+          "type": "Number",
+          "min": 10,
+          "max": 16
+        },
+        {
+          "id": "StatisticMatLifeSpan",
+          "type": "StatisticMatLifeSpan"
+        },
+        {
+          "id": "MapDefaultCenter",
+          "type": "object"
+        },
+        {
+          "id": "Sms",
+          "type": "Sms"
+        },
+        {
+          "id": "Email",
+          "type": "Email"
+        }
+      ]
+    },
+    "side": {
+      "type": "string",
+      "required": true,
+      "default": "all",
+      "enum": [
+        "all",
+        "frontend",
+        "backend"
+      ]
+    },
+    "value": {
+      "type": "any",
+      "relationField": {
+        "id": [
+          {
+            "type": "Number",
+            "limit": {
+              "min": 10,
+              "max": 16
+            }
+          },
+          {
+            "type": "LimitOnPercent",
+            "limit": {
+              "min": 0,
+              "max": null
+            }
+          },
+          {
+            "type": "LimitOnPercent",
+            "limit": {
+              "min": 0,
+              "max": null
+            }
+          },
+          {
+            "type": "LimitOnPercentMax",
+            "limit": {
+              "min": 0,
+              "max": null
+            }
+          }
+        ]
+      }
+    },
+    "condition": {
+      "type": "string"
+    },
+    "subValue": {
+      "type": "object"
+    },
+    "unit": {
+      "type": "string"
+    },
+    "meta": {
+      "type": "object"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

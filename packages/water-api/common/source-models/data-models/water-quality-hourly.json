@@ -1,0 +1,40 @@
+{
+  "name": "WaterQualityHourly",
+  "base": "BaseLog",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "forceId": false,
+  "properties": {
+    "minValue": {
+      "type": "number"
+    },
+    "avgValue": {
+      "type": "number"
+    },
+    "maxValue": {
+      "type": "number"
+    },
+    "logTime": {
+      "type": "date",
+      "index": true
+    },
+    "rawData": {
+      "type": "object"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "dataLogger": {
+      "type": "belongsTo",
+      "model": "DataLogger"
+    },
+    "waterParameter": {
+      "type": "belongsTo",
+      "model": "WaterParameter"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

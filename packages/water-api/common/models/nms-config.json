@@ -1,0 +1,136 @@
+{
+  "name": "NmsConfig",
+  "base": "BaseModel",
+  "strict": true,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "id": true,
+      "generated": false,
+      "required": true,
+      "index": true,
+      "enum": [
+        {
+          "id": "MapDefaultCenter",
+          "type": "object"
+        },
+        {
+          "id": "MapDefaultZoom",
+          "type": "Number",
+          "min": 10,
+          "max": 16
+        },
+        {
+          "id": "PressureLimit",
+          "type": "LimitOnPercent"
+        },
+        {
+          "id": "QualityFluo",
+          "type": "LimitOnPercentMax"
+        },
+        {
+          "id": "QualityPh",
+          "type": "LimitOnPercent"
+        },
+        {
+          "id": "Flow",
+          "type": "Flow"
+        },
+        {
+          "id": "Pressure",
+          "type": "Pressure"
+        },
+        {
+          "id": "StatisticMatStk",
+          "type": "StatisticMatStk"
+        },
+        {
+          "id": "StatisticMatDMA",
+          "type": "StatisticMatDMA"
+        },
+        {
+          "id": "StatisticMatLifeSpan",
+          "type": "StatisticMatLifeSpan"
+        },
+        {
+          "id": "RateWaterLeak",
+          "type": "RateWaterLeak"
+        },
+        {
+          "id": "DomesticWaterStandard",
+          "type": "DomesticWaterStandard"
+        }
+      ]
+    },
+    "side": {
+      "type": "string",
+      "required": true,
+      "default": "all",
+      "enum": [
+        "all",
+        "frontend",
+        "backend"
+      ]
+    },
+    "value": {
+      "type": "any",
+      "required": true,
+      "relationField": {
+        "id": [
+          {
+            "type": "GeoPoint",
+            "validation": [
+              "lng",
+              "lat"
+            ],
+            "limit": {
+              "lng": {
+                "min": 0,
+                "max": null
+              },
+              "lat": {
+                "min": 0,
+                "max": null
+              }
+            }
+          },
+          {
+            "type": "Number",
+            "limit": {
+              "min": 10,
+              "max": 16
+            }
+          },
+          {
+            "type": "LimitOnPercent",
+            "limit": {
+              "min": 0,
+              "max": null
+            }
+          },
+          {
+            "type": "LimitOnPercentMax",
+            "limit": {
+              "min": 0,
+              "max": null
+            }
+          }
+        ]
+      }
+    },
+    "condition": {
+      "type": "string"
+    },
+    "unit": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

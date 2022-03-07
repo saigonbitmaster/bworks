@@ -1,0 +1,70 @@
+{
+  "name": "Pump",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "forceId": false,
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "typeOfPump": {
+      "type": "string",
+      "enum": [
+        "1",
+        "2"
+      ]
+    },
+    "powerCapacity": {
+      "type": "number"
+    },
+
+    "maxHead": {
+      "type": "number"
+    },
+    "maxDepth": {
+      "type": "number"
+    },
+    "maxFlowRate": {
+      "type": "number"
+    },
+    "rotationRate": {
+      "type": "number"
+    },
+    "inputDiameter": {
+      "type": "number"
+    },
+    "outputDiameter": {
+      "type": "number"
+    },
+    "powerSource": {
+      "type": "number"
+    },
+    "weight": {
+      "type": "number"
+    },
+    "dimensions": {
+      "type": "string"
+    },
+    "setupDate": {
+      "type": "date"
+    },
+    "position": {
+      "type": "geopoint",
+      "index": true
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "waterSource": {
+      "type": "belongsTo",
+      "model": "WaterSource",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

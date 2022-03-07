@@ -1,0 +1,33 @@
+export default {
+  name: 'Exported materials |||| Exported materials',
+  titleList: 'Exported materials',
+  fields: {
+    name: 'Material name',
+    exportValue: 'Exported value',
+    exportDate: 'Exported date',
+    creatorId: 'Exported by person',
+    type: 'Material group',
+    remainValueStock: 'Stocked value',
+    currentValue: 'Available value',
+  },
+  types: {
+    pipe: 'Pipe',
+    flowLogger: 'Data Logger',
+    qualityLogger: 'Sensor',
+    meter: 'Water meter',
+    filter: 'Filter',
+    pressureReducing: 'Reduce pressure valve',
+    pump: 'Pump',
+    tank: 'Tank',
+    valve: 'Valve',
+    other: 'Other material',
+  },
+  selectMat: 'Material type',
+  error: {
+    lessRemainValStk: 'Input the value that lesser than stocked value',
+    remainValStkNotExist: 'Select stock value',
+    lessAvailableVal: 'Input the value that lesser than available value',
+    availableValNotExist: 'Available value is incorrect',
+  },
+  returnMatForStock: 'Revoke material to stock',
+};

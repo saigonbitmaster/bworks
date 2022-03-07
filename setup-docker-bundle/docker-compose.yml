@@ -1,0 +1,92 @@
+version: '3.7'
+
+services:
+  nginx:
+    image: tritoanst/nginx-geoip2-certbot
+    container_name: nginx
+    environment:
+      CERTBOT_EMAIL: 'toannt@setfil.vn'
+      ENVSUBST_VARS: FQDN
+      FQDN: $DOMAIN
+      GEOIP_ACCOUNT_ID: '507259'
+      GEOIP_LICENSE_KEY: 'WLcmgDJrkgAUcRGb'
+      GEOIP_EDITIONIDS: 'GeoLite2-Country'
+      GEOIP_MAILTO: 'toannt@setfil.vn'
+    ports:
+      - '80:80'
+      - '443:443'
+    networks:
+      - backend
+    volumes:
+      - $DK_DATA/letsencrypt:/letsencrypt
+      - '/var/run/docker.sock:/var/run/docker.sock:ro'
+      - ./conf.d:/etc/nginx/user.conf.d:ro
+
+  api:
+    image: 644854060878.dkr.ecr.ap-southeast-1.amazonaws.com/water:ttnsbacninh
+    container_name: api
+    restart: always
+    depends_on:
+      - mongo
+      - redis
+    working_dir: /home/node/app
+    environment:
+      NODE_ENV: 'production'
+      NODE_INIT_DATA: ''
+      # PORT: 4001
+      # NODE_FORCE_INIT: "true"
+      NODE_INDEX: ''
+      # NODE_FORCE_INDEX: "true"
+      NODE_MODIFY: ''
+      NODE_JOB: ''
+      NODE_EMS_LOGGER: ''
+      # NODE_INIT_DATA_WATER_SOURCE: "true"
+      # NODE_INIT_LOG_WATER_SOURCE: "true"
+      # NODE_INIT_TEST_DATA: "true"
+      # NODE_INIT_DATA_SIMPLE_NMS: "true"
+      # NODE_EMS_LOGGER_GENERATOR: "true"
+      # NODE_INIT_DATA_QUALITY_NMS: "true"
+    volumes:
+      # config folder
+      - './packages/water-api/server/datasources.docker.js:/home/node/app/packages/water-api/server/datasources.local.js:ro'
+      # runtime file folder
+      - $DK_DATA/api/tempSpreadSheet/excel/uploaded:/home/node/app/packages/water-api/tempSpreadSheet/excel/uploaded
+      - $DK_DATA/api/tempSpreadSheet/excel/generated:/home/node/app/packages/water-api/tempSpreadSheet/excel/generated
+      - $DK_DATA/api/csvs:/home/node/app/packages/water-api/csvs
+    ports:
+      - 4001:4001
+    networks:
+      - backend
+
+  mongo:
+    image: mongo:4.0
+    container_name: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: SfHcm2017
+    command: mongod --replSet rs0 --smallfiles --oplogSize 128
+    volumes:
+      - $DK_DATA/mongo:/data/db
+      - ./docker-config/mongodb/initdb.d/:/docker-entrypoint-initdb.d/
+      - ./docker-config/mongodb/init-replica.sh:/tmp/init-replica.sh
+      # - $BASE_DATA_PATH:/data/baseData
+    ports:
+      - 27017:27017
+    networks:
+      - backend
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+    restart: always
+    volumes:
+      - $DK_DATA/redis:/data
+    ports:
+      - 6379:6379
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge

@@ -1,0 +1,66 @@
+{
+  "name": "EInvoiceData",
+  "base": "PersistedModel",
+  "forceId": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "index": true
+    },
+    "clientName": {
+      "type": "string"
+    },
+    "termInvoice": {
+      "type": "date"
+    },
+    "eInvoiceNo": {
+      "type": "string"
+    },
+    "eInvoiceDate": {
+      "type": "date",
+      "index": true
+    },
+    "eInvoiceReservationCode": {
+      "type": "string"
+    },
+    "transactionUuid": {
+      "type": "string"
+    },
+    "clientMeterNumberItem": {
+      "type": "object"
+    },
+    "rawResult": {
+      "type": "object"
+    },
+    "canceled": {
+      "type": "boolean",
+      "default": false
+    },
+    "tax": {
+      "type": "string"
+    },
+    "templateCode": {
+      "type": "string"
+    },
+    "replacedEinvoice": {
+      "type": [
+        "object"
+      ]
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "property": "getLatestEinvoice",
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}

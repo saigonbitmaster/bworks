@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        html, body {
+          height: 100vh;
+          background-color: #f5f5f5
+        }
+        body {
+          font: normal 14px Arial, sans-serif;
+        }
+        table {
+          border-collapse: collapse;
+          width: 80%;
+          margin: auto;
+        }
+        th, td {
+          padding: 10px;
+          text-align: left;
+          border-bottom: 1px solid rgb(218, 216, 216)
+        }
+        #title-block {
+          margin: auto;
+        }
+        #report-title {
+          text-align: center
+        }
+        #statistics-block {
+          width: 80%;
+          margin: auto;
+          margin-bottom: 25px;
+        }
+        .individual-statistics-block {
+          border-left: 6px solid #351c75;
+          background-color: #e3e9ec;
+          padding: 0.5em;
+          font-size: 1.2em;
+          margin-top: 0;
+          margin-bottom: 5px;
+        }
+        #logo {
+          max-width: 5%;
+          height: auto
+        }
+        header {
+          margin-left: 10px;
+        }
+    </style>
+  </head>
+  <body>
+     <header>
+      <p>
+        <img id="logo" src="{{{logo}}}" alt="companyLogo" align="center"/> 
+          {{companyName}}
+      </p>
+    </header>
+    <h1 id="report-title">Báo cáo Công nợ Khách hàng theo Địa lý</h1>
+    <div id="statistics-block">
+      <p class="individual-statistics-block">Tháng {{date.month}}/{{date.year}}</p>
+      <p class="individual-statistics-block">{{geo.province}}</p>
+      {{#if geo.district}}
+         <p class="individual-statistics-block">{{geo.district}}</p>
+      {{/if}}
+      {{#if geo.ward}}
+         <p class="individual-statistics-block">{{geo.ward}}</p>
+      {{/if}}
+      <p class="individual-statistics-block">Tổng nợ: {{sumTotalDebt}} (VNĐ)</p>
+    </div>
+    <table>
+      <thead>
+        <th>Mã KH</th>
+        <th>Tên KH</th>
+        <th>Địa chỉ</th>
+        {{#unless geo.ward}}
+          {{#unless geo.district}}
+            <th>Quận/Huyện</th>
+          {{else}}
+            <th>Xã/Phường/Thị trấn</th>
+          {{/unless}}
+        {{else}}
+          <th>Xã/Phường/Thị trấn</th>
+        {{/unless}}
+        <th>Nợ (VNĐ)</th>
+        <th>Tình trạng</th>
+      </thead>
+      <tbody>
+        {{#each clients}}
+        <tr>
+          {{#with this}}
+          <td>{{code}}</td>
+          <td>{{name}}</td>
+          <td>{{formattedAddress}}</td>
+          <td>{{geo}}</td>
+          <td>{{debt}}</td>
+          <td>{{status}}</td>
+          {{/with}}
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </body>
+</html>

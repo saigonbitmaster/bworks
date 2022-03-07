@@ -1,0 +1,152 @@
+{
+  "name": "MaterialUse",
+  "base": "BaseModel",
+  "idInjection": true,
+  "forceId": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "strict": true,
+  "indexes": {
+    "fullText": {
+      "keys": {
+        "name": "text"
+      },
+      "options": {
+        "weights": {
+          "name": 10
+        }
+      }
+    }
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string",
+      "required": true,
+      "enum": [
+        "Pipe",
+        "FlowLogger",
+        "QualityLogger",
+        "Meter",
+        "Filter",
+        "PressureReducing",
+        "Pump",
+        "Tank",
+        "Valve",
+        "Other",
+        "ElectricLogger"
+      ]
+    },
+    "meta": {
+      "type": "object"
+    },
+    "health": {
+      "type": "string",
+      "required": true,
+      "enum": [
+        "OK",
+        "WARN",
+        "BAD"
+      ]
+    },
+    "status": {
+      "type": "string"
+    },
+    "optionKey": {
+      "type": "string"
+    },
+    "node": {
+      "type": "geopoint",
+      "required": true,
+      "index": true
+    },
+    "dmaId": {
+      "type": {
+        "required": true,
+        "index": true
+      }
+    },
+    "detailTypeId": {
+      "type": {
+        "required": true,
+        "index": true
+      }
+    },
+    "fromNodeId": {
+      "type": {
+        "required": true,
+        "index": true
+      }
+    },
+    "toNodeId": {
+      "type": {
+        "required": true,
+        "index": true
+      }
+    },
+    "useStartDate": {
+      "type": "string",
+      "required": true
+    },
+    "polyline": {
+      "type": [
+        "object"
+      ]
+    },
+    "polygon": {
+      "type": [
+        "object"
+      ]
+    },
+    "length": {
+      "type": "number"
+    },
+    "isDeleted": {
+      "type": "boolean"
+    },
+    "waterParameter": {
+      "type": "array"
+    }
+
+  },
+  "validations": [],
+  "relations": {
+    "dma": {
+      "type": "belongsTo",
+      "model": "Dma"
+    },
+    "detailType": {
+      "type": "belongsTo",
+      "model": "MaterialDetailType"
+    },
+    "fromNode": {
+      "type": "belongsTo",
+      "model": "Node"
+    },
+    "toNode": {
+      "type": "belongsTo",
+      "model": "Node"
+    },
+    "stock": {
+      "type": "belongsTo",
+      "model": "MaterialStock"
+    },
+    "export": {
+      "type": "belongsTo",
+      "model": "MaterialExport"
+    },
+    "pumpStation": {
+      "type": "belongsTo",
+      "model": "PumpStation"
+    },
+    "electricLogger": {
+      "type": "belongsTo",
+      "model": "MaterialUse"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

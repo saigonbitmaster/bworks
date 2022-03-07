@@ -1,0 +1,71 @@
+{
+  "restApiRoot": "/api",
+  "host": "0.0.0.0",
+  "port": 4001,
+  "locales": "vi",
+  "country": "Việt Nam",
+  "timezone": "Asia/Ho_Chi_Minh",
+  "utc": "+0700",
+  "frontendURL": {
+    "wctmClient": "http://0.0.0.0:3003"
+  },
+  "remoting": {
+    "context": false,
+    "rest": {
+      "handleErrors": false,
+      "normalizeHttpPath": false,
+      "xml": false
+    },
+    "json": {
+      "strict": false,
+      "limit": "100kb"
+    },
+    "urlencoded": {
+      "extended": true,
+      "limit": "100kb"
+    },
+    "cors": false
+  },
+  "emsCsvPath": {
+    "inputDir": "csvs/input-files",
+    "backupDir": "csvs/backup-files",
+    "exact": false
+  },
+  "googleApiKey_company": "AIzaSyChQgyoQGwnYrns05a0HyPAAedB3kou_Tk",
+  "googleApiKey": "AIzaSyB57FTRg1UmEh1lbD4LZLhd0hJKA3G5Ctg",
+  "secret": "sfinno",
+  "csvPerProcess": 100,
+  "invoiceNoFormat": "0000000",
+  "invoiceExportDate": 2,
+  "S3": {
+    "invoiceFileExpiresIn": 31556952
+  },
+  "email": {
+    "email": "Bworkshelp@gmail.com",
+    "password": "s5Cur300!"
+  },
+  "messageTypes": ["EMAIL", "NOTIFY_APP"],
+  "messageProcessCrone": "*/15 * * * * *",
+  "maximumPrint": 10000,
+  "srcDatalogger": "csv",
+  "startDayLog": "2019-12-01",
+  "payment": {
+    "vnpay": {
+      "vnp_TmnCode": "1SNJ89L8",
+      "vnp_HashSecret": "ODJLXOCEWMFIEJXHJNMZUVFFVRDDXLOT",
+      "vnp_Url": "http://sandbox.vnpayment.vn/paymentv2/vpcpay.html"
+    },
+    "momo": {
+      "partnerCode": "MOMOUQB420191202",
+      "accessKey": "BlCZGpkeBlQFe63b",
+      "secretKey": "Qmsf17tjktjbtSLwzJ4M7yLFppYzVAlH",
+      "baseUrl": "https://test-payment.momo.vn"
+    },
+    "developmentReturnUrl": "test.Bworks.online"
+  },
+  "customerReport": {
+    "waterUsageInterval": 5,
+    "waterUsageIntervalAmount": 5,
+    "debtOverdueLimit": 23
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "PostJob",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "forceId": false,
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "expectedDate": {
+      "type": "date"
+    },
+    "createdDate": {
+      "type": "date"
+    },
+    "estimatedCost": {
+      "type": "number"
+    },
+    "requiredAda": {
+      "type": "number"
+    },
+    "skills": {
+      "type": "any"
+    },
+    "subitems": {
+      "type": "any"
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

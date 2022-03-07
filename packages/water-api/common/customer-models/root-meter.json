@@ -1,0 +1,39 @@
+{
+  "name": "RootMeter",
+  "base": "BaseModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "size": {
+      "type": "number",
+      "default": 0
+    },
+    "seri": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "clientMeters": {
+      "type": "hasMany",
+      "model": "ClientMeter",
+      "foreignKey": ""
+    },
+    "waterProvider": {
+      "type": "belongsTo",
+      "model": "WaterProvider",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

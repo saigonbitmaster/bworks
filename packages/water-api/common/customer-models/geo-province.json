@@ -1,0 +1,64 @@
+{
+  "name": "GeoProvince",
+  "base": "BaseModel",
+  "idInjection": true,
+  "forceId": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "indexes": {
+    "fullText": {
+      "keys": {
+        "fullName": "text",
+        "code": "text"
+      },
+      "options": {
+        "weights": {
+          "fullName": 10,
+          "code": 8
+        }
+      }
+    }
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "prefix": {
+      "type": "string",
+      "required": true
+    },
+    "fullName": {
+      "type": "string",
+      "required": true
+    },
+    "fullAddress": {
+      "type": "string"
+    },
+    "code": {
+      "type": "string",
+      "required": true
+    },
+    "population": {
+      "type": "number"
+    },
+    "position": {
+      "type": "geopoint",
+      "index": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "geoCountry": {
+      "type": "belongsTo",
+      "model": "GeoCountry",
+      "foreignKey": "countryId",
+      "options": {
+        "nestRemoting": true
+      }
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

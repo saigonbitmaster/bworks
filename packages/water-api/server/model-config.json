@@ -1,0 +1,610 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "ra-loopback3/server/models",
+      "../common/models",
+      "./models",
+      "../common/common-models",
+      "../common/customer-models",
+      "../common/client-models",
+      "../common/source-models",
+      "../common/source-models/sub-models",
+      "../common/source-models/data-models",
+      "../common/nms-models",
+      "../common/org-models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "ra-loopback3/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "AccessToken": {
+    "dataSource": "orgMain",
+    "public": false,
+    "relations": {
+      "user": {
+        "type": "belongsTo",
+        "model": "AppUser",
+        "foreignKey": "userId"
+      }
+    }
+  },
+  "ACL": {
+    "dataSource": "orgMain",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "orgMain",
+    "public": true,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "orgMain",
+    "public": true
+  },
+  "AppUser": {
+    "dataSource": "orgMain",
+    "public": true
+  },
+  "IndexHistory": {
+    "dataSource": "nmsMain",
+    "public": true
+  },
+  "BaseLog": {
+    "dataSource": "nmsMain",
+    "public": true
+  },
+  "BaseModel": {
+    "dataSource": "nmsMain",
+    "public": true
+  },
+  "Dma": {
+    "dataSource": "nmsMain",
+    "public": true
+  },
+  "MaterialDetailType": {
+    "dataSource": "nmsMain",
+    "public": true
+  },
+  "MaterialStock": {
+    "dataSource": "nmsMain",
+    "public": true
+  },
+  "MaterialExport": {
+    "dataSource": "nmsMain",
+    "public": true
+  },
+  "MaterialUse": {
+    "dataSource": "nmsMain",
+    "public": true
+  },
+  "NmsConfig": {
+    "dataSource": "nmsMain",
+    "public": true
+  },
+  "Node": {
+    "dataSource": "nmsMain",
+    "public": true
+  },
+  "LogStatisticMatStk": {
+    "dataSource": "nmsLog",
+    "public": true
+  },
+  "LogStatisticMatByDma": {
+    "dataSource": "nmsLog",
+    "public": true
+  },
+  "LogMatStatisticByLifeSpan": {
+    "dataSource": "nmsLog",
+    "public": true
+  },
+  "LogFlowLoggerHour": {
+    "dataSource": "nmsLog",
+    "public": true
+  },
+  "NmsLogElectricLoggerHour": {
+    "dataSource": "nmsLog",
+    "public": true
+  },
+  "NmsLogElectricLoggerDay": {
+    "dataSource": "nmsLog",
+    "public": true
+  },
+  "NmsLogElectricRaw": {
+    "dataSource": "nmsLog",
+    "public": true
+  },
+  "Task": {
+    "dataSource": "nmsMain",
+    "public": true
+  },
+  "LogJob": {
+    "dataSource": "nmsLog",
+    "public": true
+  },
+  "LogFlowLoggerDay": {
+    "dataSource": "nmsLog",
+    "public": true
+  },
+  "Map": {
+    "dataSource": "nmsMain",
+    "public": true
+  },
+  "NmsFile": {
+    "dataSource": "nmsStorage",
+    "public": true
+  },
+  "TaskHistory": {
+    "dataSource": "nmsMain",
+    "public": true
+  },
+  "Icon": {
+    "dataSource": "orgMain",
+    "public": true
+  },
+  "Client": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "StoreInvoice": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "ClientRegister": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "ClientRequest": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "GeoCountry": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "GeoDistrict": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "GeoProvince": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "GeoQuarter": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "GeoWard": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "CtmConfig": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "ClientMeterNumber": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "WaterProvider": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "Formula": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "ClientMeter": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "InstallationTeam": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "RootMeter": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "QuotaWater": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "Factory": {
+    "dataSource": "nmsMain",
+    "public": true
+  },
+  "PumpStation": {
+    "dataSource": "nmsMain",
+    "public": true
+  },
+  "CtmTemplate": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "ReportEngine": {
+    "dataSource": "nmsMain",
+    "public": true
+  },
+  "CtmFile": {
+    "dataSource": "ctmStorage",
+    "public": true
+  },
+  "ClientMeterHistory": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "PDFGetter": {
+    "dataSource": "nmsMain",
+    "public": true
+  },
+  "ExcelUtils": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "AutoIncrease": {
+    "dataSource": "orgMain",
+    "public": false
+  },
+  "CtmCompany": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "ErrorLog": {
+    "dataSource": "orgLog",
+    "public": true
+  },
+  "ExcelFile": {
+    "dataSource": "sheetStorage",
+    "public": true
+  },
+  "RefCountry": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "RefProvince": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "RefDistrict": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "RefWard": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "QrCode": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "TicketSupport": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "TicketPriority": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "TicketType": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "UserWeb": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "TicketBody": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "Announcement": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "AnnouncementType": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "AnnouncementPriority": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "BankAccount": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "ClientUser": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "InterfaceStandard": {
+    "dataSource": "srcMain",
+    "public": true
+  },
+  "MeasureMethod": {
+    "dataSource": "srcMain",
+    "public": true
+  },
+  "WaterParameter": {
+    "dataSource": "srcMain",
+    "public": true
+  },
+  "PostJob": {
+    "dataSource": "srcMain",
+    "public": true
+  },
+  "JsPostJob": {
+    "dataSource": "srcMain",
+    "public": true
+  },
+  "WaterStandard": {
+    "dataSource": "srcMain",
+    "public": true
+  },
+  "ParamItem": {
+    "dataSource": "transient",
+    "public": true
+  },
+  "DataLogger": {
+    "dataSource": "srcMain",
+    "public": true
+  },
+  "Meter": {
+    "dataSource": "srcMain",
+    "public": true
+  },
+  "Pump": {
+    "dataSource": "srcMain",
+    "public": true
+  },
+  "Sensor": {
+    "dataSource": "srcMain",
+    "public": true
+  },
+  "SensorProbe": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "WaterSource": {
+    "dataSource": "srcMain",
+    "public": true
+  },
+  "ClientFormat": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "WaterSourceGroup": {
+    "dataSource": "srcMain",
+    "public": true
+  },
+  "AlertThreshold": {
+    "dataSource": "srcMain",
+    "public": true
+  },
+  "SrcConfig": {
+    "dataSource": "srcMain",
+    "public": true
+  },
+  "SourceFile": {
+    "dataSource": "sourceStorage",
+    "public": true
+  },
+  "SourceTemplate": {
+    "dataSource": "srcMain",
+    "public": true
+  },
+  "Pipe": {
+    "dataSource": "srcMain",
+    "public": true
+  },
+  "NmsLogWaterQualityHourly": {
+    "dataSource": "nmsLog",
+    "public": true
+  },
+  "NmsLogWaterQualityDaily": {
+    "dataSource": "nmsLog",
+    "public": true
+  },
+  "NmsLogRawQuality": {
+    "dataSource": "nmsLog",
+    "public": true
+  },
+  "WaterQualityHourly": {
+    "dataSource": "srcLog",
+    "public": true
+  },
+  "WaterQualityDaily": {
+    "dataSource": "srcLog",
+    "public": true
+  },
+  "RawWaterSourceVolume": {
+    "dataSource": "srcLog",
+    "public": true
+  },
+  "RawWaterSourceVolumeDaily": {
+    "dataSource": "srcLog",
+    "public": true
+  },
+  "LogStatisticVolumeMonth": {
+    "dataSource": "srcLog",
+    "public": true
+  },
+  "LogSourceSensorDay": {
+    "dataSource": "srcLog",
+    "public": true
+  },
+  "LogSourceSensorRaw": {
+    "dataSource": "srcLog",
+    "public": true
+  },
+  "GeoGroup": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "EInvoice": {
+    "dataSource": "restEInvoice",
+    "public": false
+  },
+  "EInvoiceData": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "CtmReport": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "CtmReportFile": {
+    "dataSource": "ctmReportStorage",
+    "public": true
+  },
+  "CacheLocation": {
+    "dataSource": "ctmMain",
+    "public": false
+  },
+  "PackageConfig": {
+    "dataSource": "orgMain"
+  },
+  "BackgroundJob": {
+    "dataSource": "orgLog",
+    "public": true
+  },
+  "OrgConfig": {
+    "dataSource": "orgMain",
+    "public": true
+  },
+  "LogStatisticDmaMonth": {
+    "dataSource": "nmsLog",
+    "public": true
+  },
+  "Kml": {
+    "dataSource": "nmsMain",
+    "public": true
+  },
+  "Gadm": {
+    "dataSource": "orgMain",
+    "public": true
+  },
+  "WaterMaintenance": {
+    "dataSource": "nmsMain",
+    "public": true
+  },
+  "EInvoiceRange": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "MessageSystem": {
+    "dataSource": "orgMain",
+    "public": true
+  },
+  "JobSystem": {
+    "dataSource": "orgMain",
+    "public": true
+  },
+  "ClientUserAccountRequest": {
+    "dataSource": "redis",
+    "public": true
+  },
+  "DmaQualityWaterDaily": {
+    "dataSource": "nmsLog",
+    "public": true
+  },
+  "DmaQualityWaterHourly": {
+    "dataSource": "nmsLog",
+    "public": true
+  },
+  "MeterNumberSubmit": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "Conversation": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "NmsAlertThreshold": {
+    "dataSource": "nmsMain"
+  },
+  "TransactionLog": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "ImportActivityLog": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "Payment": {
+    "dataSource": null,
+    "public": true
+  },
+  "CmnScada": {
+    "dataSource": "orgMain",
+    "public": true
+  },
+  "IotDevice": {
+    "dataSource": "orgMain",
+    "public": true
+  },
+  "Print": {
+    "dataSource": null,
+    "public": true
+  },
+  "PaymentCollection": {
+    "dataSource": "ctmMain",
+    "public": true
+  },
+  "Deposit": {
+    "dataSource": "srcMain",
+    "public": true
+  },
+  "Withdraw": {
+    "dataSource": "srcMain",
+    "public": true
+  },
+  "JsDeposit": {
+    "dataSource": "srcMain",
+    "public": true
+  },
+  "JsWithdraw": {
+    "dataSource": "srcMain",
+    "public": true
+  },
+  "BiddingJob": {
+    "dataSource": "srcMain",
+    "public": true
+  },
+  "JsBiddingJob": {
+    "dataSource": "srcMain",
+    "public": true
+  },
+  "ContractedJob": {
+    "dataSource": "srcMain",
+    "public": true
+  },
+  "JsContractedJob": {
+    "dataSource": "srcMain",
+    "public": true
+  },
+  "Setting": {
+    "dataSource": "srcMain",
+    "public": true
+  },
+  "ReportFund": {
+    "dataSource": "srcMain",
+    "public": true
+  },
+  "JsReportFund": {
+    "dataSource": "srcMain",
+    "public": true
+  },
+  "Test": {
+    "dataSource": "srcMain",
+    "public": true
+  }
+}

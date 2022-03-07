@@ -1,0 +1,62 @@
+{
+  "name": "Gadm",
+  "base": "BaseModel",
+  "idInjection": true,
+  "indexes": {
+    "fullText": {
+      "keys": {
+        "fullName": "text"
+      },
+      "options": {
+        "weights": {
+          "name": 10
+        }
+      }
+    }
+  },
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "string",
+      "required": true,
+      "index": true
+    },
+    "fullName": {
+      "type": "string",
+      "required": true
+    },
+    "properties": {
+      "type": "object",
+      "required": true
+    },
+    "geometry": {
+      "type": "object",
+      "required": true
+    },
+    "level": {
+      "type": "number",
+      "required": true
+    },
+    "rect": {
+      "type": "object",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "*"
+    }
+  ],
+  "methods": {}
+}

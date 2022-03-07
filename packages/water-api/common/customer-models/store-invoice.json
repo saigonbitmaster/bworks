@@ -1,0 +1,51 @@
+{
+  "name": "StoreInvoice",
+  "base": "BaseModel",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "id": true,
+      "generated": false,
+      "required": true
+    },
+    "fileName": {
+      "type": "string",
+      "required": true
+    },
+    "termInvoice": {
+      "type": "date",
+      "required": true
+    },
+    "nameQuarter": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "countExportedInvoice": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "province": {
+      "type": "belongsTo",
+      "model": "GeoProvince"
+    },
+    "district": {
+      "type": "belongsTo",
+      "model": "GeoDistrict"
+    },
+    "ward": {
+      "type": "belongsTo",
+      "model": "GeoWard"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

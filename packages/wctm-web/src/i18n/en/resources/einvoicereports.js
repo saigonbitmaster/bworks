@@ -1,0 +1,36 @@
+import commonFields from '../commomFields';
+export default {
+  name: 'EInvoice report |||| EInvoice report',
+  time: 'Time',
+  series: 'Series',
+  filterType: 'Filer by',
+  time1: 'Total: %{val} (invoic)',
+  time2: 'Original invoices: %{val} (HĐ)',
+  time3: 'Replace invoices: %{val} (HĐ)',
+  time4: 'Adjusted invoices: %{val} (HĐ)',
+  series1: 'Number of series: %{val}',
+  series2: 'Total invoices: %{val} (HĐ)',
+  series3: 'Issued invoices: %{val} (HĐ)',
+  series4: 'Available invoices: %{val} (HĐ)',
+  fields: {
+    serie: 'Invoice serial',
+    numOfpublishInv: 'Issued invoices',
+    avaiInv: 'Available invoices',
+    totalInv: 'Total invoices',
+    eInvoiceNo: 'eInvoice No',
+    eInvoiceDate: 'Issued date',
+    invoiceNo: 'Invoice No',
+    adjustmentType: 'Invoice type',
+    buyerName: 'Client name',
+    issueDate: 'Issued date',
+    ...commonFields,
+  },
+  list: 'List',
+  create: 'Create',
+  edit: 'Edit',
+  show: 'Show',
+  // <Permission>
+  view: 'View',
+  examine: 'Show',
+  // </Permission>
+};

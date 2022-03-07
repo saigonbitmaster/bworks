@@ -1,0 +1,47 @@
+{
+  "name": "Kml",
+  "base": "BaseModel",
+  "idInjection": true,
+  "forceId": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "strict": true,
+  "indexes": {
+    "fullText": {
+      "keys": {
+        "fileNameReal": "text"
+      },
+      "options": {
+        "weights": {
+          "name": 10
+        }
+      }
+    }
+  },
+  "properties": {
+    "fileNameReal": {
+      "type": "string",
+      "required": true
+    },
+    "fileNameS3": {
+      "type": "string",
+      "required": true
+    },
+    "urlS3": {
+      "type": "string",
+      "required": true
+    },
+    "active": {
+      "type": "boolean",
+      "default": false
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

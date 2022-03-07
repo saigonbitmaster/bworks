@@ -1,0 +1,29 @@
+.form-item-inline-1 {
+  display: inline-block;
+}
+
+.form-item-inline-2 {
+  display: inline-block;
+  margin-left: 32px;
+}
+
+.form-item-full {
+  max-width: 544px;
+}
+
+.marker-label {
+  transform: translateX(-50%)
+}
+
+@keyframes blink1{
+  0%{opacity: 0.4;}
+  40%{opacity: 1; color: red;}
+  60%{opacity: 1; color: red;}
+  100%{opacity: 0.4;}
+}
+@keyframes blinkbg1{
+  0%{opacity: 0.4;}
+  40%{opacity: 1; background-color: red;}
+  60%{opacity: 1; background-color: red;}
+  100%{opacity: 0.4;}
+}

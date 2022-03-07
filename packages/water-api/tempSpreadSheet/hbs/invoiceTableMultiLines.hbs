@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<!-- if change to page-break-after print will much slower -->
+<html>
+
+<head>
+  <style>
+    @page {
+      size: A5 landscape
+    }
+
+    @media screen,
+    print {
+
+      .pageBreak {
+        page-break-before: always;
+      }
+
+      .pageBreak:last-child {
+        page-break-before: avoid;
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        padding: 5px;
+        vertical-align: top;
+        height: 8px;
+        line-height: auto;
+      }
+
+      .table * {
+
+        border: none;
+      }
+
+      .table {
+        text-align: left;
+        width: 100%;
+        border: none;
+      }
+
+      .center {
+        text-align: center;
+      }
+
+      .left {
+        text-align: left;
+      }
+
+      .right {
+        text-align: right;
+      }
+
+      .x2 {
+        font-size: 9pt;
+      }
+
+      .x3 {
+        font-size: 10pt;
+      }
+
+      .x4 {
+        font-size: 12pt;
+      }
+
+      .b {
+        font-weight: bold;
+      }
+
+      .floatRight {
+        float: right;
+        margin-right: 10px;
+      }
+
+      .floatLeft {
+        float: left;
+        margin-left: 10px;
+      }
+
+      .floatRightNoMargin {
+        float: right;
+
+      }
+
+      .floatLeftNoMargin {
+        float: left;
+
+      }
+
+      .block {
+        display: block;
+      }
+
+      .italic {
+        font-style: italic;
+      }
+
+      .content {
+/*
+        background-image: url('https://Bworks.s3.ap-southeast-1.amazonaws.com/ttnsbacninhbg.png');
+
+        background-repeat: no-repeat;
+        background-size: 100% 100vh;
+        background-color: rgba(255, 255, 255, 0.9);
+        background-blend-mode: lighten;
+*/
+        max-width: 100%;
+        text-align: center;
+        margin: 0px;
+        padding: 25px;
+      }
+
+      .upper {
+        text-transform: uppercase;
+        white-space: pre-line;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    {{#each this}}
+    <div class="content">
+      <div class="center b upper x4">{{sellerInfo.name}}</div>
+      <table class="table">
+
+        <tr>
+          <td colspan="2">
+
+            <div class="center x2"> {{sellerInfo.address}} </div>
+            <div class="center x2"> Mã số thuế: {{sellerInfo.taxNo}} </div>
+
+            <div class="center x2"> Tài khoản: {{sellerInfo.accountNo}} {{sellerInfo.bankName}} </div>
+
+          </td>
+          <td>
+            <div class="right x2"> Mã KH: <span class="b"> {{client.code}} </span>
+              <div class="right x2">
+                Số: <span class="b"> {{fixNumberLength invoiceNoticeNo 6}} </span>
+        </tr>
+
+      </table>
+
+
+
+
+
+      <br />
+      <div class="center b x4">PHIẾU THU TIỀN NƯỚC</div>
+      <div class="center x2">Tháng {{formatMonth toDate}} Từ {{formatDate fromDate }} đến {{formatDate toDate}}</div>
+      <br />
+
+      <div class="left x2"> Tên KH: <span class="b"> {{client.name}}</div>
+      <div class="left x2"> Địa chỉ KH: {{client.formattedAddress}} </div>
+
+
+      <div class="x3 block">
+        <span class="floatLeftNoMargin x2"> Mã số thuế KH: {{client.taxNo}} </span>
+        <span class="floatRightNoMargin x2"> Số ĐT CSKH: {{sellerInfo.phone}} </span>
+
+      </div>
+      <table style="width:100%" class="x2 center">
+        <tr>
+          <th>Chỉ số đầu</th>
+          <th>Chỉ số cuối </th>
+          <th>Tiêu thụ (m3)</th>
+
+          <th>Đơn giá (Vnd/m3)</th>
+          <th>Thành tiền</th>
+        </tr>
+        <tr>
+          <td>{{oldMeterNumber}}</td>
+          <td>{{newMeterNumber}}</td>
+          <td></td>
+          <td></td>
+          <td></td>
+
+        </tr>
+
+        {{#each details}}
+        <tr>
+          <td></td>
+          <td></td>
+          <td>{{formatNumber this.waterUsed "waterUsed"}}</td>
+          <td>{{formatNumber this.price "price"}}</td>
+          <td>{{formatNumber this.toFee "toFee"}}</td>
+
+        </tr>
+
+        {{/each}}
+
+        <tr>
+          <td colspan="4" class="right">CỘNG TIỀN HÀNG</td>
+          <td> {{formatNumber waterFee}}</td>
+        </tr>
+        <tr>
+          <td colspan="4" class="right">Tiền thuế VAT {{taxPercent}}%</td>
+          <td> {{formatNumber taxFee}}</td>
+        </tr>
+        <tr>
+          <td colspan="4" class="right">Phí PVMT {{sewagePercent}}%</td>
+          <td>{{formatNumber sewageFee}}</td>
+        </tr>
+        <tr>
+          <td colspan="4" class="right">Phí thu hộ</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td colspan="4" class="right">Tổng cộng tiền thanh toán</td>
+          <td>{{formatNumber totalFee}}</td>
+        </tr>
+        <tr>
+          <td colspan="5" class="left"> <b>Số tiền viết bằng chữ: {{toWords totalFee}}</b></td>
+        </tr>
+      </table>
+      <div class="x3 block">
+        <span class="floatLeft"> Nhân viên thu tiền </span>
+        <span class="floatRight italic"> Ngày ký: {{formatDate signDate}} </span>
+        <br /> <span class="floatRight"> <b> Người ký: {{sellerInfo.invoiceSignPerson}}</b> </span>
+      </div>
+      <br />
+      <br />
+    </div>
+    <div class="pageBreak"> </div>
+    {{/each}}
+  </div>
+</body>
+
+</html>

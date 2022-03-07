@@ -1,0 +1,34 @@
+{
+  "name": "MeasureMethod",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "volRequire": {
+      "type": "string"
+    },
+    "container": {
+      "type": "string",
+      "enum": [
+        "P",
+        "G",
+        "P,G"
+      ]
+    },
+    "preservative": {
+      "type": "string"
+    },
+    "holdingTime": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

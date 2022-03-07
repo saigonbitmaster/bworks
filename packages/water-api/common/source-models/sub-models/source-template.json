@@ -1,0 +1,26 @@
+{
+  "name": "SourceTemplate",
+  "base": "BaseModel",
+  "idInjection": false,
+  "forceId": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "id": {
+      "type": "string",
+      "id": true,
+      "generated": false,
+      "required": true,
+      "index": true,
+      "enum": ["FlowReportTemplate", "MaterialReportTemplate", "QualityReportTemplate", "SumQualityReportTemplate", "VolumeReportTemplate"]
+    },
+    "name": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

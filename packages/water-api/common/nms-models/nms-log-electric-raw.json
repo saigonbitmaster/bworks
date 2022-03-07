@@ -1,0 +1,34 @@
+{
+  "name": "NmsLogElectricRaw",
+  "base": "BaseLog",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "forceId": false,
+  "properties": {
+    "key": {
+      "type": "string",
+      "index": true
+    },
+    "electricValue": {
+      "type": "number"
+    },
+    "logTime": {
+      "type": "date"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "factory": {
+      "type": "belongsTo",
+      "model": "Factory"
+    },
+    "pumpStation": {
+      "type": "belongsTo",
+      "model": "PumpStation"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

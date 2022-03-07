@@ -1,0 +1,39 @@
+{
+  "name": "ErrorLog",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "host": {
+      "type": "string",
+      "index": true
+    },
+    "ip": {
+      "type": "string",
+      "index": true
+    },
+    "name": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    },
+    "req": {
+      "type": "object"
+    },
+    "res": {
+      "type": "object"
+    },
+    "time": {
+      "type": "date",
+      "required": true,
+      "index": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

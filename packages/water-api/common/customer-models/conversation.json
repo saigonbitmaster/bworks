@@ -1,0 +1,62 @@
+{
+  "name": "Conversation",
+  "base": "BaseModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "indexes": {
+    "assigneeIdIndex": {
+      "assigneeId": -1
+    },
+    "supporterIdIndex": {
+      "supporterId": -1
+    },
+    "clientIdIndex": {
+      "clientId": -1
+    }
+  },
+  "properties": {
+    "type": {
+      "type": "string",
+      "required": true,
+      "index": true,
+      "enum": ["PHONE", "CHAT"]
+    },
+    "data": {
+      "type": "object",
+      "required": true
+    },
+    "status": {
+      "type": "string",
+      "enum": ["INPROGRESS", "FINISHED"],
+      "required": true
+    },
+    "startTime": {
+      "type": "date",
+      "required": true,
+      "index": true
+    },
+    "endTime": {
+      "type": "date"
+    },
+    "duration": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "supporter": {
+      "type": "belongsTo",
+      "model": "AppUser",
+      "foreignKey": "assigneeId"
+    },
+    "client": {
+      "type": "belongsTo",
+      "model": "Client",
+      "foreignKey": "clientId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

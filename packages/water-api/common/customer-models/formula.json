@@ -1,0 +1,36 @@
+{
+  "name": "Formula",
+  "base": "BaseModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "sewageFee": {
+      "type": "number"
+    },
+    "tax": {
+      "type": "number"
+    },
+    "unit": {
+      "type": "string",
+      "enum": [
+        "PERSON",
+        "FAMILY"
+      ]
+    },
+    "normGroups": {
+      "type": [
+        "object"
+      ]
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,62 @@
+{
+  "name": "Announcement",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "createdDate": {
+      "type": "date",
+      "required": true
+    },
+    "sendDate": {
+      "type": "date",
+      "required": true
+    },
+    "sendNow": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "sendPublic": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "shortContent": {
+      "type": "string",
+      "required": true
+    },
+    "fullContent": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "announcementType": {
+      "type": "belongsTo",
+      "model": "AnnouncementType",
+      "foreignKey": "announcementTypeId"
+    },
+    "announcementPriority": {
+      "type": "belongsTo",
+      "model": "AnnouncementPriority",
+      "foreignKey": "announcementPriorityId"
+    },
+    "appUser": {
+      "type": "belongsTo",
+      "model": "AppUser",
+      "foreignKey": "appUserId"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

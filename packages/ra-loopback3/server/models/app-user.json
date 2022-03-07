@@ -1,0 +1,192 @@
+{
+  "name": "AppUser",
+  "base": "User",
+  "idInjection": true,
+  "forceId": false,
+  "options": {
+    "caseSensitiveEmail": true
+  },
+  "saltWorkFactor": 11,
+  "hidden": [
+    "password",
+    "verificationToken"
+  ],
+  "mixins": {
+    "Operation": true,
+    "Ext": true
+  },
+  "properties": {
+    "realm": {
+      "type": "string"
+    },
+    "fullName": {
+      "type": "string",
+      "required": true,
+      "length": 256
+    },
+    "username": {
+      "type": "string",
+      "length": 64
+    },
+    "password": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "string",
+      "required": true
+    },
+    "address1": {
+      "type": "string",
+      "length": 256
+    },
+    "address2": {
+      "type": "string",
+      "length": 256
+    },
+    "phone1": {
+      "type": "string",
+      "length": 32
+    },
+    "phone2": {
+      "type": "string",
+      "length": 32
+    },
+    "emailVerified": {
+      "type": "boolean"
+    },
+    "verificationToken": {
+      "type": "string"
+    },
+    "wardInChargeIds": {
+      "type": [
+        "objectid"
+      ],
+      "index": true
+    },
+    "quarterInChargeIds": {
+      "type": [
+        "objectid"
+      ],
+      "index": true
+    },
+    "provinces": {
+      "type": [
+        "objectid"
+      ]
+    },
+    "districts": {
+      "type": [
+        "objectid"
+      ]
+    },
+    "userdevices": {
+      "type": [
+        "object"
+      ]
+    }
+  },
+  "validations": [],
+  "relations": {
+    "accessTokens": {
+      "type": "hasMany",
+      "model": "AccessToken",
+      "foreignKey": "userId",
+      "options": {
+        "disableInclude": true
+      }
+    }
+  },
+  "acls": [
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "DENY"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": "deleteById"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "login"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "logout"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": "findById"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": "patchAttributes"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$owner",
+      "permission": "ALLOW",
+      "property": "replaceById"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "verify",
+      "accessType": "EXECUTE"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "confirm"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW",
+      "property": "resetPassword",
+      "accessType": "EXECUTE"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "changePassword",
+      "accessType": "EXECUTE"
+    },
+    {
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW",
+      "property": "setPassword",
+      "accessType": "EXECUTE"
+    },
+    {
+      "property": "myAccess",
+      "accessType": "EXECUTE",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    },
+    {
+      "property": "find",
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$authenticated",
+      "permission": "ALLOW"
+    }
+  ],
+  "methods": {}
+}
