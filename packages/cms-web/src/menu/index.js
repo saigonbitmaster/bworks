@@ -21,6 +21,7 @@ import Employer from '../screens/employer';
 import JobSeeker from '../screens/jobseeker';
 import BiddingJob from '../screens/bidjobs';
 import smartContract from '../screens/contractedjobs';
+import ReportKpi from '../screens/reportKpi';
 import SourceTemplate from '../screens/changepassword';
 import AdfScannerIcon from '@material-ui/icons/AccountBoxOutlined';
 
@@ -50,7 +51,7 @@ export default {
       name: 'report',
       label: 'generic.pages.report',
       icon: GeoIcon,
-      menu: [FundHistory, PostedJob, SmartContract],
+      menu: [FundHistory, PostedJob, SmartContract, ReportKpi],
     },
     SourceTemplate,
     configuration,

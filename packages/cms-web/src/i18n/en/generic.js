@@ -142,6 +142,7 @@ export default {
     partner: 'Partner',
     parentMenuStandard: 'Standards',
     parentMenuDesign: 'Tools',
+    reportKpi: "System KPIs"
   },
  
   print: 'Print',
