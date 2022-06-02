@@ -4,6 +4,7 @@ import ListAppUser from './ListAppUser';
 import EditAppUser from './EditAppUser';
 import CreateAppUser from './CreateAppUser';
 
+//just to test
 export default {
   name: 'appuser',
   label: 'generic.pages.appUser',
