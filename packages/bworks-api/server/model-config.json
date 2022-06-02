@@ -1,0 +1,132 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "ra-loopback3/server/models",
+      "../common/models",
+      "./models",
+      "../common/common-models",
+      "../common/source-models",
+      "../common/source-models/sub-models",
+      "../common/org-models",
+      "../common/emp-models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "ra-loopback3/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "AccessToken": {
+    "dataSource": "orgMain",
+    "public": false,
+    "relations": {
+      "user": {
+        "type": "belongsTo",
+        "model": "AppUser",
+        "foreignKey": "userId"
+      }
+    }
+  },
+  "ACL": {
+    "dataSource": "orgMain",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "orgMain",
+    "public": true,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "orgMain",
+    "public": true
+  },
+  "Email": {
+    "dataSource": "email"
+  },
+  "AppUser": {
+    "dataSource": "orgMain",
+    "public": true
+  },
+  "AutoIncrease": {
+    "dataSource": "orgMain",
+    "public": false
+  },
+  "PostJob": {
+    "dataSource": "srcMain",
+    "public": true
+  },
+  "JsPostJob": {
+    "dataSource": "srcMain",
+    "public": true
+  },
+
+  "BackgroundJob": {
+    "dataSource": "srcMain",
+    "public": true
+  },
+  "PackageConfig": {
+    "dataSource": "orgMain"
+  },
+  "OrgConfig": {
+    "dataSource": "orgMain",
+    "public": true
+  },
+  "MessageSystem": {
+    "dataSource": "orgMain",
+    "public": true
+  },
+  "Deposit": {
+    "dataSource": "srcMain",
+    "public": true
+  },
+  "Withdraw": {
+    "dataSource": "srcMain",
+    "public": true
+  },
+  "JsDeposit": {
+    "dataSource": "srcMain",
+    "public": true
+  },
+  "JsWithdraw": {
+    "dataSource": "srcMain",
+    "public": true
+  },
+  "BiddingJob": {
+    "dataSource": "srcMain",
+    "public": true
+  },
+  "JsBiddingJob": {
+    "dataSource": "srcMain",
+    "public": true
+  },
+  "ContractedJob": {
+    "dataSource": "srcMain",
+    "public": true
+  },
+  "JsContractedJob": {
+    "dataSource": "srcMain",
+    "public": true
+  },
+  "ReportFund": {
+    "dataSource": "srcMain",
+    "public": true
+  },
+  "JsReportFund": {
+    "dataSource": "srcMain",
+    "public": true
+  },
+  "Order": {
+    "dataSource": "srcMain",
+    "public": true
+  },
+  "Test": {
+    "dataSource": "srcMain",
+    "public": true
+  }
+}

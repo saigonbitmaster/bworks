@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'recompose';
-import { NumberField } from 'ra-loopback3';
+import { NumberField, translate } from 'ra-loopback3';
 import {
   Card,
   CardHeader,
@@ -95,10 +95,11 @@ TopWidget.propTypes = {
   subTitle: PropTypes.any,
   data: PropTypes.object,
   theme: PropTypes.object,
+  translate: PropTypes.func
 };
 
 TopWidget.defaultProps = {
   icon: <DefaultIcon />,
 };
-const enhance = compose(withStyles(styles), withTheme);
+const enhance = compose(translate, withStyles(styles), withTheme);
 export default enhance(TopWidget);

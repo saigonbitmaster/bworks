@@ -15,6 +15,8 @@ import { fade } from '@material-ui/core/styles/colorManipulator';
 import { LoadingIndicator } from 'react-admin';
 import NotifyHeader from './NotifyHeader';
 import LanguageSetting from './LanguageSetting';
+import InputBase from "@material-ui/core/InputBase";
+import SearchIcon from "@material-ui/icons/Search";
 
 const styles = theme => ({
   color: theme.status.loss,
@@ -153,19 +155,19 @@ const AppBar = ({ classes, className, logout, open, title, toggleSidebar, notify
           {typeof title === 'string' ? title : React.cloneElement(title)}
         </Typography>
         <span className={classes.flex1} />
-        {/* <div className={classes.grow} />
+        <div className={classes.grow} />
         <div className={classes.search}>
           <div className={classes.searchIcon}>
             <SearchIcon />
           </div>
           <InputBase
-            placeholder="Tìm…"
+            placeholder="Search…"
             classes={{
               root: classes.inputRoot,
               input: classes.inputInput,
             }}
           />
-        </div> */}
+        </div>
         <LoadingIndicator className={classes.loadingIndicator} />
         {extBar &&
           extBar.map(({ key, component: Item }) => {

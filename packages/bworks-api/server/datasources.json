@@ -1,0 +1,20 @@
+{
+  "orgMain": {
+    "name": "orgMain",
+    "connector": "mongodb"
+  },
+  "srcMain": {
+    "name": "srcMain",
+    "connector": "mongodb"
+  },
+  "redis": {
+    "name": "redis"
+  },
+  "sourceStorage": {
+    "name": "sourceStorage"
+  },
+  "transient": {
+    "name": "transient",
+    "connector": "transient"
+  }
+}

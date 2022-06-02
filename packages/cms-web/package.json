@@ -7,7 +7,7 @@
   },
   "scripts": {
     "start": "NODE_ENV=development webpack-dev-server  --max_old_space_size=3072 --config ./webpack.config.development.js --mode development -q",
-    "build": "rimraf ./dist && NODE_ENV=production webpack --mode production --max-old-space-size=4096 && rimraf ../water-api/client/src && mv ./dist ../water-api/client/src",
+    "build": "rimraf ./dist && NODE_ENV=production webpack --mode production --max-old-space-size=4096 && rimraf ../bworks-api/client/cms && mv ./dist ../bworks-api/client/cms",
     "test": "react-app-rewired test --env=jsdom",
     "posttest": "npm run lint && nsp check"
   },

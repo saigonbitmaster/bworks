@@ -26,6 +26,9 @@ export const iconToMap = ({iconElement, color='#3f51b5', viewBox = '0 0 24 24', 
 export {
   ManageAccountsIcon as ManageAccountsIcon,
   SwitchAccountIcon as SwitchAccountIcon,
+
+  Stop as BanIcon,
+  Lock as ChangePasswordIcon,
   Dashboard as DashboardIcon,
   Map as DmaIcon,
   AccountBox as AppUserIcon,

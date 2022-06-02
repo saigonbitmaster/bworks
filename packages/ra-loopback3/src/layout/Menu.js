@@ -143,7 +143,12 @@ const Menu = ({ menuConfig, showToClient }) => {
           .map(datum => hasAllowedAPIs(datum, allowedAPIs, allowedScreens, type))
           .filter(datum => !_.isEmpty(datum))
           .filter(screen => hasScreensToShow(screen));
-        this.setState({ menuConfig: { menu: allowedData } });
+        //render menu from server config 
+        //this.setState({ menuConfig: { menu: allowedData } });
+        //by pass render menu from server config 
+        //this.setState({ menuConfig: { menu: menuConfig.menu } });
+        let renderFromServer = menuConfig.renderFromServer || false
+        renderFromServer ? this.setState({ menuConfig: { menu: allowedData } }) : this.setState({ menuConfig: { menu: menuConfig.menu } })
       }
     }
 

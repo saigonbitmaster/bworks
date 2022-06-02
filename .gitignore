@@ -27,32 +27,23 @@ package-lock.json
 # testing
 /coverage
 #cache
-/packages/water-api/temp
-/packages/water-api/tempSpreadSheet/excel/generated
-/packages/water-api/tempSpreadSheet/excel/uploaded
-/packages/water-api/common/common-logic/engine/templating/views
-/packages/ra-loopback3/client
-
+/packages/bworks-api/temp
+/packages/bworks-api/tempFolder
+/packages/ra-loopback3
 # production
 /build
-/packages/water-api/client/nms
-/packages/water-api/client/ctm
-/packages/water-api/client/src
-/packages/water-api/client/org
-/packages/water-api/client/cmn
-/packages/water-api/client/ftr
-/packages/water-api/client/client
-/packages/wnms-web/dist
-/packages/wctm-web/dist
+/packages/bworks-api/client
+/packages/web-common
 /packages/*/yarn.lock
-/packages/water-api/server/datasources.local.*
+/packages/bworks-api/server/datasources.local.*
 /tmp
-
+/packages/*/.env
 # misc
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+yarn.lock
 
 package.json.lerna_backup
 package-lock.json

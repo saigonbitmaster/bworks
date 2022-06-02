@@ -7,10 +7,13 @@ import { QuantityIcon } from '../../../styles/Icons';
 import StatisticWidget from './StatisticWidget';
 import Icon from '@material-ui/icons/WorkOutline'
 class TotalSourceCapacity extends Component {
-  constructor(props) {
-    super(props);
-    const { translate } = props;
-    this.state = {
+
+
+  componentDidMount() {
+  }
+  render() {
+    const translate = this.props.translate;
+    let state = {
       title: translate('generic.emp.widget.employer'),
      
       data: {
@@ -19,14 +22,7 @@ class TotalSourceCapacity extends Component {
         year: { label: translate('generic.emp.widget.thisYear'), value: 120000, status: 'ok' },
       },
     };
-  }
-
-
-  componentDidMount() {
-  //  this.dashboardData();
-  }
-  render() {
-    return <StatisticWidget iconStyle={{ backgroundColor: green[500] }} icon={<Icon />} {...this.state} />;
+    return <StatisticWidget iconStyle={{ backgroundColor: green[500] }} icon={<Icon />} {...state} />;
   }
 }
 

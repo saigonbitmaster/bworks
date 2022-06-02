@@ -6,10 +6,15 @@ import { WaterSourceIcon } from '../../../styles/Icons';
 import StatisticWidget from './StatisticWidget';
 
 class WaterSourceCount extends Component {
-  constructor(props) {
-    super(props);
-    const { translate } = props;
-    this.state = {
+
+
+  componentDidMount() {
+ //   this.dashboardData();
+ 
+  }
+  render() {
+    const { translate } = this.props;
+    let state = {
       title: translate('generic.emp.widget.jobSeeker'),
       
       data: {
@@ -30,15 +35,7 @@ class WaterSourceCount extends Component {
         },
       },
     };
-  }
-
-
-  componentDidMount() {
- //   this.dashboardData();
- 
-  }
-  render() {
-    return <StatisticWidget icon={<WaterSourceIcon />} {...this.state} />;
+    return <StatisticWidget icon={<WaterSourceIcon />} {...state} />;
   }
 }
 

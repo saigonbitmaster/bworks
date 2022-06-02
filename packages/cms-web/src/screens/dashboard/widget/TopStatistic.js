@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Grid, withTheme } from '@material-ui/core';
-import { withDataProvider } from 'ra-loopback3';
+import { withDataProvider, translate } from 'ra-loopback3';
 import { compose } from 'recompose';
 import TotalSourceCapacity from './totalSourceCapacity';
 import WaterSourceCount from './waterSourceCount';
@@ -15,16 +15,17 @@ class TopStatistic extends Component {
     return (
       <Grid container spacing={2}>
         <Grid item sm={6} md={3} xs={12}>
-          <TotalSourceCapacity />
+          <TotalSourceCapacity  {...this.props}/>
         </Grid>
         <Grid item sm={6} md={3} xs={12}>
-          <WaterSourceCount />
+          <WaterSourceCount  {...this.props}/>
+        </Grid>
+        
+        <Grid item sm={6} md={3} xs={12}>
+          <WaterSourceStatistic {...this.props} />
         </Grid>
         <Grid item sm={6} md={3} xs={12}>
-          <WaterSourceStatistic />
-        </Grid>
-        <Grid item sm={6} md={3} xs={12}>
-          <FactoryStatisticWidget />
+          <FactoryStatisticWidget  {...this.props} />
         </Grid>
       </Grid>
     );
@@ -33,7 +34,8 @@ class TopStatistic extends Component {
 TopStatistic.propTypes = {
   dataProvider: PropTypes.func,
   theme: PropTypes.object,
+  translate: PropTypes.func
 };
 
-const enhance = compose(withTheme, withDataProvider);
+const enhance = compose(translate, withTheme, withDataProvider);
 export default enhance(TopStatistic);

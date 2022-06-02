@@ -1,9 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import MenuItem from '@material-ui/core/MenuItem';
-// import ListItemIcon from '@material-ui/core/ListItemIcon';
 import Typography from '@material-ui/core/Typography';
-// import PriorityHighIcon from '@material-ui/icons/PriorityHigh';
 import { compose } from 'recompose';
 import { withDataProvider, CUSTOM, translate } from 'ra-loopback3';
 import config from '../../Config';
@@ -11,22 +9,6 @@ import config from '../../Config';
 class Notify extends Component {
   state = { notifyItems: [] };
 
-  componentDidMount() {
-    this.loadNotify();
-  }
-
-  loadNotify = () => {
-    const { dataProvider } = this.props;
-    dataProvider(CUSTOM, 'WaterSources', {
-      subUrl: 'dashboard',
-      method: 'get',
-      query: { mode: 'notify' },
-    }).then(res => {
-      if (res) {
-        this.setState({ notifyItems: res.data });
-      }
-    });
-  };
 
   colorMap = colorCode => {
     let color = null;
@@ -50,12 +32,12 @@ class Notify extends Component {
   };
 
   renderItem = arr =>
+    
     arr.map(item => {
+     
       return (
         <Fragment key={item._id}>
-          <MenuItem onClick={this.props.handleClose}>
-            <Typography variant="subheading"> {item.dataLoggerName} </Typography>
-          </MenuItem>
+          
           {item.alertRecord.totalAlert.map(subItem => {
             return (
               <MenuItem key={subItem.param} style={{ marginLeft: '10px' }} onClick={this.props.handleClose}>
@@ -72,7 +54,8 @@ class Notify extends Component {
 
   render() {
     // const { handleClose } = this.props;
-    const { notifyItems } = this.state;
+   
+   let notifyItems = [{_id: 1, jobName: 2, alertRecord: {totalAlert: [{param: 1, alert: 2}]}}]
     if (notifyItems.length < 1) {
       return null;
     }

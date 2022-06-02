@@ -12,6 +12,9 @@ import Popper from '@material-ui/core/Popper';
 import MenuList from '@material-ui/core/MenuList';
 import withDataProvider from '../data/withDataProvider';
 
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+
 @withDataProvider
 export default class NotifyHeader extends Component {
   static propTypes = {
@@ -50,21 +53,7 @@ export default class NotifyHeader extends Component {
     const { total, anchorEl } = this.state;
     const { notifyComponent } = this.props;
     if (!total) return null;
-    // debugger;
-    // return (
-    //   <Fragment>
-    //     <IconButton color="inherit" aria-label="Notification" onClick={this.handleClick}>
-    //       <Badge color="error" badgeContent={total} invisible={false}>
-    //         <NotificationsIcon />
-    //       </Badge>
-    //     </IconButton>
-    //     {notifyComponent && (
-    //       <Menu id="simple-menu" anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={this.handleClose}>
-    //         {createElement(notifyComponent, { anchorEl, handleClose: this.handleClose, open: Boolean(anchorEl) })}
-    //       </Menu>
-    //     )}
-    //   </Fragment>
-    // );
+   
     return (
       <div>
         <IconButton color="inherit" aria-label="Notification" onClick={this.handleClick}>
@@ -73,46 +62,20 @@ export default class NotifyHeader extends Component {
           </Badge>
         </IconButton>
         {notifyComponent && (
-          <Popper
-            open={Boolean(anchorEl)}
-            anchorEl={this.anchorEl}
-            anchorOrigin={{
-              vertical: 'bottom',
-              horizontal: 'right',
-            }}
-            transformOrigin={{
-              vertical: 'top',
-              horizontal: 'right',
-            }}
-            transition
-            disablePortal
-          >
-            {({ TransitionProps, placement }) => (
-              <Grow
-                {...TransitionProps}
-                id="menu-list-grow"
-                style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
-              >
-                <Paper>
-                  <ClickAwayListener onClickAway={this.handleClose}>
-                    <MenuList>
-                      {createElement(notifyComponent, {
-                        anchorEl,
-                        handleClose: this.handleClose,
-                        open: Boolean(anchorEl),
-                      })}
-                    </MenuList>
-                  </ClickAwayListener>
-                </Paper>
-              </Grow>
-            )}
-          </Popper>
+         
+           <Menu
+           style ={{marginTop: 30}}
+        id="simple-menu"
+        anchorEl={anchorEl}
+        keepMounted
+        open={Boolean(anchorEl)}
+        onClose={this.handleClose}
+      >
+        <MenuItem onClick={this.handleClose}>New posted jobs: 10</MenuItem>
+        <MenuItem onClick={this.handleClose}>New bidding jobs: 30</MenuItem>
+        <MenuItem onClick={this.handleClose}>New smart contracts: 5</MenuItem>
+      </Menu>
         )}
-        {/* {notifyComponent && (
-          <Menu id="simple-menu" anchorEl={anchorEl} open={Boolean(anchorEl)} onClose={this.handleClose}>
-            {createElement(notifyComponent, { anchorEl, handleClose: this.handleClose, open: Boolean(anchorEl) })}
-          </Menu>
-        )} */}
       </div>
     );
   }

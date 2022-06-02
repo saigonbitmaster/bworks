@@ -25,7 +25,7 @@ export default {
     }
   },
 
-  appName: 'Active HR solution on CARDANO - CMS module',
+  appName: 'CMS module',
   info: 'Infomation',
   meta: 'Meta',
   topMatchingJobs: "Bidding status",

@@ -8,10 +8,11 @@ import Icon from '@material-ui/icons/MoneyOutlined'
 import StatisticWidget from './StatisticWidget';
 
 class FlowLoggerStatisticWidget extends Component {
-  constructor(props) {
-    super(props);
-    const { translate } = props;
-    this.state = {
+
+
+  render() {
+    const { translate } = this.props;
+    let state = {
       title: translate('generic.emp.widget.fund'),
              
       data: {
@@ -24,46 +25,7 @@ class FlowLoggerStatisticWidget extends Component {
         designCapacity: { label: translate('generic.emp.widget.deposit'), value: 23000000, status: 'normal' },
       },
     };
-  }
-
-  /* loadStatus = () => {
-        const { dataProvider } = this.props;
-        const { baseOnFlowLogger } = this.state;
-        dataProvider(CUSTOM, 'WaterSource', {
-            subUrl: 'dashboard',
-            method: 'get',
-            query: { mode: baseOnFlowLogger ? 'FlowLogger' : 'Dma' },
-        }).then(res => {
-            if (res) {
-                this.setState({ currentStatus: res.data });
-            }
-        });
-    };*/
-
-  dashboardData = () => {
-    this.props
-      .dataProvider(CUSTOM, 'WaterSources', {
-        subUrl: 'dashboard',
-        method: 'get',
-        query: { mode: 'widget' },
-      })
-      .then(res => {
-        let totalFactory = res.data.filter(item => item.id == 'totalFactory')[0].value;
-        let currentQuantity = res.data.filter(item => item.id == 'totalCurrentDailyVolumeFactory')[0].value;
-        let designCapacity = res.data.filter(item => item.id == 'totalDailyCapacityFactory')[0].value;
-        let data = Object.assign({}, this.state.data);
-        data.count.value = totalFactory;
-        data.currentQuantity.value = currentQuantity;
-        data.designCapacity.value = designCapacity;
-        this.setState(data);
-      });
-  };
-
-  componentDidMount() {
-   // this.dashboardData();
-  }
-  render() {
-    return <StatisticWidget iconStyle={{ backgroundColor: blue[500] }} icon={<Icon />} {...this.state} />;
+    return <StatisticWidget iconStyle={{ backgroundColor: blue[500] }} icon={<Icon />} {...state} />;
   }
 }
 

@@ -9,8 +9,15 @@ import StatisticWidget from './StatisticWidget';
 class WaterSourceStatistic extends Component {
   constructor(props) {
     super(props);
-    const { translate } = props;
-    this.state = {
+  
+  }
+
+
+  componentDidMount() {
+  }
+  render() {
+    const { translate } = this.props;
+    let state = {
       title: translate('generic.emp.widget.jobPost'),
       
       data: {
@@ -19,36 +26,11 @@ class WaterSourceStatistic extends Component {
         thisYear: { label: translate('generic.emp.widget.contractedJobs'), value: 150000, status: 'normal' },
       },
     };
-  }
-
-  dashboardData = () => {
-    this.props
-      .dataProvider(CUSTOM, 'WaterSources', {
-        subUrl: 'dashboard',
-        method: 'get',
-        query: { mode: 'widget' },
-      })
-      .then(res => {
-        let todayValue = res.data.filter(item => item.id == 'today')[0].value;
-        let lastMonthValue = res.data.filter(item => item.id == 'lastMonth')[0].value;
-        let thisYearValue = res.data.filter(item => item.id == 'thisYear')[0].value;
-        let data = Object.assign({}, this.state.data);
-        data.today.value = todayValue;
-        data.lastMonth.value = lastMonthValue;
-        data.thisYear.value = thisYearValue;
-        this.setState(data);
-      });
-  };
-
-  componentDidMount() {
-  //  this.dashboardData();
-  }
-  render() {
     return (
       <StatisticWidget
         iconStyle={{ backgroundColor: this.props.theme.palette.error.main }}
         icon={<ReportVolumeIcon />}
-        {...this.state}
+        {...state}
       />
     );
   }

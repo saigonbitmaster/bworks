@@ -25,7 +25,10 @@ import ReportKpi from '../screens/reportKpi';
 import SourceTemplate from '../screens/changepassword';
 import AdfScannerIcon from '@material-ui/icons/AccountBoxOutlined';
 
+import appUser from '../screens/appUser';
+
 export default {
+  renderFromServer: false,
   menu: [
     dashboard,
     {
@@ -55,5 +58,7 @@ export default {
     },
     SourceTemplate,
     configuration,
+    appUser
+    
   ],
 };

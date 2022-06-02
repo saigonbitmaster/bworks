@@ -39,8 +39,8 @@ export const Storage = {
   },
   getUserLanguage: () => {
     const user = Storage.getUser();
-    if (!user) return 'vi';
-    return user.language || 'vi';
+    if (!user) return 'en';
+    return user.language || 'en';
   },
   setUserLanguage: language => {
     const user = Storage.getUser();

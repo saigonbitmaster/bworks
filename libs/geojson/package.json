@@ -2,7 +2,7 @@
   "name": "geojson",
   "version": "1.0.0",
   "main": "geojson.js",
-  "author": "setfil",
+  "author": "bworks",
   "license": "MIT",
   "private": true
 }
