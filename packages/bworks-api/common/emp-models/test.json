@@ -84,6 +84,7 @@
 },
 "validations": [],
 "relations": {},
-"acls": [],
+"acls": [
+],
 "methods": {}
 }

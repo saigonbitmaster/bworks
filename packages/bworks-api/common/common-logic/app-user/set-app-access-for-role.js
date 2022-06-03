@@ -4,10 +4,10 @@ const createSwaggerObject = require('loopback-swagger').generateSwaggerSpec;
 const roleOperationToProperty = require('../../utils/role-operation-to-property');
 
 // eslint-disable-next-line no-unused-vars
-module.exports = function(Appuser) {
+module.exports = function(AppUser) {
   // toannt 2021/03/24, hot fix override web permissions
-  Appuser.setAppAccessForRole = async (project, roleName, matrix, menu) => {
-    const app = Appuser.app;
+  AppUser.setAppAccessForRole = async (project, roleName, matrix, menu) => {
+    const app = AppUser.app;
     let fixRoleName = `${project}-${roleName}`;
     // verify current role
     let role = await app.models.Role.findOne({ where: { name: fixRoleName } });
@@ -39,7 +39,7 @@ module.exports = function(Appuser) {
   };
 
   const buildACls = (fixRoleName, matrix) => {
-    const swaggerObject = createSwaggerObject(Appuser.app, {});
+    const swaggerObject = createSwaggerObject(AppUser.app, {});
     const acls = [];
     const urlMaping = {};
     Object.keys(swaggerObject.paths).map(url => {
@@ -74,7 +74,7 @@ module.exports = function(Appuser) {
 
     return acls;
   };
-  Appuser.remoteMethod('setAppAccessForRole', {
+  AppUser.remoteMethod('setAppAccessForRole', {
     accepts: [
       { arg: 'project', type: 'string', required: true },
       { arg: 'roleName', type: 'string', required: true },

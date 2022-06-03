@@ -5,12 +5,12 @@ const has = require('lodash/has');
 const roleOperationToProperty = require('../../utils/role-operation-to-property');
 
 // eslint-disable-next-line no-unused-vars
-module.exports = function(Appuser) {
-  Appuser.rolesToPaths = async (project, roleNames, extAcls = []) => {
+module.exports = function(AppUser) {
+  AppUser.rolesToPaths = async (project, roleNames, extAcls = []) => {
     const fixRoleNames = roleNames.map(item =>
       item.indexOf(`${project}-`) == 0 || item.indexOf('$') === 0 ? item : `${project}-${item}`,
     );
-    const app = Appuser.app;
+    const app = AppUser.app;
     let apiPath = {};
     let menu = {};
     let appMenu = {};

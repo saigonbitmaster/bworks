@@ -5,7 +5,6 @@ module.exports = [
     principalId: '1a1a1a1a1a1a1a1a1a1a1a1b',
     roleId: '1a1a1a1a1a1a1a1a1a1a1000',
   },
-  // Add admin and recorder roles to respective app user
   {
     id: '1a1a1a1a1a1a1a1a1a1b1002',
     principalType: 'USER',
@@ -18,8 +17,6 @@ module.exports = [
     principalId: '1a1a1a1a1a1a1a1a1a1a1a1d',
     roleId: '1a1a1a1a1a1a1a1a1a1a1003',
   },
-
-  // Add role to master client user
   {
     id: '1a1a1a1a1a1a1a1a1a1b1005',
     principalType: 'USER',

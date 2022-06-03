@@ -35,15 +35,22 @@ module.exports = [
     principalType: 'ROLE',
     principalId: '$unauthenticated',
   },
-
-  // For wctm-client
   {
-    id: '1a1a1a1a1a1a1a1a1a101003',
-    model: 'ClientUser',
-    property: 'requestToCreateNewAccount',
+    id: '1a1a1a1a1a1a1a1a1a101005',
+    model: '*',
+    property: '*',
     accessType: '*',
     permission: 'ALLOW',
     principalType: 'ROLE',
-    principalId: '$unauthenticated',
+    principalId: 'admin',
+  },
+  {
+    id: '1a1a1a1a1a1a1a1a1a101006',
+    model: 'AppUser',
+    property: '*',
+    accessType: '*',
+    permission: 'ALLOW',
+    principalType: 'ROLE',
+    principalId: 'admin',
   },
 ];

@@ -1,7 +1,5 @@
-const ClientUser = require('./users');
-const RoleMapping = require('./roleMapping');
+const TestData = require('./testData');
 
 module.exports = {
-  ClientUser,
-  RoleMapping,
+  TestData
 };

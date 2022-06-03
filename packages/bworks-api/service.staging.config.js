@@ -2,7 +2,7 @@ module.exports = {
   apps: [
     {
       name: 'bworks[staging]',
-      cwd: `${process.env.HOME}/auto-deploy/water/packages/bworks-api`,
+      cwd: `${process.env.HOME}/auto-deploy/bworks/packages/bworks-api`,
       script: 'server/server.js',
       restart_delay: 600000,
       watch: false,

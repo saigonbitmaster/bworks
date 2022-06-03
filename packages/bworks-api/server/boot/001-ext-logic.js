@@ -4,7 +4,7 @@ const fs = require('fs');
 const get = require('lodash/get');
 const { pascalCase, camelCase } = require('change-case');
 // eslint-disable-next-line no-undef
-const debug = require('debug')('water-api:boot:ext-logic');
+const debug = require('debug')('bworks-api:boot:ext-logic');
 
 const LOGIC_DIRS = [
   'common/common-logic',

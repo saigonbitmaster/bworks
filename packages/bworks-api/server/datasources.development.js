@@ -39,9 +39,8 @@ const email = {
 }
 const dts = {
   email: email,
-  orgMain: mongoConfig('orgMain'),
-  orgMain1: mongoConfig('orgMain1'),
-  srcMain: mongoConfig('srcMain'),
+  bWorksSystem: mongoConfig('bWorksSystem'),
+  bWorksData: mongoConfig('bWorksData'),
   redis: {
     host: REDIS_HOST,
     port: 6379,
@@ -59,5 +58,5 @@ const dts = {
 };
 
 // eslint-disable-next-line no-console
-console.log('development', dts.srcMain.url);
+console.log('development', dts.bWorksData.url);
 module.exports = dts;

@@ -1,6 +1,6 @@
-const S3_KEY = process.env.S3_KEY || 'AKIAJTTWQ7FVPEO333HA';
-const S3_SECRET = process.env.S3_SECRET || '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';
-const S3_BUCKET = process.env.S3_BUCKET || 'hcm30';
+const S3_KEY = process.env.S3_KEY;
+const S3_SECRET = process.env.S3_SECRET;
+const S3_BUCKET = process.env.S3_BUCKET;
 const MONGO_HOST = 'mongo';
 const REDIS_HOST = 'redis';
 const mongoConfig = name => ({
@@ -25,8 +25,8 @@ const s3Config = (name, prefix) => ({
 });
 const dts = {
 
-  orgMain: mongoConfig('orgMain'),
-  srcMain: mongoConfig('srcMain'),
+  bWorksData: mongoConfig('bWorksData'),
+  bWorksSystem: mongoConfig('bWorksSystem'),
   redis: {
     host: REDIS_HOST,
     port: 6379,

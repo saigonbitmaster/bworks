@@ -1,10 +1,10 @@
 {
-  "orgMain": {
-    "name": "orgMain",
+  "bWorksSystem": {
+    "name": "bWorksSystem",
     "connector": "mongodb"
   },
-  "srcMain": {
-    "name": "srcMain",
+  "bWorksData": {
+    "name": "bWorksData",
     "connector": "mongodb"
   },
   "redis": {

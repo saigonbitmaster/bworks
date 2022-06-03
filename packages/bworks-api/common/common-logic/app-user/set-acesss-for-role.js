@@ -4,10 +4,9 @@ const createSwaggerObject = require('loopback-swagger').generateSwaggerSpec;
 const roleOperationToProperty = require('../../utils/role-operation-to-property');
 
 // eslint-disable-next-line no-unused-vars
-module.exports = function(Appuser) {
-  Appuser.setAccessForRole = async (project, roleName, matrix, menu) => {
-    console.log("set access role")
-    const app = Appuser.app;
+module.exports = function(AppUser) {
+  AppUser.setAccessForRole = async (project, roleName, matrix, menu) => {
+    const app = AppUser.app;
     let fixRoleName = `${project}-${roleName}`;
     // verify current role
     let role = await app.models.Role.findOne({ where: { name: fixRoleName } });
@@ -27,7 +26,7 @@ module.exports = function(Appuser) {
   };
 
   const buildACls = (fixRoleName, matrix) => {
-    const swaggerObject = createSwaggerObject(Appuser.app, {});
+    const swaggerObject = createSwaggerObject(AppUser.app, {});
     const acls = [];
     const urlMaping = {};
     Object.keys(swaggerObject.paths).map(url => {
@@ -62,7 +61,7 @@ module.exports = function(Appuser) {
 
     return acls;
   };
-  Appuser.remoteMethod('setAccessForRole', {
+  AppUser.remoteMethod('setAccessForRole', {
     accepts: [
       { arg: 'project', type: 'string', required: true },
       { arg: 'roleName', type: 'string', required: true },

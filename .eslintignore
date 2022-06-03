@@ -4,5 +4,5 @@ lib
 /libs/loopback-storage-aws
 /libs/loopback-connector-mongodb
 /libs/loopback-datasource-juggler
-packages/water-api/client
+packages/bworks-api/client
 /docker-config

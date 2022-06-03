@@ -2,14 +2,9 @@ import dashboard from '../screens/dashboard';
 import {
   GeoIcon,
   ParentMenuReportIcon,
-  ParentMenuDesignIcon,
-  ParentMenuStandardIcon,
   ParentMenuStatisticIcon,
-  MonitorIcon,
-  AppUserIcon,
 } from '../styles/Icons';
 
-// import GeoCountry from '../screens/geoCountry';
 import FundHistory from '../screens/reportFund';
 import PostedJob from '../screens/reportPostedJob';
 import SmartContract from '../screens/reportSmartContract';

@@ -24,8 +24,8 @@ const s3Config = (name, prefix) => ({
   },
 });
 const dts = {
-  orgMain: mongoConfig('orgMain'),
-  srcMain: mongoConfig('srcMain'),
+  bWorksSystem: mongoConfig('bWorksSystem'),
+  bWorksData: mongoConfig('bWorksData'),
   redis: {
     host: REDIS_HOST,
     port: 6379,

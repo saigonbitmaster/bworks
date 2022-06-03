@@ -4,6 +4,5 @@ export default {
   },
   data: {
     dataSaveSuccess: 'Dữ liệu đã được lưu',
-    geoDataSaveSuccess: 'Dữ liệu địa lý đã được lưu',
   },
 };

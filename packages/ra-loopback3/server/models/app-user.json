@@ -58,28 +58,6 @@
     "verificationToken": {
       "type": "string"
     },
-    "wardInChargeIds": {
-      "type": [
-        "objectid"
-      ],
-      "index": true
-    },
-    "quarterInChargeIds": {
-      "type": [
-        "objectid"
-      ],
-      "index": true
-    },
-    "provinces": {
-      "type": [
-        "objectid"
-      ]
-    },
-    "districts": {
-      "type": [
-        "objectid"
-      ]
-    },
     "userdevices": {
       "type": [
         "object"

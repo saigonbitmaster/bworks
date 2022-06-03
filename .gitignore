@@ -59,7 +59,7 @@ report*.json
 ~$*.docx
 ~$*.doc
 tmp-test-job.js
-
+test.js
 .data
 
 /setup-bundle*

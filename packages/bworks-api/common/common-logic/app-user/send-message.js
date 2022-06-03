@@ -9,7 +9,7 @@ module.exports = AppUser => {
   AppUser.sendMessage = async (type, data) => {
     const MessageSystem = AppUser.app.models.MessageSystem;
     if (type === 'ALL') {
-      const to = 'toannt@Bworks.online'; // testing
+      const to = 'system@bworks.app'; // testing
       MessageSystem.requestSendmail('mail', { ...data, to });
     }
   };

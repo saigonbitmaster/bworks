@@ -5,7 +5,7 @@ const get = require('lodash/get');
 const createError = require('http-errors');
 const si = require('systeminformation');
 const jobDefaults = require('./job-defaults');
-const debug = require('debug')('water-api:job');
+const debug = require('debug')('bworks-api:job');
 
 const backoff = jobBackoff => {
   debug('jobBackoff', jobBackoff);

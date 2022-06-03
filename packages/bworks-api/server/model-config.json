@@ -7,10 +7,9 @@
       "../common/models",
       "./models",
       "../common/common-models",
-      "../common/source-models",
-      "../common/source-models/sub-models",
       "../common/org-models",
-      "../common/emp-models"
+      "../common/emp-models",
+      "../common/jsk-models"
     ],
     "mixins": [
       "loopback/common/mixins",
@@ -21,7 +20,7 @@
     ]
   },
   "AccessToken": {
-    "dataSource": "orgMain",
+    "dataSource": "bWorksSystem",
     "public": false,
     "relations": {
       "user": {
@@ -32,101 +31,108 @@
     }
   },
   "ACL": {
-    "dataSource": "orgMain",
+    "dataSource": "bWorksSystem",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "orgMain",
+    "dataSource": "bWorksSystem",
     "public": true,
     "options": {
       "strictObjectIDCoercion": true
     }
   },
   "Role": {
-    "dataSource": "orgMain",
+    "dataSource": "bWorksSystem",
     "public": true
   },
   "Email": {
     "dataSource": "email"
   },
   "AppUser": {
-    "dataSource": "orgMain",
-    "public": true
+    "dataSource": "bWorksSystem",
+    "public": true,
+    "options": {
+      "emailVerificationRequired": true
+    }
   },
   "AutoIncrease": {
-    "dataSource": "orgMain",
+    "dataSource": "bWorksSystem",
     "public": false
   },
   "PostJob": {
-    "dataSource": "srcMain",
+    "dataSource": "bWorksData",
     "public": true
   },
   "JsPostJob": {
-    "dataSource": "srcMain",
+    "dataSource": "bWorksData",
     "public": true
   },
 
   "BackgroundJob": {
-    "dataSource": "srcMain",
+    "dataSource": "bWorksSystem",
     "public": true
   },
   "PackageConfig": {
-    "dataSource": "orgMain"
+    "dataSource": "bWorksSystem"
   },
   "OrgConfig": {
-    "dataSource": "orgMain",
+    "dataSource": "bWorksSystem",
     "public": true
   },
   "MessageSystem": {
-    "dataSource": "orgMain",
+    "dataSource": "bWorksSystem",
     "public": true
   },
   "Deposit": {
-    "dataSource": "srcMain",
+    "dataSource": "bWorksData",
     "public": true
   },
   "Withdraw": {
-    "dataSource": "srcMain",
+    "dataSource": "bWorksData",
     "public": true
   },
   "JsDeposit": {
-    "dataSource": "srcMain",
+    "dataSource": "bWorksData",
     "public": true
   },
   "JsWithdraw": {
-    "dataSource": "srcMain",
+    "dataSource": "bWorksData",
     "public": true
   },
   "BiddingJob": {
-    "dataSource": "srcMain",
+    "dataSource": "bWorksData",
     "public": true
   },
   "JsBiddingJob": {
-    "dataSource": "srcMain",
+    "dataSource": "bWorksData",
     "public": true
   },
   "ContractedJob": {
-    "dataSource": "srcMain",
+    "dataSource": "bWorksData",
     "public": true
   },
   "JsContractedJob": {
-    "dataSource": "srcMain",
+    "dataSource": "bWorksData",
     "public": true
   },
   "ReportFund": {
-    "dataSource": "srcMain",
+    "dataSource": "bWorksData",
     "public": true
   },
   "JsReportFund": {
-    "dataSource": "srcMain",
+    "dataSource": "bWorksData",
     "public": true
   },
   "Order": {
-    "dataSource": "srcMain",
+    "dataSource": "bWorksData",
     "public": true
   },
   "Test": {
-    "dataSource": "srcMain",
+    "dataSource": "bWorksData",
+    "public": true
+  },
+  "TestData": {
+    "dataSource": "bWorksData",
     "public": true
   }
 }

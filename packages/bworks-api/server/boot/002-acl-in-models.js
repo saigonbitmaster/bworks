@@ -1,6 +1,6 @@
 'use strict';
 const get = require('lodash/get');
-const debug = require('debug')('water-api:boot:acl');
+const debug = require('debug')('bworks-api:boot:acl');
 
 module.exports = app => {
   // add index for relation keys for all models

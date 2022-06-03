@@ -1,5 +1,5 @@
 'use strict';
-const debug = require('debug')('water-api:middleware:tracker');
+const debug = require('debug')('bworks-api:middleware:tracker');
 
 module.exports = function() {
   return function tracker(req, res, next) {
