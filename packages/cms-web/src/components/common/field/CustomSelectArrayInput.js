@@ -11,15 +11,15 @@ import get from 'lodash/get';
 import intersection from 'lodash/intersection';
 
 const customIntersection = (array1, array2) => {
-  const object1 = array1.reduce((acc, { id, title }) => ({ ...acc, [id]: title }), {});
+  const object1 = array1.reduce((acc, { id, name }) => ({ ...acc, [id]: name }), {});
   const intersectioned = intersection(
     array1.map(({ id }) => id),
     array2,
   );
-  return intersectioned.map(matchedID => ({ id: matchedID, title: get(object1, matchedID) }));
+  return intersectioned.map(matchedID => ({ id: matchedID, name: get(object1, matchedID) }));
 };
 
-const styles = theme => ({
+const styles = () => ({
   formControl: {
     minWidth: 256,
   },
@@ -49,8 +49,8 @@ class CustomSelectArrayInput extends Component {
               const selectedOptionsWithLabel = customIntersection(options, selected);
               return (
                 <div className={classes.chips}>
-                  {selectedOptionsWithLabel.map(({ id, title }) => (
-                    <Chip key={id} label={title} className={classes.chip} onDelete={handleDelete(id)} />
+                  {selectedOptionsWithLabel.map(({ id, name }) => (
+                    <Chip key={id} label={name} className={classes.chip} onDelete={handleDelete(id)} />
                   ))}
                 </div>
               );
@@ -59,7 +59,7 @@ class CustomSelectArrayInput extends Component {
           >
             {options.map(option => (
               <MenuItem key={option.id} value={option.id}>
-                {option.title}
+                {option.name}
               </MenuItem>
             ))}
           </Select>

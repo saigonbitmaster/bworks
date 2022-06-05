@@ -20,7 +20,7 @@ class ChangePasswordPanel extends Component {
       <Edit {...this.props} title=" ">
         <SimpleForm form={`reset-password_${this.props.id}`} toolbar={<ChangePasswordToolbar />}>
           <div style={{ display: 'flex', alignItems: 'flex-end' }}>
-            <TextInput type={visible ? 'password' : 'text'} source="password" label="Mật khẩu mới" />
+            <TextInput type={visible ? 'password' : 'text'} source="password" label="New password" />
             <Button onClick={this.displayPassword}>{visible ? <Visibility /> : <VisibilityOff />}</Button>
           </div>
         </SimpleForm>

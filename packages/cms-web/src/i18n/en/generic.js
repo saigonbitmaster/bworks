@@ -26,7 +26,8 @@ export default {
   },
 
   appName: 'CMS module',
-  info: 'Infomation',
+  ban: "Ban",
+  info: 'Information',
   meta: 'Meta',
   topMatchingJobs: "Bidding status",
   wonBid: "Won bids",
@@ -101,7 +102,7 @@ export default {
     configuration: 'Settings',
     dashboard: 'Dashboard',
     permission: 'Permissions',
-    appUser: 'Employees',
+    appUser: 'Manage accounts',
     setting: 'Settings',
     design: 'Design/install',
    

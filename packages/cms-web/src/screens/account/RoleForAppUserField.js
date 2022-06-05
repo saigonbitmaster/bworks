@@ -30,7 +30,7 @@ class RoleForAppUserField extends Component {
       query: { id },
     });
     if (roles) {
-      const roleNames = roles.map(({ title }) => title).filter(title => title);
+      const roleNames = roles.map(({ name }) => name);
       this.setState({ roleNames });
     }
   };

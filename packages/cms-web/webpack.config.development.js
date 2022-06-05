@@ -9,8 +9,10 @@ const webpack = require('webpack');
 const envVariables = require('ra-loopback3/webpack-config/env-variables');
 
 let config = {
+ 
   devtool: 'eval-source-map',
   devServer: {
+    disableHostCheck: true,
     port: 3007,
     proxy: {
       '/api': 'http://localhost:4001',

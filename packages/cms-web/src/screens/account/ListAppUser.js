@@ -4,19 +4,13 @@ import {
   TextField,
   withDataProvider,
   SFEditButton,
-  // EditButton,
   Button,
-  // BooleanField,
   CUSTOM,
   translate,
   refreshView,
-  ReferenceArrayField,
-  SingleFieldList,
-  ChipField,
   CustomDatagrid,
 } from 'ra-loopback3';
 import { connect } from 'react-redux';
-import compose from 'recompose/compose';
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import BooleanFieldCustom from '../../components/common/field/BooleanFieldCustom';
@@ -76,6 +70,7 @@ class ListAppUser extends Component {
     permission: PropTypes.object,
   };
   render() {
+    const translate = this.props.translate
     return (
       <List
         {...this.props}
@@ -84,16 +79,16 @@ class ListAppUser extends Component {
         permissionDeleteDefault={{ name: 'appuser', action: 'delete' }}
       >
         <CustomDatagrid expand={<ChangePasswordPanel />}>
-          <TextField source="fullName" />
-          <TextField source="username" />
-          <TextField source="email" />
+          <TextField source="fullName"  label={translate('resources.accounts.fields.fullName')}/>
+          <TextField source="username" label={translate('resources.accounts.fields.userName')}/>
+          <TextField source="email" label={translate('resources.accounts.fields.email')}/>
           <BooleanFieldCustom source="isBanned" />
           <RoleForAppUserField
             record={this.props.record}
-            label={this.props.translate('resources.appusers.fields.role')}
+            label={this.props.translate('resources.accounts.fields.role')}
           />
-          <BanButton permission={{ name: 'appuser', action: 'ban' }} />
-          <Button label="Đổi mật khẩu" expandPanel={true}>
+          <BanButton permission={{ name: 'appuser', action: 'ban' }} label={this.props.translate('resources.accounts.fields.ban')} />
+          <Button label={translate('resources.accounts.fields.changePassword')} expandPanel={true}>
             <ChangePasswordIcon />
           </Button>
           <SFEditButton permission={{ name: 'appuser', action: 'edit' }} />

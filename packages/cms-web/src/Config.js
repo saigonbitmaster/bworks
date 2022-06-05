@@ -1,5 +1,5 @@
 export default {
-  projectKey: 'ctm',
+  projectKey: 'bworks',
   color: {
     status: {
       loss: '#5d4037',

@@ -21,11 +21,11 @@
     },
     "fullName": {
       "type": "string",
-      "required": true,
       "length": 256
     },
     "username": {
       "type": "string",
+      "required": true,
       "length": 64
     },
     "password": {
@@ -36,24 +36,17 @@
       "type": "string",
       "required": true
     },
-    "address1": {
+    "address": {
       "type": "string",
       "length": 256
     },
-    "address2": {
-      "type": "string",
-      "length": 256
-    },
-    "phone1": {
-      "type": "string",
-      "length": 32
-    },
-    "phone2": {
+    "phone": {
       "type": "string",
       "length": 32
     },
     "emailVerified": {
-      "type": "boolean"
+      "type": "boolean",
+      "default": false
     },
     "verificationToken": {
       "type": "string"
@@ -93,6 +86,7 @@
       "permission": "ALLOW",
       "property": "login"
     },
+   
     {
       "principalType": "ROLE",
       "principalId": "$everyone",

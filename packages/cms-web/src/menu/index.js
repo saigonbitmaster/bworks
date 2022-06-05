@@ -20,7 +20,7 @@ import ReportKpi from '../screens/reportKpi';
 import SourceTemplate from '../screens/changepassword';
 import AdfScannerIcon from '@material-ui/icons/AccountBoxOutlined';
 
-import appUser from '../screens/appUser';
+import appUser from '../screens/account';
 
 export default {
   renderFromServer: false,

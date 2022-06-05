@@ -42,6 +42,7 @@ TagsField.defaultProps = {
   addLabel: true
 };
 
+@translate
 class ListPostJob extends Component {
   render() {
     const { translate, ...rest } = this.props;
@@ -78,4 +79,4 @@ ListPostJob.propTypes = {
   hasEdit: PropTypes.bool,
 };
 
-export default compose(translate)(ListPostJob);
+export default ListPostJob

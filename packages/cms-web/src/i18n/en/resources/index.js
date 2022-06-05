@@ -1,4 +1,4 @@
-import appusers from './appusers';
+import accounts from './accounts';
 export default {
-  appusers,
+  accounts,
 };
