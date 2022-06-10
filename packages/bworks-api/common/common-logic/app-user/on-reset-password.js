@@ -5,7 +5,10 @@ module.exports = function(AppUser) {
     if (ctx.res.statusCode === 200) {
       AppUser.app.models.AccessToken.deleteById(ctx.req.accessToken.id, err => {
         if (err) next(err);
-        else next();
+        else {
+        
+          next();
+        }
       });
     } else {
       next();

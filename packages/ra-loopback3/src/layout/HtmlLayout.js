@@ -224,7 +224,7 @@ class LayoutWithTheme extends Component {
       <CommonProviderContext.Consumer>
         {({ project }) => {
           if (!myaccess) {
-            this.setAccess(project || 'ctm'); // default project: ctm
+            this.setAccess(project || 'bworks'); // default project: ctm
             return (
               <div className="loader-container">
                 <div className="loader">Loading...</div>

@@ -24,7 +24,7 @@
     "cors": false
   },
   "email": {
-    "email": "Bworkshelp@gmail.com",
+    "email": "wateroshelp@gmail.com",
     "password": "s5Cur300!"
   },
   "messageTypes": ["EMAIL", "NOTIFY_APP"],

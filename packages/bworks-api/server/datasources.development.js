@@ -23,6 +23,7 @@ const s3Config = (name, prefix) => ({
     prefix,
   },
 });
+
 const email = {
   name: "email",
   connector: "mail",
@@ -33,7 +34,7 @@ const email = {
     port: 465,
     auth: {
       user: "wateroshelp@gmail.com",
-      pass: "s5Cur300!"
+      pass: "vfgq qeaf gzrq kdcq"
     }
   }]
 }

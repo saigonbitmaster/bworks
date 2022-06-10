@@ -7,7 +7,6 @@
     "lintPath": "eslint",
     "lintFix": "eslint . --fix",
     "build-lib": "cd packages/ra-loopback3 && yarn -s build-export",
-    "build-org": "cd packages/worg-web && yarn -s build",
     "build-login": "cd packages/wlogin-web && yarn -s build",
     "run-api": "cd packages/bworks-api && yarn -s start",
     "run-dev": "cd packages/bworks-api && NODE_ENV=development yarn -s start",
@@ -17,7 +16,6 @@
     "run-cms": "cd packages/cms-web && yarn -s start",
     "build-cms": "cd packages/cms-web && yarn -s build",
     "build-jsk": "cd packages/jsk-web && yarn -s build",
-    "run-org": "cd packages/worg-web && yarn -s start",
     "run-login": "cd packages/wlogin-web && yarn -s start"
   },
   "devDependencies": {

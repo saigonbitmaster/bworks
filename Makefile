@@ -24,9 +24,9 @@ run-jsk: ## run jsk in development mode
 run-cms: ## run cms in development mode
 	@echo 'Run cms frontend'
 	@yarn run-cms
-run-org: ## run org in development mode
-	@echo 'Run org frontend'
-	@export NODE_ACTIVE_LANGUAGES=en,vi && yarn run-org
+run-login: ## run cms in development mode
+	@echo 'Run login frontend'
+	@yarn run-login
 
 # build
 build-lib: ## run build ra-loopback3 lib
@@ -41,14 +41,13 @@ build-jsk: ## run build jsk client
 build-cms: ## run build cms client
 	@echo 'Run build cms'
 	@export NODE_ACTIVE_LANGUAGES=vi,en && yarn build-cms
-build-org:  ## run build org client
+build-login:  ## run build org client
 	@echo 'Run build overview-web'
-	@export NODE_ACTIVE_LANGUAGES=vi,en && yarn build-org
+	@export NODE_ACTIVE_LANGUAGES=vi,en && yarn build-login
 build-all:  ## run build all libs & projects
 	@echo 'Run build all project'
 	@export NODE_ACTIVE_LANGUAGES=vi,en
 	@yarn build-jsk
-	@yarn build-org
 	@yarn build-emp
 	@yarn build-login
 	@yarn build-cms

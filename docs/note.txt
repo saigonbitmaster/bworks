@@ -1,0 +1,14 @@
+set password
+
+
+post /AppUsers/reset
+body:
+{
+"email": "bitmaster.sg@gmail.com"
+}
+
+user-hook.js will email with temp token use this token to set password:
+curl -X POST --header 'Content-Type: application/x-www-form-urlencoded' --header 'Accept: application/json' -d 'newPassword=123456789' 'http://localhost:4001/api/AppUsers/reset-password?access_token=lrKvUMiPNabRIAjEZGx2oCw6EKQyXrOzezBKjgz9pt4AZBwWYudAdG82e3SSPQJx'
+
+
+

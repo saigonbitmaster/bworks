@@ -47,7 +47,8 @@ module.exports = function(AppUser) {
 
   //send password reset link when requested
   AppUser.on('resetPasswordRequest', function(info) {
-    var url = 'http://' + config.host + ':' + config.port + '/reset-password';
+   // var url = 'http://' + process.env.HOST + ':' + process.env.PORT + '/reset-password';
+   var url = "http://localhost:3001/#/setPassword"
     var html = 'Click <a href="' + url + '?access_token=' + info.accessToken.id + '">here</a> to reset your password';
 
     AppUser.app.models.Email.send(
@@ -64,23 +65,4 @@ module.exports = function(AppUser) {
     );
   });
 
-  //render UI page after password change
-  AppUser.afterRemote('changePassword', function(context, user, next) {
-    context.res.render('response', {
-      title: 'Password changed successfully',
-      content: 'Please login again with new password',
-      redirectTo: '/',
-      redirectToLinkText: 'Log in',
-    });
-  });
-
-  //render UI page after password reset
-  AppUser.afterRemote('setPassword', function(context, user, next) {
-    context.res.render('response', {
-      title: 'Password reset success',
-      content: 'Your password has been reset successfully',
-      redirectTo: '/',
-      redirectToLinkText: 'Log in',
-    });
-  });
 };

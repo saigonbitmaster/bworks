@@ -80,11 +80,11 @@ export default {
     page_rows_per_page: 'Số dòng mỗi trang:',
   },
   auth: {
-    username: 'Người dùng',
-    password: 'Mật khẩu',
-    sign_in: 'Đăng nhập',
-    sign_in_error: 'Đăng nhập thất bại, vui lòng thử lại',
-    logout: 'Thoát',
+    username: 'Username',
+    password: 'Password',
+    sign_in: 'LOGIN',
+    sign_in_error: 'Please try again',
+    logout: 'Logout',
   },
   notification: {
     updated: 'Dữ liệu đã cập nhật |||| %{smart_count} dòng dữ liệu đã cập nhật',
