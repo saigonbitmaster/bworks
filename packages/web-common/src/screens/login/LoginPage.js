@@ -8,7 +8,6 @@ import { Person as LoginIcon } from '@material-ui/icons';
 import { defaultTheme, LoginForm as DefaultLoginForm } from 'ra-loopback3';
 import { CardHeader } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
-// import { debounce } from 'lodash';
 import { dailyBackgroundUrl } from '../../constants';
 
 const styles = theme => {
@@ -88,10 +87,6 @@ class Login extends Component {
     }
   }
 
-  // reloadBackground = debounce(() => {
-  //   this.backgroundImageLoaded = false;
-  //   this.loadBackground(`https://source.unsplash.com/1600x900/daily?${bgQuery()}`);
-  // }, 2000);
 
   render() {
     const { classes, className, loginForm } = this.props;
@@ -102,13 +97,6 @@ class Login extends Component {
         <div className={classnames(classes.main, className)} ref={this.containerRef}>
         <div style={{ marginTop: 0, marginRight: 10, top: 0, right: 0, position: "absolute"}} >
         </div>
-        
-          {/* <Tooltip title="Background">
-            <Fab color="primary" aria-label="random-image" onClick={this.reloadBackground} className={classes.fab}>
-              <BackgroundIcon />
-            </Fab>
-          </Tooltip> */}
-
           <Card className={classes.card}>
             <CardHeader
               avatar={
@@ -117,7 +105,6 @@ class Login extends Component {
                 </Avatar>
               }
               className={classes.cardHeader}
-              // subheader="Bworks"
               title="Bworks - Job marketplace"
             />
             {loginForm}

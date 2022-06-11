@@ -42,22 +42,6 @@ class SlideDemo extends Component {
 
 SlideDemo.defaultProps = {
   images: [
-    // {
-    //   url: 'https://source.unsplash.com/800x600/daily?water',
-    //   title: 'Tọa đàm về Giá nước sinh hoạt: Góc nhìn từ chuyên gia',
-    // },
-    // {
-    //   url: 'https://source.unsplash.com/800x600/daily?ocean',
-    //   title: 'Nước sông Hàn nhiễm Coliform gấp 8 lần quy chuẩn',
-    // },
-    // {
-    //   url: 'https://source.unsplash.com/800x600/daily?ocean-sea',
-    //   title: 'Nguồn nước cấp cho Nhà máy nước sạch Hải Phòng nhiễm mặn',
-    // },
-    // {
-    //   url: 'https://source.unsplash.com/800x600/daily?water-drop',
-    //   title: 'Tọa đàm về Giá nước sinh hoạt: Góc nhìn từ chuyên gia',
-    // },
   ],
 };
 

@@ -91,11 +91,7 @@ export { default as CustomPage } from './layout/CustomPage';
 export { default as CustomLoginPage } from './layout/CustomLoginPage';
 export { default as ClientInformationInquiringPage } from './layout/ClientInformationInquiringPage';
 export { default as RecoveryEmailResultPage } from './layout/RecoveryEmailResultPage';
-export { default as SetPassword } from './layout/PasswordSetPage';
-
-export { default as PasswordRecoveryPage } from './layout/PasswordRecoveryPage';
 export { default as CreateNewPasswordPage } from './layout/CreateNewPasswordPage';
-export { default as SubmitPage } from './layout/SubmitPage';
 export { default as DefaultLayout, layoutWithProps, darkTheme, lightTheme } from './layout/DefaultLayout';
 export { default as LinearProgress } from './layout/LinearProgress';
 export { default as Header } from './layout/Header';

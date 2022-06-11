@@ -13,9 +13,9 @@ module.exports = function(AppUser) {
   //send verification email after registration, custome host and port to use in production with NGINX
   AppUser.afterRemote('create', function(context, user, next) {
     var options = {
-      host: 'some.domain.com',
-      protocol: 'https',
-      port: 443,
+      host: 'localhost',
+      protocol: 'http',
+      port: 4001,
       text:
         'Please activate your account by clicking on this link or copying and pasting it in a new browser window:\n\t{href}',
       type: 'email',

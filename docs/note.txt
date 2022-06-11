@@ -12,3 +12,37 @@ curl -X POST --header 'Content-Type: application/x-www-form-urlencoded' --header
 
 
 
+- Show notification on client screen
+import { Notification, defaultTheme } from 'react-admin';
+import { showNotification } from 'ra-core';
+
+  submit = values => {
+    const { dataProvider, showNotification } = this.props;
+    dataProvider(CUSTOM, 'AppUsers', {
+      method: 'POST',
+      fullUrl: false,
+      body: { ...values }
+    })
+      .then(() => {
+        showNotification('Account is created, please verify email');
+      })
+      .catch(err => {
+        showNotification(err ? err.message : 'error.INTERNAL_SERVER_ERROR', 'warning');
+      });
+  };
+
+
+  render() {
+   
+    return (
+       <div>
+        
+          <Notification /> -> component to show message at the bottom
+        </div>
+    );
+  }
+}
+
+export default connect(null, { showNotification })(SubmitPage);
+
+

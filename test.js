@@ -10,4 +10,6 @@ function validateEmail(mail)
 
 let result = validateEmail("1thang.1@ActiveXObject.cm")
 
+let abc = ({a: x}) => console.log(x)
+abc({a:{b:1}})
 console.log(result)

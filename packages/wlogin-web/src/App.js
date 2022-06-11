@@ -13,7 +13,7 @@ import Resources from './menu/Resources';
 import config from './Config';
 import customRest from './menu/customRest';
 import Layout from './Layout';
-const NODE_DEFAULT_LANGUAGE = process.env.NODE_DEFAULT_LANGUAGE || 'vi';
+const NODE_DEFAULT_LANGUAGE = process.env.NODE_DEFAULT_LANGUAGE || 'en';
 
 class App extends Component {
   state = { ready: false };
@@ -23,14 +23,6 @@ class App extends Component {
     moment.updateLocale('vi', momentvi);
   }
   componentDidMount() {
-    // if ('serviceWorker' in navigator) {
-    //   if (process.env.NODE_ENV === 'production') {
-    //     runtime.register();
-    //   } else {
-    //     // eslint-disable-next-line no-console
-    //     console.log('Not register service workers');
-    //   }
-    // }
     this.setState({ ready: true });
   }
   render() {
