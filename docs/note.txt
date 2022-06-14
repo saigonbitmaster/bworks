@@ -46,3 +46,11 @@ import { showNotification } from 'ra-core';
 export default connect(null, { showNotification })(SubmitPage);
 
 
+#error log return to fetch and log to db
+without this model, the error will not detail.
+  "ErrorLog": {
+    "dataSource": "bWorkSystem",
+    "public": true
+  },
+
+ 

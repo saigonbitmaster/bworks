@@ -1,6 +1,6 @@
-const S3_KEY = process.env.S3_KEY || 'AKIAJTTWQ7FVPEO333HA';
-const S3_SECRET = process.env.S3_SECRET || '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';
-const S3_BUCKET = process.env.S3_BUCKET || 'hcm30';
+const S3_KEY = process.env.S3_KEY;
+const S3_SECRET = process.env.S3_SECRET;
+const S3_BUCKET = process.env.S3_BUCKET;
 const MONGO_HOST = 'localhost';
 const REDIS_HOST = 'localhost';
 const mongoConfig = name => ({

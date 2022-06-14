@@ -45,6 +45,11 @@
     "dataSource": "bWorksSystem",
     "public": true
   },
+
+  "ErrorLog": {
+    "dataSource": "bWorksSystem",
+    "public": true
+  },
   "Email": {
     "dataSource": "email"
   },

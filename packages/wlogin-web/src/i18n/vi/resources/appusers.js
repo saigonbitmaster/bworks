@@ -15,9 +15,6 @@ export default {
     currentPassword: 'Mật khẩu hiện tại',
     oldPassword: 'Mật khẩu cũ',
     newPassword: 'Mật khẩu mới',
-    wardsInCharged: 'Vùng cấp nước',
-    wardInChargeIds: 'Phường/xã phụ trách',
-    quarterInChargeIds: 'Thôn/Ấp/Khu phố phụ trách',
     ...commonFields,
   },
   messages: {

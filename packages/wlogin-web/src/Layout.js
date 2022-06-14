@@ -17,7 +17,6 @@ import {
   darkTheme,
   lightTheme,
 } from 'ra-loopback3';
-import { dailyBackgroundUrl } from 'web-common';
 
 const styles = theme => ({
   root: {
