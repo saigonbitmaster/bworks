@@ -40,7 +40,7 @@ let config = {
     envVariables,
     new HtmlWebPackPlugin({
       template: './public/index.html',
-      favicon: './public/favicon.ico',
+      favicon: './public/lock.ico',
     }),
     new MiniCssExtractPlugin({
       filename: '[name].css',

@@ -1,23 +1,15 @@
-// Copyright IBM Corp. 2014,2019. All Rights Reserved.
-// Node module: loopback-example-user-management
-// This file is licensed under the MIT License.
-// License text available at https://opensource.org/licenses/MIT
-
-var config = {};
 var path = require('path');
 
-//Replace this address with your actual address
 var senderAddress = 'wateroshelp@gmail.com';
 
 module.exports = function(AppUser) {
-  //send verification email after registration, custome host and port to use in production with NGINX
+  //send verification email after registration, custom host and port to use in production with NGINX
   AppUser.afterRemote('create', function(context, user, next) {
     var options = {
-      host: 'localhost',
-      protocol: 'http',
-      port: 4001,
-      text:
-        'Please activate your account by clicking on this link or copying and pasting it in a new browser window:\n\t{href}',
+      host: process.env.DOMAIN,
+      protocol: process.env.EXTERNAL_PROTOCOL || 'http',
+      port: process.env.EXTERNAL_PORT || 443,
+      text: 'Please activate your account by clicking on this link:\n\t{href}',
       type: 'email',
       to: user.email,
       from: senderAddress,
@@ -47,8 +39,8 @@ module.exports = function(AppUser) {
 
   //send password reset link when requested
   AppUser.on('resetPasswordRequest', function(info) {
-   // var url = 'http://' + process.env.HOST + ':' + process.env.PORT + '/reset-password';
-   var url = "http://localhost:3001/#/setPassword"
+    var url = process.env.EXTERNAL_PROTOCOL + '://' + process.env.DOMAIN + ':' + process.env.EXTERNAL_PORT + '/cmn/#/setpassword';
+    //var url = 'http://localhost:3001/#/setPassword';
     var html = 'Click <a href="' + url + '?access_token=' + info.accessToken.id + '">here</a> to reset your password';
 
     AppUser.app.models.Email.send(
@@ -59,10 +51,8 @@ module.exports = function(AppUser) {
         html: html,
       },
       function(err) {
-        if (err) return console.log('> error sending password reset email');
-        console.log('> sending password reset email to:', info.email);
+        if (err) return
       },
     );
   });
-
 };

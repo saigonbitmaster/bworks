@@ -60,10 +60,6 @@
         "params": "$!../client/emp"
       },
       {
-        "paths": ["/org"],
-        "params": "$!../client/org"
-      },
-      {
         "paths": ["/cmn"],
         "params": "$!../client/cmn"
       },
