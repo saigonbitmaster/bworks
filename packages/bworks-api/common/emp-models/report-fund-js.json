@@ -1,0 +1,31 @@
+{
+  "name": "JsReportFund",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "forceId": false,
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "createdDate": {
+      "type": "date"
+    },
+    "value": {
+      "type": "number"
+    },
+    "hash": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
