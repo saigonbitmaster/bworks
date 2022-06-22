@@ -10,7 +10,7 @@ import LatestStatus from './LatestStatus';
 class Dashboard extends React.Component {
   state = { currentStatus: [], baseOnFlowLogger: false };
   componentDidMount() {
-    this.loadStatus();
+ //   this.loadStatus();
   }
 
   loadStatus = () => {

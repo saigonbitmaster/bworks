@@ -34,25 +34,16 @@ const styles = theme => ({
 });
 
 const appData = [
-  {
-    icon: LanguageIcon,
-    name: 'Water Organization',
-    link: '/org',
-  },
-  {
-    icon: BubbleChartIcon,
-    name: 'Water Source',
-    link: '/src',
-  },
+ 
   {
     icon: DeviceHubIcon,
-    name: 'Water Supply Network',
-    link: '/nms',
+    name: 'Employer',
+    link: '/emp',
   },
   {
     icon: PeopleIcon,
-    name: 'Water Customer',
-    link: '/ctm',
+    name: 'Job seeker',
+    link: '/jsk',
   },
 ];
 

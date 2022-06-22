@@ -50,7 +50,7 @@ class App extends Component {
         title={<Title defaultTitle={'Employer module'} title={'generic.appName'} />}
         dataProvider={LoopbackRest('/api', customRest)}
         appLayout={layoutWithProps({
-          notifyBage: { notifyComponent: Notify, getTotal: getTotal },
+       /*    notifyBage: { notifyComponent: Notify, getTotal: getTotal }, */
           extBar: [{ key: 'apps', component: AppButton }],
         })}
         menuConfig={menuConfig}
