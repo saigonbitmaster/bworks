@@ -13,6 +13,7 @@ const LOGIC_DIRS = [
   'common/jsk-logic',
   'common/cardano-logic',
   'common/org-logic',
+  'common/cms-logic',
 ];
 const OVERRIDE = {
   Role: {

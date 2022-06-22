@@ -9,7 +9,8 @@
       "../common/common-models",
       "../common/org-models",
       "../common/emp-models",
-      "../common/jsk-models"
+      "../common/jsk-models",
+      "../common/cms-models"
     ],
     "mixins": [
       "loopback/common/mixins",
@@ -137,6 +138,10 @@
     "public": true
   },
   "TestData": {
+    "dataSource": "bWorksData",
+    "public": true
+  },
+  "Setting": {
     "dataSource": "bWorksData",
     "public": true
   }

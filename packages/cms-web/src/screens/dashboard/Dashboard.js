@@ -1,35 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'recompose';
-import { CustomPage, withDataProvider, CUSTOM , translate} from 'ra-loopback3';
+import { CustomPage, withDataProvider, CUSTOM, translate } from 'ra-loopback3';
 import { Grid, withTheme } from '@material-ui/core';
 import TopStatistic from './widget/TopStatistic';
-import Table from './table.js';
-import LatestStatus from './LatestStatus';
 import Chart from './chart.js';
-
 
 class Dashboard extends React.Component {
   state = { currentStatus: [], baseOnFlowLogger: false };
-  componentDidMount() {
-   
-  }
-
+  componentDidMount() {}
 
   render() {
-    const { theme } = this.props;
-    const { currentStatus, baseOnFlowLogger } = this.state;
     return (
       <CustomPage title={'generic.pages.dashboard'}>
         <Grid container spacing={2}>
           <Grid item xs={12}>
-            <TopStatistic {...this.props}/>
+            <TopStatistic {...this.props} />
           </Grid>
-         
+
           <Grid item xs={12} md={12} style={{ display: 'flex' }}>
-          <Chart />
+            <Chart />
           </Grid>
-          
         </Grid>
       </CustomPage>
     );

@@ -15,8 +15,8 @@ import {
 import { withDataProvider, translate } from 'ra-loopback3';
 
 import { StatusIcon } from '../../styles/Icons';
-import StatusItemBaseDma from './StatusItemBaseDma';
-import StatusItemBaseFlowLogger from './StatusItemBaseFlowLogger';
+import SelectedBids from './selectedBids';
+import TopBids from './topBids';
 
 const styles = theme => {
   return {
@@ -49,15 +49,15 @@ const styles = theme => {
       width: 24,
       height: 24,
     },
-    dmaItem: {
+    bidItem: {
       paddingLeft: theme.spacing(1),
       paddingRight: theme.spacing(1),
     },
   };
 };
 class LatestStatus extends Component {
-  getDmaPadding = dma => {
-    return (dma.level * 2 - 2) * this.props.theme.spacing(1);
+  getPadding = bid => {
+    return (bid.level * 2 - 2) * this.props.theme.spacing(1);
   };
 
   render() {
@@ -78,21 +78,21 @@ class LatestStatus extends Component {
             />
           }
         />
-        <CardContent className={classes.dmaItem}>
+        <CardContent className={classes.bidItem}>
           <Divider />
           {baseOnFlowLogger ? (
-            <StatusItemBaseFlowLogger
+            <TopBids
               currentStatus={currentStatus}
               classes={classes}
               theme={theme}
-              getDmaPadding={this.getDmaPadding}
+              getPadding={this.getPadding}
             />
           ) : (
-            <StatusItemBaseDma
+            <SelectedBids
               currentStatus={currentStatus}
               classes={classes}
               theme={theme}
-              getDmaPadding={this.getDmaPadding}
+              getPadding={this.getPadding}
             />
           )}
         </CardContent>

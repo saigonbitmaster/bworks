@@ -15,8 +15,8 @@ import {
 import { withDataProvider, translate } from 'ra-loopback3';
 
 import { StatusIcon } from '../../styles/Icons';
-import StatusItemBaseDma from './StatusItemBaseDma';
-import StatusItemBaseFlowLogger from './StatusItemBaseFlowLogger';
+import Offers from './offers';
+import PostedJobs from './postedJobs';
 
 const styles = theme => {
   return {
@@ -81,14 +81,14 @@ class LatestStatus extends Component {
         <CardContent className={classes.dmaItem}>
           <Divider />
           {baseOnFlowLogger ? (
-            <StatusItemBaseFlowLogger
+            <PostedJobs
               currentStatus={currentStatus}
               classes={classes}
               theme={theme}
               getDmaPadding={this.getDmaPadding}
             />
           ) : (
-            <StatusItemBaseDma
+            <Offers
               currentStatus={currentStatus}
               classes={classes}
               theme={theme}

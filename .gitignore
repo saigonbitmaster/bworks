@@ -27,17 +27,17 @@ package-lock.json
 # testing
 /coverage
 #cache
-/packages/bworks-api/temp
-/packages/bworks-api/tempFolder
-/packages/ra-loopback3
+#/packages/bworks-api/temp
+#/packages/bworks-api/tempFolder
+#/packages/ra-loopback3
 # production
 /build
-/packages/bworks-api/client
-/packages/web-common
+#/packages/bworks-api/client
+#/packages/web-common
 /packages/*/yarn.lock
 /packages/bworks-api/server/datasources.local.*
 /tmp
-/packages/*/.env
+#/packages/*/.env
 # misc
 .env.local
 .env.development.local

@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import { Grid, withTheme } from '@material-ui/core';
 import { withDataProvider, translate } from 'ra-loopback3';
 import { compose } from 'recompose';
-import TotalSourceCapacity from './totalSourceCapacity';
-import WaterSourceCount from './waterSourceCount';
-import FactoryStatisticWidget from './FactoryStatisticWidget';
-import WaterSourceStatistic from './waterSourceStatistic';
+import EmployerSum from './employerSum';
+import JobSeekerSum from './jobSeekerSum';
+import RevenueSum from './revenueSum';
+import JobPostSum from './jobPostSum';
 
 class TopStatistic extends Component {
   componentDidMount() {}
@@ -15,17 +15,17 @@ class TopStatistic extends Component {
     return (
       <Grid container spacing={2}>
         <Grid item sm={6} md={3} xs={12}>
-          <TotalSourceCapacity  {...this.props}/>
+          <EmployerSum  {...this.props}/>
         </Grid>
         <Grid item sm={6} md={3} xs={12}>
-          <WaterSourceCount  {...this.props}/>
+          <JobSeekerSum  {...this.props}/>
         </Grid>
         
         <Grid item sm={6} md={3} xs={12}>
-          <WaterSourceStatistic {...this.props} />
+          <JobPostSum {...this.props} />
         </Grid>
         <Grid item sm={6} md={3} xs={12}>
-          <FactoryStatisticWidget  {...this.props} />
+          <RevenueSum  {...this.props} />
         </Grid>
       </Grid>
     );

@@ -1,8 +1,8 @@
 import { RevenueIcon } from '../../styles/Icons';
-import ListreportFund from '../../resources/reportFund/listreportFund';
-import CreatereportFund from '../../resources/reportFund/createreportFund';
-import EditreportFund from '../../resources/reportFund/editreportFund';
-import ShowreportFund from '../../resources/reportFund/showreportFund';
+import ListreportFund from '../../resources/reportFund/listReportFund';
+import CreatereportFund from '../../resources/reportFund/createReportFund';
+import EditreportFund from '../../resources/reportFund/editReportFund';
+import ShowreportFund from '../../resources/reportFund/showReportFund';
 
 export default {
   name: 'reportFund',
