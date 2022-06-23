@@ -8,7 +8,7 @@ install: ## install dependencies
 	@echo 'Install all dependencies'
 	@yarn --force
 
-gen-en: ## generate en language, example: "make gen-en project=wnms-web"
+gen-en: ## generate en language, example: "make gen-en project=cms-web"
 	@echo 'Generate en language for project: $(project)'
 	@node copy-translation.js $(project)
 
@@ -29,19 +29,19 @@ run-login: ## run cms in development mode
 	@yarn run-login
 
 # build
-build-lib: ## run build ra-loopback3 lib
+build-lib:
 	@echo 'Run build ra-loopback3'
 	@yarn build-lib
-build-emp: ## run build emp client
+build-emp: ## run build emp
 	@echo 'Run build emp-web'
 	@export NODE_ACTIVE_LANGUAGES=vi,en && yarn build-emp
-build-jsk: ## run build jsk client
+build-jsk: ## run build jsk
 	@echo 'Run build jsk-web'
 	@export NODE_ACTIVE_LANGUAGES=vi,en && yarn build-jsk
-build-cms: ## run build cms client
+build-cms: ## run build cms
 	@echo 'Run build cms'
 	@export NODE_ACTIVE_LANGUAGES=vi,en && yarn build-cms
-build-login:  ## run build org client
+build-login:  ## run build login
 	@echo 'Run build overview-web'
 	@export NODE_ACTIVE_LANGUAGES=vi,en && yarn build-login
 build-all:  ## run build all libs & projects

@@ -7,10 +7,10 @@ const path = require('path');
 const fs = require('fs');
 
 const PROJECTS = {
-  'wnms-web': true,
-  'wctm-web': true,
-  'wsrc-web': true,
-  'worg-web': true,
+  'jsk-web': true,
+  'emp-web': true,
+  'login-web': true,
+  'cms-web': true,
 };
 
 const REMOVE_MISSING = false;
