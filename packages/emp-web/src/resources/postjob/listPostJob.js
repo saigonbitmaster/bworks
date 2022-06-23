@@ -46,7 +46,7 @@ class ListPostJob extends Component {
   render() {
     const { translate, ...rest } = this.props;
     return (
-      <List {...rest} filters={<Filters />} resource="orders" >
+      <List {...rest} filters={<Filters />} resource="tests" >
         <Datagrid>
           <TextField source="name" label ="Job name"/>
          
