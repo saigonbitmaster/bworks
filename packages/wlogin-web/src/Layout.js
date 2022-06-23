@@ -7,6 +7,8 @@ import { withRouter } from 'react-router';
 import { MuiThemeProvider, createMuiTheme, withStyles } from '@material-ui/core/styles';
 import compose from 'recompose/compose';
 import { defaultTheme, Sidebar, Menu, Notification, Error } from 'react-admin';
+
+import { AppButton, LoginPage } from 'web-common';
 import {
   CUSTOM,
   Storage,
@@ -196,6 +198,8 @@ Layout.defaultProps = {
   menu: Menu,
   notification: Notification,
   sidebar: Sidebar,
+  extBar: [{ key: 'apps', component: AppButton }],
+    
   // backgroundImage: dailyBackgroundUrl,
 };
 
