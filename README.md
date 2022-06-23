@@ -1,45 +1,37 @@
-# Bworks
+# bWorks
 
-## Setup docker
-
-```shell
-curl -fsSL https://get.docker.com | sh -
-```
-
-## Setup docker-compose
+## Install
 
 ```
-sudo curl -L https://github.com/docker/compose/releases/download/1.26.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
+yarn
 ```
 
-## Login registry for pull docker images
+## run dev
 
 ```
-docker login gitlab.Bworks.online:5050
-
+make run-api
+make run-login
 ```
 
-## Setup .env file
+## setup .env file for api
 
-example:
-
-```shell
-DK_DATA=.data
-
-MONGO_USERNAME=admin
-MONGO_PASSWORD=SfHcm2017
-
-DOMAIN=hcm.Bworks.online
-
-```
-
-DOMAIN_TRAEFIK=dashboard.dev.Bworks.online
-
-## Make sure domain already point to server ip
-
-## RUN
-
-```
-docker-compose up -d
+```DK_DATA=.data
+DEBUG=false
+#change NODE_ENV to select configuration file e.g datasources.production.js or datasources.development.js
+NODE_ENV=development
+PASSWORD=*****
+#set NODE_INIT_DATA = true to init database e.g ACL, user
+NODE_INIT_DATA=true
+#to force update INIT and TEST data
+NODE_FORCE_INIT_DATA=true
+#to init test data
+NODE_INIT_TEST_DATA = false
+PORT=4001
+HOST=dev.bworks.app
+#these setting used for external production server e.g nginx to communicate with outside clients.
+#in this project used for email verify and reset password.
+#setting below appropriately to NGINX settings in production mode.
+DOMAIN=dev.bworks.app
+EXTERNAL_PORT=4001
+EXTERNAL_PROTOCOL=http
 ```
