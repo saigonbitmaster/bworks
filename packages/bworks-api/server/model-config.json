@@ -69,6 +69,10 @@
     "dataSource": "bWorksData",
     "public": true
   },
+  "Bid": {
+    "dataSource": "bWorksData",
+    "public": true
+  },
   "JsPostJob": {
     "dataSource": "bWorksData",
     "public": true
@@ -142,6 +146,14 @@
     "public": true
   },
   "Setting": {
+    "dataSource": "bWorksData",
+    "public": true
+  },
+  "Skill": {
+    "dataSource": "bWorksData",
+    "public": true
+  },
+  "JobType": {
     "dataSource": "bWorksData",
     "public": true
   }

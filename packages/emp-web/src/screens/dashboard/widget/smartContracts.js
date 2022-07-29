@@ -6,7 +6,7 @@ import { withTheme } from '@material-ui/core';
 import { ReportVolumeIcon } from '../../../styles/Icons';
 import StatisticWidget from './StatisticWidget';
 
-class WaterSourceStatistic extends Component {
+class SmartContract extends Component {
   constructor(props) {
     super(props);
     const { translate } = props;
@@ -54,10 +54,10 @@ class WaterSourceStatistic extends Component {
   }
 }
 
-WaterSourceStatistic.propTypes = {
+SmartContract.propTypes = {
   translate: PropTypes.func,
   theme: PropTypes.object,
   dataProvider: PropTypes.any,
 };
 const enhance = compose(translate, withTheme, withDataProvider);
-export default enhance(WaterSourceStatistic);
+export default enhance(SmartContract);

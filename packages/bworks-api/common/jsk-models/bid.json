@@ -1,0 +1,48 @@
+{ "name": "Bid",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "forceId": false,
+  "properties": {
+  "jobId": {
+    "type": "string"
+  },
+  "bidValue": {
+    "type": "number"
+  },
+  "selected": {
+    "type": "boolean"
+  },
+  "name": {
+    "type": "string"
+  },
+  "status": {
+    "type": "string"
+  },
+  "bidder": {
+    "type": "string"
+  },
+  "expectedDate": {
+    "type": "date"
+  },
+  "createdDate": {
+    "type": "date"
+  },
+  "employerAgreed": {
+    "type": "boolean"
+  },
+  "isApproved": {
+    "type": "boolean"
+  },
+  "jobSeekerAgreed": {
+    "type": "boolean"
+  },
+  "description": {
+    "type": "string"
+  }
+},
+"validations": [],
+"relations": {},
+"acls": [
+],
+"methods": {}
+}

@@ -61,7 +61,7 @@ class LatestStatus extends Component {
   };
 
   render() {
-    const { classes, theme, currentStatus, baseOnFlowLogger, onChangeDisPlay, translate } = this.props;
+    const { classes, theme, currentStatus, baseOnBids, onChangeDisPlay, translate } = this.props;
     return (
       <Card style={{ width: '100%' }}>
         <CardHeader
@@ -74,13 +74,13 @@ class LatestStatus extends Component {
           subheader={
             <FormControlLabel
               label="Selected candidates"
-              control={<Checkbox onChange={onChangeDisPlay} checked={baseOnFlowLogger} />}
+              control={<Checkbox onChange={onChangeDisPlay} checked={baseOnBids} />}
             />
           }
         />
         <CardContent className={classes.bidItem}>
           <Divider />
-          {baseOnFlowLogger ? (
+          {baseOnBids ? (
             <TopBids
               currentStatus={currentStatus}
               classes={classes}
@@ -105,7 +105,7 @@ LatestStatus.propTypes = {
   theme: PropTypes.object,
   classes: PropTypes.object,
   currentStatus: PropTypes.array,
-  baseOnFlowLogger: PropTypes.bool,
+  baseOnBids: PropTypes.bool,
   onChangeDisPlay: PropTypes.func,
   translate: PropTypes.func,
 };

@@ -53,4 +53,29 @@ without this model, the error will not detail.
     "public": true
   },
 
- 
+#new input component 
+import { Field } from 'redux-form';
+import React, { Component } from 'react';
+
+const SampleInput = (props) =>(
+    <span>
+        <Field  name={props.source}  component="input" type="datetime-local" placeholder="sample input" />
+      
+    </span>
+);
+export default SampleInput;
+
+#aggregation
+const aggregate = require('../../utils/aggregate');
+
+
+let query = [
+      {
+        $match: {
+          status: 'ACTIVE',
+          quarterId: { $in: quarters },
+        },
+      }
+    ];
+let _data = await aggregate(ClientMeterNumber.app.models.Client, query);
+

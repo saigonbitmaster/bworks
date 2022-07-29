@@ -1,11 +1,11 @@
-const S3_KEY = process.env.S3_KEY || 'AKIAJTTWQ7FVPEO333HA';
-const S3_SECRET = process.env.S3_SECRET || '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';
-const S3_BUCKET = process.env.S3_BUCKET || 'hcm30';
+const S3_KEY = process.env.S3_KEY;
+const S3_SECRET = process.env.S3_SECRET;
+const S3_BUCKET = process.env.S3_BUCKET;
 const MONGO_HOST = 'localhost';
 const REDIS_HOST = 'localhost';
 const mongoConfig = name => ({
   name,
-  url: `mongodb://admin:${process.env.PASSWORD}@${MONGO_HOST}:27017/${name}?serverSelectionTimeoutMS=500000&connectTimeoutMS=500000&authSource=admin&authMechanism=SCRAM-SHA-256`,
+  url: `mongodb://admin:${process.env.PASSWORD}@${MONGO_HOST}:27017/${name}?serverSelectionTimeoutMS=5000&connectTimeoutMS=5000&authSource=admin&authMechanism=SCRAM-SHA-256`,
   connector: 'mongodb',
   useNewUrlParser: 'true',
   enableGeoIndexing: true,
@@ -23,7 +23,23 @@ const s3Config = (name, prefix) => ({
     prefix,
   },
 });
+
+const email = {
+  name: "email",
+  connector: "mail",
+  transports: [{
+    type: "SMTP",
+    host: "smtp.gmail.com",
+    secure: true,
+    port: 465,
+    auth: {
+      user: "wateroshelp@gmail.com",
+      pass: "vfgq qeaf gzrq kdcq"
+    }
+  }]
+}
 const dts = {
+  email: email,
   bWorksSystem: mongoConfig('bWorksSystem'),
   bWorksData: mongoConfig('bWorksData'),
   redis: {
@@ -43,5 +59,5 @@ const dts = {
 };
 
 // eslint-disable-next-line no-console
-console.log('production', dts.srcMain.url);
+console.log('development', dts.bWorksData.url);
 module.exports = dts;

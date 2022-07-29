@@ -1,0 +1,21 @@
+{
+  "name": "Skill",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "forceId": false,
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "createdDate": {
+      "type": "date"
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

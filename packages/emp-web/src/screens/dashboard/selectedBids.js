@@ -106,12 +106,12 @@ let currentStatus1 = [
             onClick={() => this.showStatistic(bid.bidName)}
             className={classes.nested}
             style={{ paddingLeft: getPadding({ level: 2 }) + theme.spacing(1) }}
-            key={bid.totalFlowRate}
+            key={bid.candidate}
           >
             <ListItemSecondaryAction>
               
                 <Fragment key={bid.bidName}>
-                  <Tooltip title={translate('generic.totalFlowRate')}>
+                  <Tooltip title={translate('generic.candidate')}>
                     <Chip
                       className={classes.chip}
                       label={bid.bidder}

@@ -12,8 +12,8 @@ import configuration from '../screens/configuration';
 import Deposit from '../screens/deposit';
 import WithDraw from '../screens/withdraw';
 import PostJob from '../screens/postjob';
-import Employer from '../screens/employer';
-import JobSeeker from '../screens/jobseeker';
+import JobType from '../screens/jobType';
+import Skill from '../screens/skill';
 import BiddingJob from '../screens/bidjobs';
 import smartContract from '../screens/contractedjobs';
 import ReportKpi from '../screens/reportKpi';
@@ -27,10 +27,10 @@ export default {
   menu: [
     dashboard,
     {
-      name: 'accountManagement',
-      label: 'generic.pages.accountManagement',
+      name: 'jobSettings',
+      label: 'generic.pages.jobSettings',
       icon: AdfScannerIcon,
-      menu: [Employer, JobSeeker],
+      menu: [JobType, Skill],
     },
     {
       name: 'jobManagement',

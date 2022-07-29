@@ -84,6 +84,9 @@ export default {
   },
   common: commonFields,
   pages: {
+    jobSettings: "Job settings",
+    skill: "Skills",
+    jobType: "Job types",
     report: "Report",
     accountManagement: 'Manage account',
     jobSeeker: "Job seeker",

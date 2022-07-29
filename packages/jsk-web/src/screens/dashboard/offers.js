@@ -39,25 +39,25 @@ const Offers = ({ currentStatus, classes, translate, theme, getDmaPadding }) => 
   //   return null;
   // }
 let currentStatus1 = [
-  {waterSourceName: "Write Cardano ESROW smart contract", employer: "Employer name/wallet address: Peter", bidValue: "Bid at value (ADA): 120"},
-  {waterSourceName: "Create Cardano Native and NFT token", employer: "Employer name/wallet address: addr_test1qrtzr4zdlc3kw7mv4mtg2v3f3q592za2psnpmvsm4x9t0t43ge73vmf7xvkn23tkyq30gd2jtlgztf3rw0mtvkjzv4vqcv0ejv", bidValue: "Bid value (ADA): 120"},
-  {waterSourceName: "Build Cardano testNet node", employer: "Employer name/wallet address: Jenny", bidValue: "Bid at value (ADA): 120"},
-  {waterSourceName: "Develop android/IOS walllet", employer: "Employer name/wallet address: Jackson", bidValue: "Bid at value (ADA): 120"}
+  {jobName: "Write Cardano ESROW smart contract", employer: "Employer name/wallet address: Peter", bidValue: "Bid at value (ADA): 120"},
+  {jobName: "Create Cardano Native and NFT token", employer: "Employer name/wallet address: addr_test1qrtzr4zdlc3kw7mv4mtg2v3f3q592za2psnpmvsm4x9t0t43ge73vmf7xvkn23tkyq30gd2jtlgztf3rw0mtvkjzv4vqcv0ejv", bidValue: "Bid value (ADA): 120"},
+  {jobName: "Build Cardano testNet node", employer: "Employer name/wallet address: Jenny", bidValue: "Bid at value (ADA): 120"},
+  {jobName: "Develop android/IOS walllet", employer: "Employer name/wallet address: Jackson", bidValue: "Bid at value (ADA): 120"}
 ]
   return (
     <List component="div" disablePadding>
-      {currentStatus1.map(waterSource => (
-        <Fragment key={waterSource.waterSourceName}>
-          <ListItem button style={{ paddingLeft: getDmaPadding({ level: 1 }) }} key={waterSource.waterSourceName}>
+      {currentStatus1.map(job => (
+        <Fragment key={job.jobName}>
+          <ListItem button style={{ paddingLeft: getDmaPadding({ level: 1 }) }} key={job.jobName}>
             <ListItemIcon>
               <WaterSourceIcon />
             </ListItemIcon>
-            <ListItemText style={{ paddingLeft: theme.spacing(1) }} primary={<b>{waterSource.waterSourceName}</b>} />
+            <ListItemText style={{ paddingLeft: theme.spacing(1) }} primary={<b>{job.jobName}</b>} />
             <ListItemSecondaryAction>
               <Tooltip title={translate('generic.emp.widget.bidDate')}>
                 <Chip
                   avatar={
-                    waterSource.totalAlert == 0 ? (
+                    job.totalAlert == 0 ? (
                       <Avatar className={classes.chipIcon}>
                         <NormalWaterSourceIcon style={{ color: translateColor(3) }} />
                       </Avatar>
@@ -68,7 +68,7 @@ let currentStatus1 = [
                     )
                   }
                   className={classes.chip}
-                  label={waterSource.totalAlert}
+                  label={job.totalAlert}
                 />
               </Tooltip>
             </ListItemSecondaryAction>
@@ -77,14 +77,14 @@ let currentStatus1 = [
 
           <ListItem
             button
-            onClick={() => this.showStatistic(waterSource.waterSourceName)}
+            onClick={() => this.showStatistic(job.jobName)}
             className={classes.nested}
             style={{ paddingLeft: getDmaPadding({ level: 2 }) + theme.spacing(1) }}
-            key={waterSource.logTime}
+            key={job.logTime}
           >
             <ListItemSecondaryAction>
             
-                <Fragment key={waterSource.waterSourceName}>
+                <Fragment key={job.jobName}>
                   <Tooltip title={translate('generic.emp.widget.bidDate')}>
                     <Chip
                       avatar={
@@ -94,7 +94,7 @@ let currentStatus1 = [
                       }
                       className={classes.chip}
                       label={moment().format('YYYY-MM-DD HH:mm')}
-                      style={{ color: translateColor(waterSource.alert) }}
+                      style={{ color: translateColor(job.alert) }}
                     />
                   </Tooltip>
                 </Fragment>
@@ -103,19 +103,19 @@ let currentStatus1 = [
           </ListItem>
           <ListItem
             button
-            onClick={() => this.showStatistic(waterSource.waterSourceName)}
+            onClick={() => this.showStatistic(job.jobName)}
             className={classes.nested}
             style={{ paddingLeft: getDmaPadding({ level: 2 }) + theme.spacing(1) }}
-            key={waterSource.totalFlowRate}
+            key={job.jobName}
           >
             <ListItemSecondaryAction>
               
-                <Fragment key={waterSource.waterSourceName}>
+                <Fragment key={job.jobName}>
                   <Tooltip title={translate('generic.emp.widget.employer')}>
                     <Chip
                       className={classes.chip}
-                      label={waterSource.employer}
-                      style={{ color: translateColor(waterSource.alert) }}
+                      label={job.employer}
+                      style={{ color: translateColor(job.alert) }}
                     />
                   </Tooltip>
                 </Fragment>
@@ -124,19 +124,19 @@ let currentStatus1 = [
           </ListItem>
           <ListItem
             button
-            onClick={() => this.showStatistic(waterSource.waterSourceName)}
+            onClick={() => this.showStatistic(job.jobName)}
             className={classes.nested}
             style={{ paddingLeft: getDmaPadding({ level: 2 }) + theme.spacing(1) }}
-            key={waterSource.avgNtu}
+            key={job.avgNtu}
           >
             <ListItemSecondaryAction>
              
-                <Fragment key={waterSource.waterSourceName}>
+                <Fragment key={job.jobName}>
                   <Tooltip title={translate('generic.emp.widget.bidValue')}>
                     <Chip
                       className={classes.chip}
-                      label={waterSource.bidValue}
-                      style={{ color: translateColor(waterSource.alert) }}
+                      label={job.bidValue}
+                      style={{ color: translateColor(job.alert) }}
                     />
                   </Tooltip>
                 </Fragment>

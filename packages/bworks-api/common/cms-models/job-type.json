@@ -1,0 +1,24 @@
+{
+  "name": "JobType",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "forceId": false,
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "createdDate": {
+      "type": "date"
+    },
+    "skills": {
+      "type": "any"
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
