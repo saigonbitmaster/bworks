@@ -16,6 +16,7 @@ import {
   ArrayField,
   SingleFieldList,
   ChipField,
+  Rank,
   BooleanField,
 } from 'ra-loopback3';
 import { Chip } from '@material-ui/core';
@@ -44,10 +45,10 @@ class ListPostJob extends Component {
   render() {
     const { translate, ...rest } = this.props;
     return (
-      <List {...rest} filters={<Filters />} resource="tests" hasCreate={false}>
+      <List {...rest} filters={<Filters />} resource="tests" hasCreate={false} sort={{ field: 'jobMatchRank', order: 'DESC' }}>
         <Datagrid>
           <TextField source="name" label="Job name" />
-
+          <Rank label="Rank" source="jobMatchRank"></Rank>
           <NumberField source="estimatedCost" label="Budget (ADA)" />
           <NumberField source="requiredAda" label="Required (ADA)" />
 

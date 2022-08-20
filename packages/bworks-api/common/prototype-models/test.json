@@ -18,6 +18,12 @@
   "estimatedCost": {
     "type": "number"
   },
+  "bidRank":{
+    "type": "number"
+  },
+  "jobMatchRank":{
+    "type": "number"
+  },
   "name": {
     "type": "string"
   },

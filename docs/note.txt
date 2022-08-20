@@ -1,6 +1,13 @@
 set password
 
 
+#folder
+boot/ext-*.js to define remote method files with format:
+folder/model-name/.js 
+
+models folder:
+model-config.json
+
 post /AppUsers/reset
 body:
 {
@@ -79,3 +86,62 @@ let query = [
     ];
 let _data = await aggregate(ClientMeterNumber.app.models.Client, query);
 
+#custom list, edit, action button to work with remote methods instead of default CRUD
+#define routes for custom action buttons
+import List from './list';
+import Edit from './edit';
+import Create from './create';
+import Custom from './historyList';
+
+export default {
+  name: 'customRoute',
+  icon: Icon,
+  url: 'customRoute',
+  label: 'generic.pages.customRoute',
+  resources: ['remoteMethod1s', 'remoteMethod2s', 'remoteMethod3s'],
+  screens: {
+    list: List,
+    editClientMeterNumber: { component: Edit, subPath: 'edit/:id' },
+    createWithMonth: { component: Create, subPath: ':clientId/:month' },
+    history: { component: Custom, subPath: ':id' },
+  },
+  active: true,
+  access: {
+  },
+};
+
+
+#push to component
+this.props.push(`${basePath}/createWithMonth/${record.id}/${currentMonthYear}`);
+
+#get param from url
+const { clientId, month: monthYear } = props.match.params;
+
+#remote method template
+'use strict';
+module.exports = BiddingJob => {
+  BiddingJob.rankBid = async () => {
+    return [1, 2, 3];
+  };
+
+  BiddingJob.remoteMethod('rankBid', {
+    accepts: [
+      { arg: 'userId', type: 'string', required: true },
+      { arg: 'limit', type: 'number' },
+    ],
+    http: { verb: 'get' },
+    returns: { arg: 'data', type: 'object', root: true },
+  });
+};
+
+http://localhost:4001/api/BiddingJobs/rankBid?userId=1&limit=1&access_token=xnOW4DXEbGyuEM5VVVAH3a7lcTsoa9WVntZ3wGRQxtVTPgVWP3ilO7ZEWVCCXKM8
+return:
+{"data":[1,2,3]}
+root: true:
+[1,2,3]
+
+let res = await dataProvider(CUSTOM, 'resources', {
+      method: 'get',
+      subUrl: 'getDataChartReportFlow',
+      query: { filter: JSON.stringify(filter) },
+    });

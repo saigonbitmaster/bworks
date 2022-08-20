@@ -44,6 +44,9 @@
       "type": "string",
       "length": 32
     },
+    "walletAddress": {
+      "type": "string"
+    },
     "emailVerified": {
       "type": "boolean",
       "default": false

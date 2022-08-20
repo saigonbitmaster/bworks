@@ -10,7 +10,8 @@
       "../common/org-models",
       "../common/emp-models",
       "../common/jsk-models",
-      "../common/cms-models"
+      "../common/cms-models",
+      "../common/prototype-models"
     ],
     "mixins": [
       "loopback/common/mixins",

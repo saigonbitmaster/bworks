@@ -27,6 +27,12 @@ class EditPartner extends Component {
               <NumberInput source="estimatedCost" label="Budget (Ada)" />
             </Grid>
             <Grid middle item xs={12} sm={6}>
+              <NumberInput source="bidRank" label="bidRank" />
+            </Grid>
+            <Grid middle item xs={12} sm={6}>
+              <NumberInput source="jobMatchRank" label="jobMatchRank" />
+            </Grid>
+            <Grid middle item xs={12} sm={6}>
               <NumberInput source="requiredAda" label="Required ADA for bidding" />
             </Grid>
 

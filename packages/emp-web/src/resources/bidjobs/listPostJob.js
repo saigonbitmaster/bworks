@@ -13,9 +13,11 @@ import {
   TextInput,
   DateField,
   NumberField,
+  Rank
 } from 'ra-loopback3';
 import { compose } from 'recompose';
 import config from '../../Config';
+
 
 const Filters = props => (
   <Filter {...props}>
@@ -27,13 +29,13 @@ class ListPostJob extends Component {
   render() {
     const { translate, ...rest } = this.props;
     return (
-      <List {...rest} filters={<Filters />} resource="tests" filter={{jobSeekerPlacedBid: true}} hasCreate={false}>
+      <List {...rest} filters={<Filters />} resource="tests"  sort={{ field: 'bidRank', order: 'DESC' }} filter={{jobSeekerPlacedBid: true}} hasCreate={false}>
         <Datagrid>
           <TextField source="name" label="Job name"/>
           <TextField source="bidder" label="Bidder name" />
           <NumberField source="estimatedCost" label="Budget (Ada)" />
           <NumberField source="bidValue" label="Placed bid value (Ada)" />
-        
+        <Rank label="Rank" source="bidRank"></Rank>
           <BooleanField source="selected" label="Selected" />
           <BooleanField source="employerAgreed" label="Employer agreed" />
           <BooleanField source="jobSeekerAgreed" label="Job seeker agreed" />

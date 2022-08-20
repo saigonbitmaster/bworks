@@ -135,6 +135,7 @@ export {
   TaskDetail,
   TaskEditingPage,
   TaskCreatingPage,
+  Rank
 } from './LocalExport.js';
 export {
   Admin,

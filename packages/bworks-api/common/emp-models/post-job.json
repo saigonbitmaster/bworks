@@ -3,34 +3,16 @@
   "idInjection": true,
   "forceId": false,
   "properties": {
-  "employer": {
-    "type": "string"
-  },
-  "bidValue": {
-    "type": "number"
-  },
-  "selected": {
-    "type": "boolean"
-  },
-  "stillValidated": {
-    "type": "boolean"
-  },
-  "estimatedCost": {
-    "type": "number"
-  },
   "name": {
-    "type": "string"
+      "type": "string"
+  },
+  "isApproved": {
+    "type": "boolean"
+  },
+  "budget": {
+    "type": "number"
   },
   "status": {
-    "type": "string"
-  },
-  "bidder": {
-    "type": "string"
-  },
-  "bidderWallet": {
-    "type": "string"
-  },
-  "employerWallet": {
     "type": "string"
   },
   "expectedDate": {
@@ -39,43 +21,10 @@
   "createdDate": {
     "type": "date"
   },
-  "contractCost": {
-    "type": "number"
-  },
-  "employerAgreed": {
-    "type": "boolean"
-  },
-  "isApproved": {
-    "type": "boolean"
-  },
-  "jobSeekerPlacedBid": {
-    "type": "boolean"
-  },
-  "jobSeekerAgreed": {
-    "type": "boolean"
-  },
-  "contractHash": {
-    "type": "string"
-  },
-  "contractType": {
-    "type": "string"
-  },
-  "contractStatus": {
-    "type": "string"
-  },
-  "smartContractAddress": {
-    "type": "string"
-  },
-  "filterBidderContract": {
-    "type": "boolean"
-  },
   "requiredAda": {
     "type": "number"
   },
-  "skills": {
-    "type": "any"
-  },
-  "subitems": {
+  "subTasks": {
     "type": "any"
   },
   "description": {
@@ -83,7 +32,24 @@
   }
 },
 "validations": [],
-"relations": {},
+"relations": {
+  "employer": {
+    "type": "belongsTo",
+    "model": "appUser",
+    "foreignKey": "appUserId",
+    "options": {
+      "nestRemoting": true
+    }
+  },
+  "skill": {
+    "type": "hasMany",
+    "model": "Skill",
+    "foreignKey": "skillIds",
+    "options": {
+      "nestRemoting": true
+    }
+  }
+},
 "acls": [
 ],
 "methods": {}

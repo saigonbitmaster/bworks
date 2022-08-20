@@ -38,6 +38,7 @@ export { default as QrCodeField } from './field/QrCodeField';
 export { default as ReferenceArrayField } from './field/ReferenceArrayField';
 export { default as TextField } from './field/TextField';
 export { default as ImageFromPathField } from './field/ImageFromPathField';
+export { default as Rank } from './field/rank'
 
 // form
 export { default as FlexForm, DEFAULT_FORM } from './form/FlexForm';
