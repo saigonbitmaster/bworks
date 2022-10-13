@@ -28,11 +28,11 @@ class CreatePostJob extends Component {
         <FlexForm style={{ flexGrow: 1 }} spacing={2} redirect="list" submitOnEnter={false}>
           <Grid middle container spacing={2}>
             <Grid middle item xs={12} sm={6}>
-              <TextInput source="name" validate={[required()]} label="Job name" defaultValue="a" />
+              <TextInput source="name" validate={[required()]} label="Job name"  />
             </Grid>
 
             <Grid middle item xs={12} sm={6}>
-              <ReferenceArrayInput source="skills" reference="skills">
+              <ReferenceArrayInput source="skills" reference="skills" perPage={1000}>
                 <SelectArrayInput optionText="name" />
               </ReferenceArrayInput>
             </Grid>

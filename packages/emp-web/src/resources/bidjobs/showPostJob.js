@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'recompose';
 import { Grid } from '@material-ui/core';
-import { Show, HtmlField, TextField, translate, FlexForm, SelectField, DateField, NumberField, BooleanField } from 'ra-loopback3';
+import { Show, HtmlField, TextField, translate, FlexForm, SelectField, DateField, NumberField, BooleanField, ReferenceArrayField, SingleFieldList, ChipField } from 'ra-loopback3';
 import config from '../../Config';
 
 class ShowPostJob extends Component {
@@ -37,12 +37,37 @@ class ShowPostJob extends Component {
             <Grid middle item xs={12} sm={12}>
               <TextField source="bidder"  label="Bidder name" disabled/>
             </Grid>
-           
+            <Grid middle item xs={12} sm={4}>
+            <ReferenceArrayField label="Skills" reference="skills" source="skills">
+                <SingleFieldList>
+                    <ChipField source="name" />
+                </SingleFieldList>
+            </ReferenceArrayField>
+            </Grid>
+            <Grid middle item xs={12} sm={4}>
+            <ReferenceArrayField label="gitSkills" reference="skills" source="gitSkills">
+                <SingleFieldList>
+                    <ChipField source="name" />
+                </SingleFieldList>
+            </ReferenceArrayField>
+            </Grid>
+            <Grid middle item xs={12} sm={4}>
+              <NumberField source="languageRank" />
+            </Grid>
+            <Grid middle item xs={12} sm={4}>
+              <NumberField source="priceRank"  />
+            </Grid>
+            <Grid middle item xs={12} sm={4}>
+              <NumberField source="bidRank"  />
+            </Grid>
+            <Grid middle item xs={12} sm={4}>
+              <BooleanField source="hasPrototype"  />
+            </Grid>
             <Grid middle item xs={12} sm={12}>
               <TextField source="bidderWallet"  label="Bidder wallet address"  />
             </Grid>
             <Grid middle item xs={12} sm={12}>
-              <TextField source="employer"  label="Employer name" disabled/>
+              <TextField source="employer"  label="Employer name" />
             </Grid>
          
             <Grid middle item xs={12} sm={12}>

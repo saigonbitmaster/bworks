@@ -13,7 +13,10 @@ import {
   ArrayInput,
   SelectArrayInput,
   SimpleFormIterator,
-  BooleanInput
+  BooleanInput,
+  ReferenceArrayInput,
+  TimeInput,
+  DateInput,
 } from 'ra-loopback3';
 import { Grid , Hidden } from '@material-ui/core';
 
@@ -28,49 +31,52 @@ let bidder = "Ana"
 let smartContractAddress = "addr_test1wy27ag0w4dzhldz5tunqhlyy2pkllz6sym5zm509z659ngxgumgve"
 
 //status = opening, candidate selected, contracted
+const validateWalletAda = (values) => {
+  const errors = {};
+  if (values.estimatedCost > 3000) {
+      errors.estimatedCost = 'Not enough ADA';
+  }
+ 
+  
+  return errors
+};
 class CreatePostJob extends Component {
   render() {
     const { props } = this;
     return (
       <Create {...props} resource="tests">
-        <FlexForm style={{ flexGrow: 1 }} spacing={2} redirect="list" submitOnEnter={false}>
+        <FlexForm style={{ flexGrow: 1 }} spacing={2} redirect="list" submitOnEnter={false} validate={validateWalletAda}>
           <Grid middle container spacing={2}>
+           
             <Grid middle item xs={12} sm={6}>
               <TextInput source="name" validate={[required()]} label="Job name" />
             </Grid>
             <Grid middle item xs={12} sm={6}>
-              <DateTimeInput source="expectedDate" label="Expire date" />
+              <DateInput source="expectedDate" label="Expire date" />
             </Grid>
-          
+            <Grid middle item xs={12} sm={6}>
+              <DateInput source="expectedCompleteDate" label="Expect complete date" />
+            </Grid>
             <Grid middle item xs={12} sm={6}>
               <NumberInput source="estimatedCost" label="Budget (Ada)" />
+            </Grid>
+            <Grid middle item xs={12} sm={6}>
+              <NumberInput source="minBidValue" label="Min Bid value (Ada)" />
             </Grid>
             <Grid middle item xs={12} sm={6}>
               <NumberInput source="requiredAda" label="Required ADA for bidding" />
             </Grid>
 
+           
+           
             <Grid middle item xs={12} sm={6}>
-              <SelectArrayInput
-                label="Required skills"
-                source="skills"
-                choices={[
-                  { id: 'haskell', name: 'Haskell' },
-                  { id: 'smartContract', name: 'Smart contract' },
-                  { id: 'plutus', name: 'Plutus' },
-                  { id: 'nativeToken', name: 'Native token' },
-                  { id: 'nodejs', name: 'NodeJs' },
-                  { id: 'marlowe', name: 'Marlowe' },
-                  { id: 'js', name: 'Javascript' },
-                  { id: 'nodejs', name: 'Nodejs' },
-                  { id: 'python', name: 'Python' },
-                  { id: 'swift', name: 'Swift' },
-                  { id: 'flutter', name: 'Flutter' },
-                  { id: 'react', name: 'React' },
-                ]}
-              />
+              <ReferenceArrayInput source="skills" reference="skills" perPage={1000} page={1000}>
+                <SelectArrayInput optionText="name" />
+              </ReferenceArrayInput>
             </Grid>
+
             <Grid middle item xs={12} sm={6}>
-              <DateTimeInput source="createdDate" label="Created date" defaultValue={moment()} disabled/>
+              <DateInput source="createdDate" label="Created date" defaultValue={moment()} disabled/>
             </Grid>
             <Grid middle item xs={12} sm={12}>
               <ArrayInput source="subitems" label="Task breakdown">
@@ -82,6 +88,7 @@ class CreatePostJob extends Component {
             <Grid middle item xs={12} sm={6}>
             
             <TextInput label="Employer name" source="employer"  disabled defaultValue={employerName}/>
+       
        
      
       </Grid>

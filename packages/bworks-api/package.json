@@ -12,6 +12,7 @@
   "private": true,
   "dependencies": {
     "@mapbox/geojson-extent": "^0.3.2",
+    "@octokit/core": "^4.0.5",
     "angular-expressions": "^0.3.0",
     "async": "^2.6.1",
     "async-lock": "^1.1.3",

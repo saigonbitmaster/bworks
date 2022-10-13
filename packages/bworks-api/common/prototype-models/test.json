@@ -81,15 +81,34 @@
   "skills": {
     "type": "any"
   },
+  "gitSkills": {
+    "type": "any"
+  },
   "subitems": {
     "type": "any"
+  },
+  "minBidValue": {
+    "type": "any"
+  },
+  "expectedCompleteDate": {
+    "type": "any"
+  },
+  "hasPrototype": {
+    "type": "boolean"
+  },
+  "languageRank": {
+    "type": "number"
+  },
+  "priceRank": {
+    "type": "number"
   },
   "description": {
     "type": "string"
   }
 },
 "validations": [],
-"relations": {},
+"relations": {
+},
 "acls": [
 ],
 "methods": {}

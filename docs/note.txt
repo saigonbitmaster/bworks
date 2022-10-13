@@ -140,8 +140,114 @@ return:
 root: true:
 [1,2,3]
 
+
+//return for react admin create must be: {id: "abc"}
+//ceate to remote method 
+'use strict';
+// eslint-disable-next-line no-unused-vars
+module.exports = function(JobType){
+
+  JobType.abc = function(msg, cb) {
+    let result = {id: "123"}
+    cb(null, result);
+  }
+
+  JobType.remoteMethod('abc', {
+        accepts: {arg: 'msg', type: 'string'},
+        http: { verb: 'post'},
+        returns: {arg: 'data', type: 'object', root: true}
+  });
+};
+
+//client
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import {
+  Create,
+  FlexForm,
+  TextInput,
+  required,
+  translate,
+  SelectInput,
+  EditorInput,
+  DateTimeInput,
+  NumberInput,
+  ArrayInput,
+  SelectArrayInput,
+  SimpleFormIterator,
+  BooleanInput,
+  ReferenceArrayInput,
+} from 'ra-loopback3';
+import { Grid, Hidden } from '@material-ui/core';
+
+import compose from 'recompose/compose';
+
+class CreatePostJob extends Component {
+  render() {
+    const { props } = this;
+    return (
+      <Create {...props} resource="jobtypes/abc">
+      
+      </Create>
+    );
+  }
+}
+==
+
+
 let res = await dataProvider(CUSTOM, 'resources', {
       method: 'get',
       subUrl: 'getDataChartReportFlow',
       query: { filter: JSON.stringify(filter) },
     });
+
+
+#get username for a request
+module.exports = BiddingJob => {
+  BiddingJob.rankBid = async (jobId, filter, options
+  ) => {
+    console.log('currentUser.username: ',options.accessToken.userId); 
+    const username = await BiddingJob.app.models.AppUser.findById(options.accessToken.userId);
+    console.log(username);
+    return username;
+  };
+
+  BiddingJob.remoteMethod('rankBid', {
+    accepts: [
+      { arg: 'jobId', type: 'string', required: true },
+      { arg: 'filter', type: 'object' },
+      {arg: "options", type: "object", http: "optionsFromRequest"}
+    ],
+    http: { verb: 'get' },
+    returns: { arg: 'data', type: 'object', root: true },
+  });
+};
+
+
+#operations and remote hooks
+operation hooks use for standard operation: GET, POST ...
+access = GET ... 
+https://loopback.io/doc/en/lb3/Operation-hooks.html
+
+
+  BiddingJob.observe('access', function(ctx, next) {
+    let a = true
+    if(a) {
+      next(new Error('Access denied')); //return error 
+    } else {
+      next()                           //perform normal
+    }
+  });
+};
+
+remote hooks use for remote method calls 
+modelName.beforeRemote( methodName, function( ctx, next) {
+    //...
+    next();
+});
+
+
+#secure post, delete update jobs, bids by right appUser -> use operation hook apply to standard operation POST, DELETE, UPDATE
+
+#add with yarn version to fix error "expected workspace package to exist for":
+ npx yarn@1.19.0 workspace bworks-api add @octokit/core

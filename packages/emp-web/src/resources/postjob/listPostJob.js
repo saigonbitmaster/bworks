@@ -15,7 +15,7 @@ import {
   NumberField,
   ArrayField,
   SingleFieldList,
-  ChipField, BooleanField
+  ChipField, BooleanField, ReferenceArrayField
 } from 'ra-loopback3';
 import {Chip} from "@material-ui/core"
 import { compose } from 'recompose';
@@ -29,24 +29,12 @@ const Filters = props => (
 
 
 
-const TagsField = ({ record }) => (
-  record.skills? 
-  <ul>
-      {record.skills.map(item => (
-          <Chip key={item} label={item} />
-      ))}
-  </ul>
-  : null
-)
-TagsField.defaultProps = {
-  addLabel: true
-};
 
 class ListPostJob extends Component {
   render() {
     const { translate, ...rest } = this.props;
     return (
-      <List {...rest} filters={<Filters />} resource="tests" >
+      <List {...rest} filters={<Filters />} resource="BiddingJobs/rankBid"  filter={{jobId: 1}}>
         <Datagrid>
           <TextField source="name" label ="Job name"/>
          
@@ -54,9 +42,11 @@ class ListPostJob extends Component {
           
           <NumberField source="estimatedCost" label="Budget (ADA)"/>
           <NumberField source="requiredAda" label="Required tokens for bidding (ADA)"/>
-         
-<TagsField label="Required skills" source="skills">
-</TagsField>
+          <ReferenceArrayField label="Skills" reference="skills" source="skills">
+                <SingleFieldList>
+                    <ChipField source="name" />
+                </SingleFieldList>
+            </ReferenceArrayField>
 <BooleanField source="expired" label="Still validated" />
 <DateField source="expectedDate" label="Expire date"/>
 

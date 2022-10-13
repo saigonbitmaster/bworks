@@ -54,11 +54,18 @@ class EditPartner extends Component {
               </ArrayInput>
             </Grid>
 
-            <Grid middle item xs={12} sm={12}>
+            <Grid middle item xs={12} sm={6}>
               <TextInput source="employer" label="Employer" disabled/>
             </Grid>
-            <Grid middle item xs={12} sm={12}>
+            <Grid middle item xs={12} sm={6}>
               <TextInput source="employerWallet" label="JEmployer wallet" disabled/>
+            </Grid>
+            
+            <Grid middle item xs={12} sm={6}>
+              <BooleanInput source="hasPrototype" label="Has prototype" />
+            </Grid>
+            <Grid middle item xs={12} sm={6}>
+              <TextInput source="prototypeLink" />
             </Grid>
             <Grid middle item xs={12} sm={6}>
             <NumberInput source="bidValue" label="Put your bid value"/>

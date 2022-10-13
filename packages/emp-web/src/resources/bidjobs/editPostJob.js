@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Edit, FlexForm, TextInput, required, translate, BooleanInput, EditorInput, DateTimeInput, NumberInput, FormDataConsumer, SelectInput } from 'ra-loopback3';
+import { Edit, FlexForm, TextInput, required, translate, BooleanInput, EditorInput, DateTimeInput, NumberInput,ReferenceArrayInput, SelectArrayInput,FormDataConsumer, SelectInput } from 'ra-loopback3';
 import { Grid } from '@material-ui/core';
 import compose from 'recompose/compose';
 import config from '../../Config';
@@ -28,6 +28,13 @@ class EditPartner extends Component {
             </Grid>
          
 
+           
+            <Grid middle item xs={12} sm={6}>
+              <ReferenceArrayInput source="gitSkills" reference="skills" perPage={1000} page={1000}>
+                <SelectArrayInput optionText="name" />
+              </ReferenceArrayInput>
+            </Grid>
+
          
          
             <Grid middle item xs={12} sm={6}>
@@ -49,6 +56,7 @@ class EditPartner extends Component {
             <Grid middle item xs={12} sm={12}>
               <TextInput source="employerWallet"  label="Employer wallet address" fullWidth disabled/>
             </Grid>
+          
             <Grid middle item xs={12} sm={6}>
               <BooleanInput source="selected" label="Select this bid" />
             </Grid>

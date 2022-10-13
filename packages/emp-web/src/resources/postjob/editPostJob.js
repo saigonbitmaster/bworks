@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Edit, FlexForm, TextInput, required, translate, SelectArrayInput, EditorInput, DateTimeInput, NumberInput, ArrayInput, SimpleFormIterator, BooleanInput } from 'ra-loopback3';
+import { Edit, FlexForm, TextInput, required, translate, SelectArrayInput, EditorInput, DateTimeInput, NumberInput, ArrayInput, SimpleFormIterator, ReferenceArrayInput,BooleanInput } from 'ra-loopback3';
 import { Grid } from '@material-ui/core';
 import compose from 'recompose/compose';
 import config from '../../Config';
@@ -36,26 +36,21 @@ class EditPartner extends Component {
               <NumberInput source="requiredAda" label="Required ADA for bidding" />
             </Grid>
 
+         
+            
+           
             <Grid middle item xs={12} sm={6}>
-              <SelectArrayInput
-                label="Required skills"
-                source="skills"
-                choices={[
-                  { id: 'haskell', name: 'Haskell' },
-                  { id: 'smartContract', name: 'Smart contract' },
-                  { id: 'plutus', name: 'Plutus' },
-                  { id: 'nativeToken', name: 'Native token' },
-                  { id: 'nodejs', name: 'NodeJs' },
-                  { id: 'marlowe', name: 'Marlowe' },
-                  { id: 'js', name: 'Javascript' },
-                  { id: 'nodejs', name: 'Nodejs' },
-                  { id: 'python', name: 'Python' },
-                  { id: 'swift', name: 'Swift' },
-                  { id: 'flutter', name: 'Flutter' },
-                  { id: 'react', name: 'React' },
-                ]}
-              />
+              <ReferenceArrayInput source="skills" reference="skills" perPage={1000} page={1000}>
+                <SelectArrayInput optionText="name" />
+              </ReferenceArrayInput>
             </Grid>
+
+            <Grid middle item xs={12} sm={6}>
+              <ReferenceArrayInput source="gitSkills" reference="skills" perPage={1000} page={1000}>
+                <SelectArrayInput optionText="name" />
+              </ReferenceArrayInput>
+            </Grid>
+
             <Grid middle item xs={12} sm={6}>
               <DateTimeInput source="createdDate" label="Created date" defaultValue={moment()} disabled/>
             </Grid>
@@ -88,6 +83,7 @@ class EditPartner extends Component {
             <Grid middle item xs={12} sm={12}>
               <TextInput label="Employer wallet" source="employerWallet"  fullWidth disabled/>
             </Grid>
+            
             <Grid middle item xs={12} sm={12} >
               <EditorInput source="description" fullWidth />
             </Grid>

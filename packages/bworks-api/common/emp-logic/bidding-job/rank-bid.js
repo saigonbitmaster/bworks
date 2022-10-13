@@ -1,20 +1,43 @@
-//rank the bids from job seekers for a posted job
-//select matched jobs for a job seeker
-'use strict';
-const moment = require('moment-timezone');
+
+const utilCommon = require('../../utils/common');
+
+
 module.exports = BiddingJob => {
-  BiddingJob.rankBid = async (jobId, filter
+  BiddingJob.rankBid = async (filter, res, options
   ) => {
-    const jobs = await BiddingJob.app.models.PostJob.app.models.Test.find({});
-    return jobs;
+    let jobId = filter.where.jobId
+
+    const { limit, skip, order } = filter;
+    const username = await BiddingJob.app.models.AppUser.findById(options.accessToken.userId);
+    console.log(username);
+
+    const jobs = await BiddingJob.app.models.Test.find()
+    
+
+
+    let dataTmp = utilCommon.splitPage(jobs, limit, skip);
+    let dataSort = utilCommon.sort(dataTmp, order);
+    res.header('content-range', jobs.length); // tong record
+    return dataSort;
+
   };
 
   BiddingJob.remoteMethod('rankBid', {
     accepts: [
-      { arg: 'jobId', type: 'string', required: true },
       { arg: 'filter', type: 'object' },
+      { arg: 'res', type: 'object', http: { source: 'res' } },
+      {arg: "options", type: "object", http: "optionsFromRequest"}
     ],
     http: { verb: 'get' },
     returns: { arg: 'data', type: 'object', root: true },
+  });
+
+  BiddingJob.observe('access', function(ctx, next) {
+    let a = true
+    if(a) {
+      next(new Error('Access denied'));
+    } else {
+      next()
+    }
   });
 };

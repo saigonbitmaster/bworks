@@ -15,7 +15,7 @@ export default {
     edit: EditPostJob,
     show: ShowPostJob,
   },
-  resources: ['tests'],
+  resources: ['tests', 'BiddingJobs/rankBid', "skills"],
   active: true,
   access: {
     read: [],
