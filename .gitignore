@@ -37,7 +37,7 @@ package-lock.json
 /packages/*/yarn.lock
 /packages/bworks-api/server/datasources.local.*
 /tmp
-#/packages/*/.env
+/packages/*/.env
 # misc
 .env.local
 .env.development.local

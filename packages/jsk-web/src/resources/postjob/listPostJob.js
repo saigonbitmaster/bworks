@@ -18,6 +18,7 @@ import {
   ChipField,
   Rank,
   BooleanField,
+  ReferenceArrayField
 } from 'ra-loopback3';
 import { Chip } from '@material-ui/core';
 import { compose } from 'recompose';
@@ -52,7 +53,12 @@ class ListPostJob extends Component {
           <NumberField source="estimatedCost" label="Budget (ADA)" />
           <NumberField source="requiredAda" label="Required (ADA)" />
 
-          <TagsField label="Required skills"></TagsField>
+        
+          <ReferenceArrayField source="skills" reference="skills" label="required skills">
+                <Datagrid>
+                  <TextField source="name" />
+                </Datagrid>
+              </ReferenceArrayField>
           <BooleanField source="expired" label="Still validated" />
           <DateField source="expectedDate" label="Expired date" />
 

@@ -11,6 +11,7 @@ const mongoConfig = name => ({
   enableGeoIndexing: true,
   allowExtendedOperators: true,
   useUnifiedTopology: true,
+  slave_ok: true,
 });
 const s3Config = (name, prefix) => ({
   name,

@@ -2,11 +2,21 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'recompose';
 import { Grid, Chip } from '@material-ui/core';
-import { Show, HtmlField, TextField, translate, FlexForm, SelectField, DateField, NumberField, SingleFieldList,ArrayField, ChipField,  } from 'ra-loopback3';
+import {
+  Show,
+  HtmlField,
+  TextField,
+  translate,
+  FlexForm,
+  Datagrid,
+  DateField,
+  NumberField,
+  SingleFieldList,
+  ArrayField,
+  ChipField,
+  ReferenceArrayField,
+} from 'ra-loopback3';
 import config from '../../Config';
-
-
-
 
 const TagsField = ({ record }) =>
   record.skills ? (
@@ -26,7 +36,7 @@ class ShowPostJob extends Component {
     return (
       <Show {...rest} resource="tests" hasEdit={false}>
         <FlexForm toolbar={false} style={{ flexGrow: 1 }} spacing={2}>
-        <Grid middle container spacing={1}>
+          <Grid middle container spacing={1}>
             <Grid middle item xs={12} sm={4}>
               <TextField source="name" label="Job name" />
             </Grid>
@@ -43,16 +53,35 @@ class ShowPostJob extends Component {
             <Grid middle item xs={12} sm={4}>
               <NumberField source="requiredAda" label="Required Ada for bidding" />
             </Grid>
-            <Grid middle item xs={12} sm={12}>
-              <TagsField label="Required skills" source="skills"></TagsField>
+            <Grid middle item xs={12} />
+            <Grid middle item xs={12} sm={4}>
+              <ReferenceArrayField source="skills" reference="skills" label="Required skills">
+                <Datagrid>
+                  <TextField source="name" />
+                </Datagrid>
+              </ReferenceArrayField>
+            </Grid>
+          
+            <Grid middle item xs={12} sm={4}>
+              <ReferenceArrayField source="gitSkills" reference="skills" label="Your practical skills">
+                <Datagrid>
+                  <TextField source="name" />
+                </Datagrid>
+              </ReferenceArrayField>
+            </Grid>
+            <Grid middle item xs={12} sm={4}>
+              
+                  <TextField source="jobMatchRank" style={{color: "red"}}/>
+               
+            
             </Grid>
             <Grid middle item xs={12} sm={12}>
-            <ArrayField source="subitems" label="Sub tasks">
-    <SingleFieldList>
-        <ChipField source="value" />
-    </SingleFieldList>
-</ArrayField>
-</Grid>
+              <ArrayField source="subitems" label="Sub tasks">
+                <SingleFieldList>
+                  <ChipField source="value" />
+                </SingleFieldList>
+              </ArrayField>
+            </Grid>
             <Grid middle item xs={12} sm={4}>
               <TextField source="employer" label="Employer" />
             </Grid>

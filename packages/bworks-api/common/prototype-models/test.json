@@ -40,7 +40,7 @@
     "type": "string"
   },
   "expectedDate": {
-    "type": "date"
+    "type": "any"
   },
   "createdDate": {
     "type": "date"

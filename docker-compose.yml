@@ -1,0 +1,71 @@
+version: '3.7'
+
+services:
+  nginx:
+    image: nginx
+    container_name: nginx
+    ports:
+      - '80:80'
+      - '443:443'
+    networks:
+      - backend
+    volumes:
+      - ./letsencrypt:/etc/nginx/letsencrypt
+      - ./nginx/conf:/etc/nginx/conf
+
+  api:
+    image: bworks:latest
+    container_name: bworks-api
+    restart: always
+    depends_on:
+      - mongo
+      - redis
+    working_dir: /home/node/app
+    environment:
+      NODE_ENV: 'production'
+      NODE_INIT_DATA: ''
+      # PORT: 4001
+      # NODE_FORCE_INIT: "true"
+      NODE_INDEX: ''
+      # NODE_FORCE_INDEX: "true"
+      NODE_MODIFY: ''
+      NODE_JOB: ''
+    volumes:
+      # config folder
+      - './packages/bworks-api/server/datasources.docker.js:/home/node/app/packages/bworks-api/server/datasources.local.js:ro'
+    ports:
+      - 4001:4001
+    networks:
+      - backend
+
+  mongo:
+    image: mongo:4.0
+    container_name: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: 123456
+    volumes:
+      - ./mongo:/data/db
+      - ./docker-config/mongodb/initdb.d/:/docker-entrypoint-initdb.d/
+      - ./docker-config/mongodb/init-replica.sh:/tmp/init-replica.sh
+      # - $BASE_DATA_PATH:/data/baseData
+    ports:
+      - 27017:27017
+    networks:
+      - backend
+
+  redis:
+    image: redis:alpine
+    container_name: redis
+    restart: always
+    volumes:
+      - $DK_DATA/redis:/data
+    ports:
+      - 6379:6379
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge

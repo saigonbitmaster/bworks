@@ -9,8 +9,20 @@ yarn
 ## run dev
 
 ```
+run backend API:
 make run-api
+
+run login frontend App:
 make run-login
+
+run login frontend employer App:
+make run-emp
+
+run login frontend CMS App:
+make run-cms
+
+run login frontend JobSeeker App:
+make run-jsk
 ```
 
 ## setup .env file for api
